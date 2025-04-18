@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+include 'includes/connection.php';
+?>
 <html lang="en">
 
 <head>
