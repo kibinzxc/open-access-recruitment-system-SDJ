@@ -1,7 +1,7 @@
 # Sweet Dream Job Web Portal 🌟  
 *A modern job portal developed for Sweet Dream Job recruitment agency*
 
-[![License: Client Project](https://img.shields.io/badge/License-Client_Project-blue.svg)]
+![License: Client Project](https://img.shields.io/badge/License-Client_Project-blue.svg)
 [![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white)](https://php.net)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
@@ -34,9 +34,9 @@ A complete recruitment solution featuring:
 |-----------|------------|
 | Backend   | Vanilla PHP 8+ |
 | Frontend  | HTML5, CSS3, JavaScript (ES6+) |
-| Styling   | Bootstrap 5 + Custom CSS |
+| Styling   | Custom CSS |
 | Security  | Session-based auth, input sanitization |
-| Data      | MySQL database (structure not included) |
+| Database      | MySQL   |
 
 
 ## 📜 License & Attribution
