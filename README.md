@@ -1,5 +1,5 @@
 # Sweet Dream Job Web Portal 🌟  
-*A modern job portal developed for Sweet Dream Job recruitment agency*
+*A job portal developed for Sweet Dream Job recruitment agency*
 
 ![License: Client Project](https://img.shields.io/badge/License-Client_Project-blue.svg)
 [![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white)](https://php.net)
