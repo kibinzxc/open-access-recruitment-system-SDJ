@@ -9,7 +9,9 @@ include 'includes/db-connection.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sweet Dream Job</title>
     <link rel="stylesheet" href="styles.css">
-    <img src="assets/images/test.jpg" alt="Sweet Dream Job Logo" class="logo" width="500" height="auto">
+    <center>
+        <img src="assets/images/test.jpg" alt="Sweet Dream Job Logo" class="logo" width="500" height="auto">
+    </center>
     <script src="script.js"></script>
 </head>
 
