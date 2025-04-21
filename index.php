@@ -1,7 +1,3 @@
-<?php 
-header("Location: home.php");
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,3 +23,7 @@ header("Location: home.php");
     <!-- <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script> -->
 </head>
+
+<?php 
+header("Location: home.php");
+?>
