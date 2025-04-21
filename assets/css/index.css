@@ -194,6 +194,15 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+
+    body {
+        background-image: url('../images/backdrop.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+        overflow: hidden;
+    }
+
     .hero-svg img {
         position: absolute;
         bottom: 0;
