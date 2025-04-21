@@ -110,6 +110,11 @@
         /* Ensures padding is included in the element's total size */
     }
 
+
+    .bottom-nav-item a.active {
+        background-color: rgba(0, 0, 0, 0.08);
+    }
+
     .bottom-nav-item img {
         margin-top: 5px;
     }
@@ -200,6 +205,17 @@
         }
         link.addEventListener('click', function() {
             document.querySelectorAll('.menu a').forEach(item => item.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    //active link for bottom nav
+    document.querySelectorAll('.bottom-nav a').forEach(link => {
+        if (link.getAttribute('href') === window.location.pathname.split('/').pop()) {
+            link.classList.add('active');
+        }
+        link.addEventListener('click', function() {
+            document.querySelectorAll('.bottom-nav a').forEach(item => item.classList.remove('active'));
             this.classList.add('active');
         });
     });
