@@ -86,7 +86,9 @@
 
     .bottom-nav-item {
         flex: 1;
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .bottom-nav-item a {
@@ -100,6 +102,7 @@
         font-weight: 500;
         font-family: 'Inter', sans-serif;
         transition: color 0.3s ease;
+        flex: 1;
     }
 
     .bottom-nav-item img {
