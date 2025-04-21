@@ -1,0 +1,223 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('assets/fonts/Inter.ttf') format('truetype');
+}
+
+body {
+    background-image: url('../images/backdrop.png');
+    font-family: 'Inter', sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-text {
+    width: 700px;
+    height: 270px;
+    margin-left: 80px;
+    margin-top: 120px;
+    animation: fadeInHeroText 1s ease-in-out;
+}
+
+@keyframes fadeInHeroText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-text h1 {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 7rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120px;
+    margin-bottom: 35px;
+}
+
+.emphasized {
+    color: #FF8FE3;
+}
+
+.explore-jobs-btn {
+    background-color: #FF8FE3;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    padding: 20px 40px;
+    cursor: pointer;
+    border-radius: 999999px;
+    background: #412BAD;
+    z-index: 1000;
+    text-decoration: none;
+    display: inline-flex;
+}
+
+.explore-jobs-btn a {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.arrow-right-icon {
+    margin-left: 10px;
+    position: relative;
+    width: 32px;
+
+}
+
+
+.hero-svg {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    /* Ensure this works */
+    width: 100%;
+    /* Add width if necessary */
+    z-index: -1;
+}
+
+
+.hero-svg img {
+    width: 1350px;
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@media screen and (max-width: 1600px) {
+    .hero-svg img {
+        width: 85%;
+        height: auto;
+    }
+
+    .hero-text h1 {
+        font-size: 6rem;
+        line-height: 110px;
+        margin-bottom: 20px;
+    }
+
+    .hero-text {
+        width: 600px;
+        margin-top: 120px;
+    }
+
+    .explore-jobs-btn {
+        font-size: 1.5rem;
+        padding: 15px 30px;
+    }
+
+    .arrow-right-icon {
+        width: 24px;
+    }
+
+}
+
+@media screen and (max-width: 1280px) {
+    .hero-svg img {
+        width: 80%;
+        height: auto;
+    }
+
+    .hero-text h1 {
+        font-size: 5rem;
+        line-height: 90px;
+        margin-bottom: 20px;
+    }
+
+    .hero-text {
+        width: 600px;
+        margin-top: 100px;
+    }
+
+    .explore-jobs-btn {
+        font-size: 1.2rem;
+        padding: 15px 30px;
+    }
+
+    .arrow-right-icon {
+        width: 24px;
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+    .hero-svg img {
+        width: 80%;
+        height: auto;
+    }
+
+    .hero-text h1 {
+        font-size: 4rem;
+        line-height: 80px;
+        margin-bottom: 20px;
+    }
+
+    .hero-text {
+        width: 600px;
+        margin-top: 100px;
+    }
+
+    .explore-jobs-btn {
+        font-size: 1.2rem;
+        padding: 15px 30px;
+    }
+
+    .arrow-right-icon {
+        width: 24px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .hero-svg img {
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-60%);
+        width: 200%;
+        max-width: 200%;
+        height: auto;
+    }
+
+
+    .hero-text {
+        width: 300px;
+        margin: 80px auto 0 auto;
+        text-align: center;
+    }
+
+    .explore-jobs-btn {
+        font-size: 1.2rem;
+        padding: 15px 30px;
+    }
+
+    .arrow-right-icon {
+        width: 24px;
+    }
+
+}
