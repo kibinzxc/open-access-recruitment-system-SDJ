@@ -10,16 +10,27 @@ include 'includes/db-connection.php';
     <meta name="description" content="Sweet Dream Job - Your dream job awaits!">
     <meta name="keywords" content="job, career, dream job, employment, opportunities">
     <meta name="title" content="Sweet Dream Job Website" />
-    <meta property="og:type content=" website" />
-    <meta property="og:url" content="https://sweetdreamjob.com/" />
-    <meta property="og:title" content="Sweet Dream Job Website" />
-    <meta property="og:description" content="Sweet Dream Job - Your dream job awaits!" />
-    <meta property="og:image" content="assets/images/sdj-icon.png" />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://sweetdreamjob.com/" />
-    <meta property="twitter:title" content="Sweet Dream Job Website" />
-    <meta property="twitter:description" content="Sweet Dream Job - Your dream job awaits!" />
-    <meta property="twitter:image" content="assets/images/sdj-icon.png" />
+    <!-- HTML Meta Tags -->
+    <meta name="description" content="Sweet Dream Job - Your dream job awaits!">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://sweetdreamjob.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sweet Dream Job">
+    <meta property="og:description" content="Sweet Dream Job - Your dream job awaits!">
+    <meta property="og:image"
+        content="https://opengraph.b-cdn.net/production/images/11e7952b-30a8-49ee-9143-6a1de0f6d534.png?token=zZjfmBSD0D69hPysZn2gK5szwJhUbYaTf3eDdB8y5pg&height=262&width=424&expires=33281211347">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="sweetdreamjob.com">
+    <meta property="twitter:url" content="https://sweetdreamjob.com">
+    <meta name="twitter:title" content="Sweet Dream Job Website">
+    <meta name="twitter:description" content="Sweet Dream Job - Your dream job awaits!">
+    <meta name="twitter:image"
+        content="https://opengraph.b-cdn.net/production/images/11e7952b-30a8-49ee-9143-6a1de0f6d534.png?token=zZjfmBSD0D69hPysZn2gK5szwJhUbYaTf3eDdB8y5pg&height=262&width=424&expires=33281211347">
+
+    <!-- Meta Tags Generated via https://www.opengraph.xyz -->
     <link rel="icon" href="assets/images/icon.svg" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/index.css">
     <title>Sweet Dream Job</title>
