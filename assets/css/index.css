@@ -211,6 +211,7 @@ body {
         width: 200%;
         max-width: 200%;
         height: auto;
+        display: none;
     }
 
 
