@@ -9,6 +9,17 @@ include 'includes/db-connection.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sweet Dream Job - Your dream job awaits!">
     <meta name="keywords" content="job, career, dream job, employment, opportunities">
+    <meta name="title" content="Sweet Dream Job Website" />
+    <meta property="og:type content=" website" />
+    <meta property="og:url" content="https://sweetdreamjob.com/" />
+    <meta property="og:title" content="Sweet Dream Job Website" />
+    <meta property="og:description" content="Sweet Dream Job - Your dream job awaits!" />
+    <meta property="og:image" content="https://replug.io/images/example.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://sweetdreamjob.com/" />
+    <meta property="twitter:title" content="Sweet Dream Job Website" />
+    <meta property="twitter:description" content="Sweet Dream Job - Your dream job awaits!" />
+    <meta property="twitter:image" content="https://replug.io/images/example.png" />
     <link rel="icon" href="assets/images/icon.svg" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/index.css">
     <title>Sweet Dream Job</title>
