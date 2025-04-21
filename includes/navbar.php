@@ -80,7 +80,7 @@
         right: 0;
         background-color: #FFF;
         border-top: 1px solid #AEAEAE;
-        padding: 10px 0;
+        padding: 0;
         text-align: center;
     }
 
@@ -89,6 +89,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
     }
 
     .bottom-nav-item a {
@@ -103,6 +104,10 @@
         font-family: 'Inter', sans-serif;
         transition: color 0.3s ease;
         flex: 1;
+        padding: 10px 0;
+        /* Occupying the padding */
+        box-sizing: border-box;
+        /* Ensures padding is included in the element's total size */
     }
 
     .bottom-nav-item img {
