@@ -84,6 +84,11 @@
         text-align: center;
     }
 
+    .bottom-nav-item {
+        flex: 1;
+        text-align: center;
+    }
+
     .bottom-nav-item a {
         display: flex;
         flex-direction: column;
