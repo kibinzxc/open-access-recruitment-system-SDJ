@@ -11,7 +11,7 @@
 A complete recruitment solution featuring:
 - Public-facing job portal (no login required)
 - Secure admin management system
-- Responsive design across all devices
+- Responsive design across mobile, laptop and desktop
 - Streamlined application process
 
 ## ✨ Key Features
