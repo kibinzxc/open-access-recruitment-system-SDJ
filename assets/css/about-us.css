@@ -89,9 +89,10 @@ body {
     font-family: Inter;
     font-size: 20px;
     font-weight: bold;
-    display: inline-block;
+    display: inline;
     padding: 0;
     margin: 0;
+    width: auto;
 }
 
 .submit-cv-button:hover {
