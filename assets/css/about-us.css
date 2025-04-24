@@ -5,6 +5,7 @@
 
 body {
     font-family: 'Inter', sans-serif;
+    height: 100vh;
 }
 
 .header-photo {
@@ -71,7 +72,6 @@ body {
     text-align: center;
     font-family: 'Inter', sans-serif;
     background-color: white;
-    margin-bottom: 50px;
 }
 
 .footer>p {
@@ -94,4 +94,45 @@ body {
 .submit-cv-button:hover {
     color: #FF8FE3;
     text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    body {
+        height: auto;
+    }
+
+    .header-photo {
+        height: 100px;
+    }
+
+    .header-text {
+        font-size: 30px;
+    }
+
+    .content {
+        padding: 10px 20px;
+    }
+
+    .content h1 {
+        font-size: 20px;
+    }
+
+    .company-mission,
+    .company-vision {
+        margin-bottom: 30px;
+    }
+
+    .company-mission>p,
+    .company-vision>p {
+        font-size: 16px;
+    }
+
+    .footer>p {
+        font-size: 17px;
+    }
+
+    .footer {
+        padding: 0px 30px;
+        margin-bottom: 100px;
+    }
 }
