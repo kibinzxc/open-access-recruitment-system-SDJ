@@ -1,0 +1,97 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('assets/fonts/Inter.ttf') format('truetype');
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.header-photo {
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+    width: 100%;
+}
+
+.header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: 'Inter', sans-serif;
+}
+
+.content {
+    color: #333333;
+    font-family: 'Inter', sans-serif;
+    padding: 20px 60px;
+}
+
+.content h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.company-mission>p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-indent: 3em;
+    text-align: justify;
+    text-justify: inter-word;
+
+}
+
+.company-mission,
+.company-vision {
+    margin-bottom: 50px;
+}
+
+.company-vision>p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-indent: 3em;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.horizontal-line {
+    border: 0;
+    height: 1px;
+    background-color: #D3D3D3;
+}
+
+.footer {
+    padding: 30px 60px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    background-color: white;
+    margin-bottom: 50px;
+}
+
+.footer>p {
+    font-size: 20px;
+    color: #333333
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.submit-cv-button {
+    text-decoration: none;
+    color: #412BAD;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.submit-cv-button:hover {
+    color: #FF8FE3;
+    text-decoration: underline;
+}
