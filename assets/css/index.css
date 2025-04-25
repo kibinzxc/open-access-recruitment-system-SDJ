@@ -108,6 +108,16 @@ body {
     }
 }
 
+.note {
+    color: #333;
+    font-family: Inter;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 20px;
+    text-align: center;
+    display: none;
+}
 
 @media screen and (max-width: 1600px) {
     .hero-svg img {
@@ -232,12 +242,10 @@ body {
 
 }
 
-
-@media screen and (max-width: 768px) and (orientation: landscape) {
+@media screen and (max-height: 350px) and (min-height: 200px) {
     body {
         background-image: none;
-        height: 0;
-        overflow: hidden;
+        background-color: #FFF;
     }
 
     .hero-svg img {
@@ -246,5 +254,9 @@ body {
 
     .hero-text {
         display: none;
+    }
+
+    .note {
+        display: block;
     }
 }

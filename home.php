@@ -40,7 +40,7 @@ include 'includes/db-connection.php';
 <?php include 'includes/navbar.php'; ?>
 
 <body class="body">
-
+    <div class="note">Rotate your device for the best experience!</div>
     <div class="hero">
         <div class="hero-text">
             <h1>Find Your <span class="emphasized"> Dream Job </span> Today</h1>
