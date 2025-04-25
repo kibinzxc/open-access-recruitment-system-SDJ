@@ -270,13 +270,14 @@ body {
         width: 150%;
         max-width: 150%;
         height: auto;
-        display: block;
+        display: none;
     }
 
     .hero-text {
         width: 500px;
         margin: 100px auto 0 auto;
         text-align: center;
+        display: none;
     }
 
     .hero-text h1 {
