@@ -260,3 +260,28 @@ body {
         display: block;
     }
 }
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .hero-svg {
+        position: absolute;
+        bottom: 0;
+        left: 20%;
+        transform: translateX(-50%);
+        width: 150%;
+        max-width: 150%;
+        height: auto;
+        display: block;
+    }
+
+    .hero-text {
+        width: 500px;
+        margin: 100px auto 0 auto;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 6rem;
+        line-height: 7.5rem;
+        margin-bottom: 40px;
+    }
+}
