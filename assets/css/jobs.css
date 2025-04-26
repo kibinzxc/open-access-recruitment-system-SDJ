@@ -6,13 +6,21 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: #FAFAFA;
-    overflow-x: hidden;
+    overflow: hidden;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 93px 1fr;
+    /* header fixed, container flexible */
+}
+
+.header {
+    height: 130px;
 }
 
 .header-photo {
     background-size: cover;
     background-position: center;
-    height: 150px;
+    height: 100%;
     width: 100%;
 }
 
@@ -32,7 +40,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr auto;
     /* Two equal-width columns and one auto-width column for the button */
-    grid-template-rows: auto auto;
+    grid-template-rows: auto;
     /* Two rows */
     gap: 15px;
     /* Space between grid items */
@@ -41,10 +49,10 @@ body {
 }
 
 .search-column {
-    display: flex;
     flex-direction: column;
     /* Stack label and input vertically */
     color: #333333;
+    display: flex;
 }
 
 .search-column label {
@@ -75,6 +83,7 @@ body {
     /* Adjusted position */
     background-size: 1.5em;
     /* Increased from 1em to make the arrow bigger */
+    cursor: pointer;
 }
 
 .search-column select::-ms-expand {
@@ -112,17 +121,18 @@ body {
 }
 
 button[type="submit"] {
-    padding: 15px;
-    font-size: 16px;
+    font-size: 17px;
     color: #fff;
     background-color: #FF5EB2;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100px;
+    width: 100%;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
+    align-items: end;
+    padding: 15px 20px;
 }
 
 button[type="submit"]:hover {
@@ -135,6 +145,10 @@ button[type="submit"]:hover {
 
 
 @media screen and (max-width: 1600px) {
+    .header {
+        height: 120px;
+    }
+
     .header-container {
         width: 70%;
     }
@@ -154,13 +168,17 @@ button[type="submit"]:hover {
     }
 
     button[type="submit"] {
-        font-size: 1.2rem;
-        padding: 13px;
+        font-size: 1rem;
+        padding: 15px;
     }
 
 }
 
 @media screen and (max-width: 1280px) {
+    .header {
+        height: 110px;
+    }
+
     .header-container {
         width: 80%;
     }
@@ -176,13 +194,17 @@ button[type="submit"]:hover {
     }
 
     button[type="submit"] {
-        font-size: 1.1rem;
+        font-size: 1rem;
         padding: 12px;
     }
 
 }
 
 @media screen and (max-width: 1024px) {
+    .header {
+        height: 100px;
+    }
+
     .header-container {
         width: 90%;
     }
@@ -202,7 +224,7 @@ button[type="submit"]:hover {
     }
 
     button[type="submit"] {
-        font-size: 1rem;
+        font-size: 0.8rem;
         padding: 10px;
     }
 
@@ -252,8 +274,47 @@ button[type="submit"]:hover {
 
 }
 
+@media screen and (max-width: 1024px) and (min-width: 769px) {
 
-/* Job card css styles  */
+    .header-photo {
+        height: 100px;
+    }
+
+    .header-container {
+        width: 90%;
+        padding: 0 20px;
+    }
+
+    .mobile-hidden {
+        display: none;
+    }
+
+    .mobile-hidden-text {
+        visibility: hidden;
+    }
+
+    .search-container {
+        grid-template-columns: 3fr 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 10px;
+    }
+
+    .search-column input {
+        padding: 10px 15px;
+    }
+
+    button[type="submit"] {
+        padding: 10px;
+        font-size: 1rem;
+    }
+}
+
+
+.container {
+    /* take remaining space */
+    overflow-y: auto;
+    width: 100%;
+}
 
 .wrapper {
     width: 50%;
@@ -278,6 +339,8 @@ button[type="submit"]:hover {
     flex-direction: column;
     gap: 5px;
     height: auto;
+    padding-bottom: 30px;
+    cursor: pointer;
 }
 
 .job-card:hover {
@@ -333,13 +396,24 @@ button[type="submit"]:hover {
 }
 
 @media screen and (max-width: 768px) {
+    body {
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .container {
+        overflow-y: auto;
+        width: 100%;
+    }
+
     .wrapper {
         width: 60%;
         margin-bottom: 100px;
     }
 
     .job-card {
-        padding: 10px;
+        padding: 15px;
+        padding-bottom: 20px;
     }
 
     .job-title>h2 {
@@ -360,9 +434,10 @@ button[type="submit"]:hover {
     }
 
     .job-card:hover {
-        box-shadow: none;
         transform: none;
         transition: none;
+        box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.08);
+        ;
     }
 
 }
