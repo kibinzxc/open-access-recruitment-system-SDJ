@@ -6,6 +6,7 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: #FAFAFA;
+    overflow-x: hidden;
 }
 
 .header-photo {
