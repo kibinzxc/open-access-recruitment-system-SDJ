@@ -359,4 +359,10 @@ button[type="submit"]:hover {
         padding: 3px 6px;
     }
 
+    .job-card:hover {
+        box-shadow: none;
+        transform: none;
+        transition: none;
+    }
+
 }
