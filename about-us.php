@@ -11,7 +11,7 @@ include 'includes/db-connection.php';
     <meta name="keywords" content="job, career, dream job, employment, opportunities">
     <link rel="icon" href="assets/images/icon.svg" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/about-us.css">
-    <title>Sweet Dream Job</title>
+    <title>About Us | Sweet Dream Job</title>
     <!-- <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script> -->
 </head>
