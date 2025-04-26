@@ -52,7 +52,7 @@ include 'includes/db-connection.php';
         <img src="assets/images/smiling-professionals.png" alt="Hero Image">
 
     </div>
-    <?php include 'includes/dreamy-stars.php'; ?>
+    <!-- <?php include 'includes/dreamy-stars.php'; ?> -->
 </body>
 
 <script>
