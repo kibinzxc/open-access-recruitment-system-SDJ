@@ -49,10 +49,101 @@ include 'includes/db-connection.php';
         </div>
     </div>
 
-    <div class="content">
+    <div class="wrapper">
+        <div class="content">
 
+            <a href="job-details.php" class="job-card" style="text-decoration: none; color: inherit;">
+                <div class="job-image"><img src="assets/images/sample-image.jfif" alt=""></div>
+                <div class="job-title">
+                    <h2>Pipe Fitter</h2>
+                </div>
+                <div class="job-location"><img src="assets/images/map-pin.svg" alt="">Poland</div>
+                <div class="job-tags">
+                    <div class="job-tag">Full-time</div>
+                    <div class="job-tag">Remote</div>
+                    <div class="job-tag">Remote</div>
+                    <div class="job-tag">Remote</div>
+                    <div class="job-tag">Remote</div>
+                    <div class="job-tag">Remote</div>
+                    <div class="job-tag">Remote</div>
+                    <div class="job-tag">Remote</div>
+                </div>
+            </a>
+
+            <div class="job-card">
+                <div class="job-image"><img src="assets/images/sample-image.jfif" alt=""></div>
+                <div class="job-title">
+                    <h2>Pipe Fitter</h2>
+                </div>
+                <div class="job-location"><img src="assets/images/map-pin.svg" alt="">Poland</div>
+                <div class="job-tags">
+                    <div class="job-tag">Full-time</div>
+                    <div class="job-tag">Remote</div>
+                    <div class="job-tag">Remote</div>
+                    <div class="job-tag">Remote</div>
+                    <div class="job-tag">Remote</div>
+
+                </div>
+            </div>
+            <div class="job-card">
+                <div class="job-image"><img src="assets/images/sample-image.jfif" alt=""></div>
+                <div class="job-title">
+                    <h2>Pipe Fitter</h2>
+                </div>
+                <div class="job-location"><img src="assets/images/map-pin.svg" alt="">Poland</div>
+                <div class="job-tags">
+                    <div class="job-tag">Full-time</div>
+                    <div class="job-tag">Remote</div>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <div class="job-image"><img src="assets/images/sample-image.jfif" alt=""></div>
+                <div class="job-title">
+                    <h2>Pipe Fitter</h2>
+                </div>
+                <div class="job-location"><img src="assets/images/map-pin.svg" alt="">Poland</div>
+                <div class="job-tags">
+                    <div class="job-tag">Full-time</div>
+                    <div class="job-tag">Remote</div>
+                    <div class="job-tag">Remote</div>
+                    <div class="job-tag">Remote</div>
+                    <div class="job-tag">Remote</div>
+                    <div class="job-tag">Remote</div>
+                    <div class="job-tag">Remote</div>
+                    <div class="job-tag">Remote</div>
+
+                </div>
+            </div>
+
+            <div class="job-card">
+                <div class="job-image"><img src="assets/images/sample-image.jfif" alt=""></div>
+                <div class="job-title">
+                    <h2>Pipe Fitter</h2>
+                </div>
+                <div class="job-location"><img src="assets/images/map-pin.svg" alt="">Poland</div>
+                <div class="job-tags">
+                    <div class="job-tag">Full-time</div>
+                    <div class="job-tag">Remote</div>
+                    <div class="job-tag">Remote</div>
+                    <div class="job-tag">Remote</div>
+                    <div class="job-tag">Remote</div>
+
+                </div>
+            </div>
+            <div class="job-card">
+                <div class="job-image"><img src="assets/images/sample-image.jfif" alt=""></div>
+                <div class="job-title">
+                    <h2>Pipe Fitter</h2>
+                </div>
+                <div class="job-location"><img src="assets/images/map-pin.svg" alt="">Poland</div>
+                <div class="job-tags">
+                    <div class="job-tag">Full-time</div>
+                    <div class="job-tag">Remote</div>
+                </div>
+            </div>
+        </div>
     </div>
-
 </body>
 
 <script>

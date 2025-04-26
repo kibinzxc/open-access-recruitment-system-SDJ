@@ -5,7 +5,6 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    height: 100vh;
     background-color: #FAFAFA;
 }
 
@@ -132,11 +131,7 @@ button[type="submit"]:hover {
 
 
 
-.content {
-    color: #333333;
-    font-family: 'Inter', sans-serif;
-    padding: 20px 60px;
-}
+
 
 @media screen and (max-width: 1600px) {
     .header-container {
@@ -254,6 +249,113 @@ button[type="submit"]:hover {
         font-size: 1rem;
     }
 
+}
 
+
+/* Job card css styles  */
+
+.wrapper {
+    width: 50%;
+    margin: 30px auto;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    align-items: stretch;
+    gap: 20px;
+}
+
+
+.job-card {
+    background-color: #fff;
+    border-radius: 15px;
+    background: #FFF;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: auto;
+}
+
+.job-card:hover {
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.1);
+    transform: scale(1.07);
+    transition: all 0.3s ease-in-out;
+}
+
+.job-image img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.job-title>h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #412BAD;
+    font-family: 'Inter';
+    margin: 10px 0;
+}
+
+.job-location {
+    display: flex;
+    font-size: 20px;
+    font-weight: 500;
+    color: #757575;
+    font-family: 'Inter';
+    font-style: italic;
+
+}
+
+.job-location img {
+    margin-right: 5px;
+}
+
+.job-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.job-tag {
+    background-color: #412BAD;
+    color: #FFF;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-family: 'Inter';
+    font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        width: 60%;
+        margin-bottom: 100px;
+    }
+
+    .job-card {
+        padding: 10px;
+    }
+
+    .job-title>h2 {
+        font-size: 1.2rem;
+    }
+
+    .job-location {
+        font-size: 16px;
+    }
+
+    .job-tags {
+        gap: 3px;
+    }
+
+    .job-tag {
+        font-size: 12px;
+        padding: 3px 6px;
+    }
 
 }
