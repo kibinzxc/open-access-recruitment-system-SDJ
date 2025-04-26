@@ -5,7 +5,6 @@
 
     <style>
     .stars-container {
-        position: absolute;
         width: 100%;
         height: 80vh;
         top: 0;
@@ -13,6 +12,8 @@
         pointer-events: none;
         display: none;
         z-index: -9999;
+        overflow: hidden;
+        position: relative
     }
 
     .star {
@@ -26,6 +27,10 @@
             0 0 20px rgba(255, 255, 255, 0.4);
         will-change: transform, opacity;
         z-index: 10;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 
     @keyframes fall {
