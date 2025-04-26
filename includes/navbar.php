@@ -153,6 +153,7 @@
             display: flex;
             justify-content: space-around;
             /* Add styles for bottom navigation */
+            overflow-x: hidden;
         }
 
 
