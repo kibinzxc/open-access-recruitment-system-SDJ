@@ -27,23 +27,26 @@ include 'includes/db-connection.php';
                     <h2>Email Us</h2>
                     <!-- p and h3 tag will be from the database  -->
                     <p>Shoot us an email</p>
-                    <h3 class="specific-info no-underline"><img src="assets/images/mail.svg"
-                            alt="">sweetdreamjob@gmail.com</h3>
+                    <h3 class="specific-info no-underline"><img src="assets/images/mail.svg" alt="">
+                        <a class="clickable-details">sweetdreamjob@gmail.com</a>
+                    </h3>
                 </div>
                 <div class="phone">
                     <h2>Call Us</h2>
                     <!-- p and h3 tag will be from the database  -->
                     <p>Call our team Mon-Fri from 8am to 5pm</p>
-                    <h3 class="specific-info no-underline"><img src="assets/images/contact-phone.svg" alt="">+1(555)
-                        000-0000</h3>
+                    <h3 class="specific-info no-underline"><img src="assets/images/contact-phone.svg" alt=""> <a
+                            class="clickable-details">+1(555)
+                            000-0000</a></h3>
                 </div>
                 <div class="location">
                     <h2>Visit Us</h2>
                     <!-- p and h3 tag will be from the database  -->
                     <p>Chat to us in person at our Poland HQ</p>
-                    <h3 class="specific-info no-underline"><img src="assets/images/contact-pin.svg" alt="">Sample
-                        Address
-                        street, Sample City, Sample State, 12345</h3>
+                    <h3 class="specific-info no-underline"><img src="assets/images/contact-pin.svg" alt=""> <a
+                            class="clickable-details">Sample
+                            Address
+                            street, Sample City, Sample State, 12345</a>
                     </h3>
                 </div>
             </div>

@@ -52,12 +52,18 @@ body {
 .specific-info {
     display: flex;
     gap: 10px;
+    cursor: default;
+}
+
+.clickable-details {
+    display: inline;
     cursor: pointer;
 }
 
-.specific-info:hover {
+.clickable-details:hover {
     text-decoration: underline;
 }
+
 
 .contact-form {
     grid-column: span 2 / span 2;
