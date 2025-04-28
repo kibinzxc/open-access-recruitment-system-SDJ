@@ -103,7 +103,7 @@ $result = mysqli_query($conn, $query);
                     echo '</div>';
                 } else {
                     echo '<div class="no-results">';
-                    echo '<p>No jobs found';
+                    echo '<p style="text-align:center">No jobs found';
                     if (!empty($searchKeyword)) {
                         echo ' for "' . htmlspecialchars($searchKeyword) . '"';
                     }
