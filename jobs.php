@@ -50,99 +50,33 @@ include 'includes/db-connection.php';
     </div>
     <div class="container">
         <div class="wrapper">
-            <div class="content">
-
-                <a href="job-details.php" class="job-card" style="text-decoration: none; color: inherit;">
-                    <div class="job-image"><img src="assets/images/sample-image.jfif" alt=""></div>
-                    <div class="job-title">
-                        <h2>Pipe Fitter</h2>
-                    </div>
-                    <div class="job-location"><img src="assets/images/map-pin.svg" alt="">Poland</div>
-                    <div class="job-tags">
-                        <div class="job-tag">Full-time</div>
-                        <div class="job-tag">Remote</div>
-                        <div class="job-tag">Remote</div>
-                        <div class="job-tag">Remote</div>
-                        <div class="job-tag">Remote</div>
-                        <div class="job-tag">Remote</div>
-                        <div class="job-tag">Remote</div>
-                        <div class="job-tag">Remote</div>
-                    </div>
-                </a>
-
-                <div class="job-card">
-                    <div class="job-image"><img src="assets/images/sample-image.jfif" alt=""></div>
-                    <div class="job-title">
-                        <h2>Pipe Fitter</h2>
-                    </div>
-                    <div class="job-location"><img src="assets/images/map-pin.svg" alt="">Poland</div>
-                    <div class="job-tags">
-                        <div class="job-tag">Full-time</div>
-                        <div class="job-tag">Remote</div>
-                        <div class="job-tag">Remote</div>
-                        <div class="job-tag">Remote</div>
-                        <div class="job-tag">Remote</div>
-
-                    </div>
-                </div>
-                <div class="job-card">
-                    <div class="job-image"><img src="assets/images/sample-image.jfif" alt=""></div>
-                    <div class="job-title">
-                        <h2>Pipe Fitter</h2>
-                    </div>
-                    <div class="job-location"><img src="assets/images/map-pin.svg" alt="">Poland</div>
-                    <div class="job-tags">
-                        <div class="job-tag">Full-time</div>
-                        <div class="job-tag">Remote</div>
-                    </div>
-                </div>
-
-                <div class="job-card">
-                    <div class="job-image"><img src="assets/images/sample-image.jfif" alt=""></div>
-                    <div class="job-title">
-                        <h2>Pipe Fitter</h2>
-                    </div>
-                    <div class="job-location"><img src="assets/images/map-pin.svg" alt="">Poland</div>
-                    <div class="job-tags">
-                        <div class="job-tag">Full-time</div>
-                        <div class="job-tag">Remote</div>
-                        <div class="job-tag">Remote</div>
-                        <div class="job-tag">Remote</div>
-                        <div class="job-tag">Remote</div>
-                        <div class="job-tag">Remote</div>
-                        <div class="job-tag">Remote</div>
-                        <div class="job-tag">Remote</div>
-
-                    </div>
-                </div>
-
-                <div class="job-card">
-                    <div class="job-image"><img src="assets/images/sample-image.jfif" alt=""></div>
-                    <div class="job-title">
-                        <h2>Pipe Fitter</h2>
-                    </div>
-                    <div class="job-location"><img src="assets/images/map-pin.svg" alt="">Poland</div>
-                    <div class="job-tags">
-                        <div class="job-tag">Full-time</div>
-                        <div class="job-tag">Remote</div>
-                        <div class="job-tag">Remote</div>
-                        <div class="job-tag">Remote</div>
-                        <div class="job-tag">Remote</div>
-
-                    </div>
-                </div>
-                <div class="job-card">
-                    <div class="job-image"><img src="assets/images/sample-image.jfif" alt=""></div>
-                    <div class="job-title">
-                        <h2>Pipe Fitter</h2>
-                    </div>
-                    <div class="job-location"><img src="assets/images/map-pin.svg" alt="">Poland</div>
-                    <div class="job-tags">
-                        <div class="job-tag">Full-time</div>
-                        <div class="job-tag">Remote</div>
-                    </div>
-                </div>
-            </div>
+            <?php
+            $query = "SELECT * FROM jobs";
+            $result = mysqli_query($conn, $query);
+            if (mysqli_num_rows($result) > 0) {
+            echo '<div class="content">';
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo '<a href="job-details.php?id=' . $row['id'] . '" class="job-card" style="text-decoration: none; color: inherit;">';
+                echo '<div class="job-image"><img src="assets/images/jobs_bin/' . htmlspecialchars($row['img']) . '" alt=""></div>';
+                echo '<div class="job-title"><h2>' . htmlspecialchars($row['title']) . '</h2></div>';
+                echo '<div class="job-location"><img src="assets/images/map-pin.svg" alt="">' . htmlspecialchars($row['country']) . '</div>';
+                echo '<div class="job-tags">';
+                $qualifications = json_decode($row['qualification'], true);
+                if (is_array($qualifications) && isset($qualifications['qualification'])) {
+                foreach ($qualifications['qualification'] as $qualification) {
+                    echo '<div class="job-tag">' . htmlspecialchars($qualification) . '</div>';
+                }
+                } else {
+                echo '<div class="job-tag">No qualifications listed</div>';
+                }
+                echo '</div>';
+                echo '</a>';
+            }
+            echo '</div>';
+            } else {
+            echo '<p>No jobs found.</p>';
+            }
+            ?>
         </div>
     </div>
 </body>
