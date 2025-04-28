@@ -395,6 +395,78 @@ button[type="submit"]:hover {
     font-weight: 500;
 }
 
+@media screen and (max-width: 1600px) {
+    .wrapper {
+        width: 60%;
+    }
+
+    .job-card {
+        padding: 15px;
+        padding-bottom: 20px;
+    }
+
+    .job-title>h2 {
+        font-size: 1.4rem;
+    }
+
+    .job-location {
+        font-size: 18px;
+    }
+
+    .job-tags {
+        gap: 5px;
+    }
+
+}
+
+@media screen and (max-width: 1280px) {
+    .wrapper {
+        width: 70%;
+    }
+
+    .job-card {
+        padding: 15px;
+        padding-bottom: 20px;
+    }
+
+    .job-title>h2 {
+        font-size: 1.3rem;
+    }
+
+    .job-location {
+        font-size: 17px;
+    }
+
+    .job-tags {
+        gap: 5px;
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+    .wrapper {
+        width: 80%;
+    }
+
+    .job-card {
+        padding: 15px;
+        padding-bottom: 20px;
+    }
+
+    .job-title>h2 {
+        font-size: 1.2rem;
+    }
+
+    .job-location {
+        font-size: 16px;
+    }
+
+    .job-tags {
+        gap: 5px;
+    }
+
+}
+
 @media screen and (max-width: 768px) {
     body {
         height: 100vh;
