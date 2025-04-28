@@ -28,25 +28,50 @@ include 'includes/db-connection.php';
                     <!-- p and h3 tag will be from the database  -->
                     <p>Shoot us an email</p>
                     <h3 class="specific-info no-underline"><img src="assets/images/mail.svg" alt="">
-                        <a class="clickable-details">sweetdreamjob@gmail.com</a>
+                        <?php
+                        $emailQuery = "SELECT * FROM company_details WHERE category_name = 'email'";
+                        $emailResult = mysqli_query($conn, $emailQuery);
+                        if ($emailResult && mysqli_num_rows($emailResult) > 0) {
+                            $emailRow = mysqli_fetch_assoc($emailResult);
+                            echo '<a class="clickable-details">' . htmlspecialchars($emailRow['details']) . '</a>';
+                        } else {
+                            echo '<a class="clickable-details">Email not available</a>';
+                        }
+                        ?>
                     </h3>
                 </div>
                 <div class="phone">
                     <h2>Call Us</h2>
                     <!-- p and h3 tag will be from the database  -->
                     <p>Call our team Mon-Fri from 8am to 5pm</p>
-                    <h3 class="specific-info no-underline"><img src="assets/images/contact-phone.svg" alt=""> <a
-                            class="clickable-details">+1(555)
-                            000-0000</a></h3>
+                    <h3 class="specific-info no-underline"><img src="assets/images/contact-phone.svg" alt="">
+                        <?php
+                        $phoneQuery = "SELECT * FROM company_details WHERE category_name = 'telephone'";
+                        $phoneResult = mysqli_query($conn, $phoneQuery);
+                        if ($phoneResult && mysqli_num_rows($phoneResult) > 0) {
+                            $phoneRow = mysqli_fetch_assoc($phoneResult);
+                            echo '<a class="clickable-details">' . htmlspecialchars($phoneRow['details']) . '</a>';
+                        } else {
+                            echo '<a class="clickable-details">Phone number not available</a>';
+                        }
+                        ?>
+                    </h3>
                 </div>
                 <div class="location">
                     <h2>Visit Us</h2>
                     <!-- p and h3 tag will be from the database  -->
                     <p>Chat to us in person at our Poland HQ</p>
-                    <h3 class="specific-info no-underline"><img src="assets/images/contact-pin.svg" alt=""> <a
-                            class="clickable-details">Sample
-                            Address
-                            street, Sample City, Sample State, 12345</a>
+                    <h3 class="specific-info no-underline"><img src="assets/images/contact-pin.svg" alt="">
+                        <?php
+                        $locationQuery = "SELECT * FROM company_details WHERE category_name = 'address'";
+                        $locationResult = mysqli_query($conn, $locationQuery);
+                        if ($locationResult && mysqli_num_rows($locationResult) > 0) {
+                            $locationRow = mysqli_fetch_assoc($locationResult);
+                            echo '<a class="clickable-details">' . htmlspecialchars($locationRow['details']) . '</a>';
+                        } else {
+                            echo '<a class="clickable-details">Address not available</a>';
+                        }
+                        ?>
                     </h3>
                 </div>
             </div>
