@@ -29,6 +29,7 @@ body {
     padding: 50px 0 50px 75px;
     /* Top: 0, Right: 0, Bottom: 0, Left: 0 */
     cursor: default;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .company-info>h1 {
@@ -47,6 +48,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    text-shadow: none;
 }
 
 .specific-info {
@@ -66,7 +68,7 @@ body {
 
 
 .contact-form {
-    grid-column: span 2 / span 2;
+    grid-column: span 1 / span 1;
     grid-row: span 1 / span 1;
     grid-column-start: 2;
 }
@@ -75,53 +77,251 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 50px 75px;
-    /* Top: 0, Right: 0, Bottom: 0, Left: 0 */
-    background-color: white;
+    padding: 50px 50px;
+    background-color: #FAFAFA;
     margin: 70px 0 0 0;
     height: 100%;
     border-radius: 20px 0 0 0;
+    width: 100%;
+    box-sizing: border-box;
+    /* Ensure padding is included in the width */
+    max-width: 100%;
+    /* Prevent it from exceeding the width of the contact-form */
+
 }
+
+.form-column-full {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.name-column {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-grow: 1;
+
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.form-column-full {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+.form-column label {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #333333;
+}
+
+.form-column-full label {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #333333;
+}
+
+.form-column-full input,
+textarea {
+    padding: 20px;
+    border: 1px solid #D3D3D3;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333333;
+    font-family: 'Inter';
+    background-color: #FAFAFA;
+    transition: border-color 0.3s ease;
+
+}
+
+.form-column-full input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #412BAD;
+}
+
+.form-column-full textarea {
+    height: 15em;
+    max-height: 15em;
+    min-height: 15em;
+    /* Prevent resizing */
+    resize: none;
+    overflow-y: auto;
+    box-sizing: border-box;
+    /* Include padding and border in the element's height */
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    /* Ensure it does not exceed the container's width */
+}
+
+.form-column-full button[type="submit"] {
+    background: #412BAD;
+    color: white;
+    border: none;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    height: 60px;
+}
+
+.form-column-full button[type="submit"]:hover {
+    background: #2E1F7A;
+}
+
+
+
+
 
 .no-underline {
     text-decoration: none;
 }
 
 @media screen and (max-width: 1600px) {
-    body {
-        height: 100vh;
-    }
+    .contact-form-container {}
 
-    .contact-form-container {
-        height: 75vh;
-    }
-}
+    .company-info {}
 
-@media screen and (max-width: 1280px) {
+    .company-details {}
 
-    .contact-form-container {
-        height: 100%;
+    .company-info h1 {
+        font-size: 38px;
     }
 
     .company-details h2,
-    h3 {
-        font-size: 20px;
+    h3 {}
+
+    .form-column-full {
+        margin-bottom: 25px;
     }
+
+    .form-column-full label {}
+
+    .form-column-full input,
+    textarea {
+        padding: 15px;
+    }
+
+
+    .form-column-full button[type="submit"] {
+        font-size: 18px;
+        padding: 15px;
+        height: auto;
+    }
+
 }
 
-@media screen and (max-width: 1120px) {
-    .company-details {
-        gap: 5px;
+@media screen and (max-width: 1280px) {
+    .company-info {
+        padding: 30px 40px;
+        max-width: 100%;
+        /* Prevent exceeding the width of the container */
+        box-sizing: border-box;
+        /* Include padding in the element's width */
     }
 
     .company-info h1 {
-        font-size: 36px;
+        font-size: 40px;
     }
 
     .company-details h2,
     h3 {
         font-size: 18px;
     }
+
+
+    .form-column-full {
+        /* margin-bottom: 10px; */
+    }
+
+    .form-column-full label {
+        font-size: 1.2em;
+    }
+
+    .form-column-full input,
+    textarea {
+        padding: 10px;
+    }
+
+    .form-column-full textarea {
+        height: 10em;
+        max-height: 10em;
+        min-height: 10em;
+    }
+
+    .form-column-full button[type="submit"] {
+        font-size: 18px;
+        padding: 15px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 1120px) {
+
+    .contact-form-container {
+        padding: 30px 30px;
+    }
+
+    .company-info {
+        padding: 40px 40px;
+        max-width: 100%;
+        /* Prevent exceeding the width of the container */
+        box-sizing: border-box;
+        /* Include padding in the element's width */
+    }
+
+    .company-details {
+        gap: 5px;
+    }
+
+    .company-info h1 {
+        font-size: 38px;
+    }
+
+    .company-details h2,
+    h3 {
+        font-size: 15px;
+    }
+
+    .form-column-full {
+        margin-bottom: 10px;
+    }
+
+    .form-column-full label {
+        font-size: 1em;
+    }
+
+    .form-column-full input,
+    textarea {
+        padding: 10px;
+    }
+
+    textarea {
+        height: 10em;
+        max-height: 10em;
+        min-height: 10em;
+        /* Adjust the height as needed */
+    }
+
+    .form-column-full button[type="submit"] {
+        font-size: 18px;
+        padding: 15px;
+        height: auto;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -139,6 +339,8 @@ body {
         grid-template-columns: repeat(1, 100%);
         grid-template-rows: repeat(2, 1fr);
         width: 100%;
+        overflow: auto;
+        height: 100%;
     }
 
     .company-info {
@@ -149,6 +351,7 @@ body {
         /* Prevent exceeding the width of the container */
         box-sizing: border-box;
         /* Include padding in the element's width */
+        text-shadow: none;
     }
 
     .company-info h1 {
@@ -168,14 +371,53 @@ body {
         grid-row: 2 / 2;
         display: flex;
         flex-direction: column;
+        margin-bottom: 100px;
+    }
+
+    .form-grid {
+        padding-top: 20px;
     }
 
     .contact-form-container {
-        padding: 20px 20px;
-        margin: 0 20px;
-        height: 100%;
+        padding: 10px 30px;
+        margin: 0 auto;
+        height: auto;
         border-radius: 20px;
+        box-sizing: border-box;
+        max-width: calc(100% - 40px);
+        width: 100%;
+        /* Ensure it does not exceed the width of the contact-form */
     }
+
+    .name-column {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        flex-grow: 1;
+    }
+
+
+    .form-column-full {
+        margin-bottom: 15px;
+    }
+
+    .form-column-full label {}
+
+    .form-column-full input,
+    textarea {
+        padding: 10px;
+    }
+
+
+    .form-column-full button[type="submit"] {
+        font-size: 18px;
+        padding: 10px;
+        height: auto;
+
+    }
+
+
+
 
 
 }

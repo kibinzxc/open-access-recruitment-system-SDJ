@@ -55,6 +55,33 @@ include 'includes/db-connection.php';
 
         <div class="contact-form">
             <div class="contact-form-container">
+                <form action="submit-contact-form.php" method="POST" class="form-grid">
+                    <div class="form-column-full">
+                        <div class="name-column">
+                            <div class="form-column">
+                                <label for="first-name">First Name*</label>
+                                <input type="text" id="first-name" name="first_name" placeholder="First Name" required>
+                            </div>
+                            <div class="form-column">
+                                <label for="last-name">Last Name*</label>
+                                <input type="text" id="last-name" name="last_name" placeholder="Last Name" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-column-full">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" name="email" placeholder="email@email.com" required>
+                    </div>
+                    <div class="form-column-full">
+                        <label for="message">Message*</label>
+                        <textarea id="message" name="message" rows="10" placeholder="Leave us a message..."
+                            required></textarea>
+                    </div>
+                    <div class="form-column-full">
+                        <button type="submit" class="submit-button">Send message</button>
+                    </div>
+                </form>
+
             </div>
         </div>
     </div>
