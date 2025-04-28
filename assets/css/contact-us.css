@@ -1,0 +1,175 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('assets/fonts/Inter.ttf') format('truetype');
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    background-color: #FAFAFA;
+    background-image: url('../images/backdrop2-inverted.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.contact-us-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr auto;
+    gap: 8px;
+    height: 100%;
+}
+
+.company-info {
+    grid-column: span 1 / span 1;
+    grid-row: span 1 / span 1;
+    color: white;
+    padding: 50px 0 50px 75px;
+    /* Top: 0, Right: 0, Bottom: 0, Left: 0 */
+    cursor: default;
+}
+
+.company-info>h1 {
+    font-size: 48px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.company-info p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #D3D3D3;
+}
+
+.company-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.specific-info {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.specific-info:hover {
+    text-decoration: underline;
+}
+
+.contact-form {
+    grid-column: span 2 / span 2;
+    grid-row: span 1 / span 1;
+    grid-column-start: 2;
+}
+
+.contact-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px 75px;
+    /* Top: 0, Right: 0, Bottom: 0, Left: 0 */
+    background-color: white;
+    margin: 70px 0 0 0;
+    height: 100%;
+    border-radius: 20px 0 0 0;
+}
+
+.no-underline {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1600px) {
+    body {
+        height: 100vh;
+    }
+
+    .contact-form-container {
+        height: 75vh;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+
+    .contact-form-container {
+        height: 100%;
+    }
+
+    .company-details h2,
+    h3 {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .company-details {
+        gap: 5px;
+    }
+
+    .company-info h1 {
+        font-size: 36px;
+    }
+
+    .company-details h2,
+    h3 {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        height: 100vh;
+        margin: 0;
+        /* Remove any default margin */
+        background-image: url('../images/backdrop2-inverted.png');
+        background-size: cover;
+        background-position: left;
+    }
+
+
+    .contact-us-container {
+        grid-template-columns: repeat(1, 100%);
+        grid-template-rows: repeat(2, 1fr);
+        width: 100%;
+    }
+
+    .company-info {
+        grid-column: 1 / 1;
+        grid-row: 1 / 1;
+        padding: 0 30px;
+        max-width: 100%;
+        /* Prevent exceeding the width of the container */
+        box-sizing: border-box;
+        /* Include padding in the element's width */
+    }
+
+    .company-info h1 {
+        font-size: 36px;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        margin-bottom: 10px;
+    }
+
+    .company-details h2,
+    h3 {
+        font-size: 16px;
+    }
+
+    .contact-form {
+        grid-column: 1 / 1;
+        grid-row: 2 / 2;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-form-container {
+        padding: 20px 20px;
+        margin: 0 20px;
+        height: 100%;
+        border-radius: 20px;
+    }
+
+
+}
