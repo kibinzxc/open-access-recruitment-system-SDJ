@@ -82,7 +82,7 @@ $result = mysqli_query($conn, $query);
                             );
                         }
                         
-                        echo '<a href="job-details.php?id=' . $row['id'] . '" class="job-card" style="text-decoration: none; color: inherit;">';
+                        echo '<a href="job-details.php?id=' . $row['job_code'] . '" class="job-card" style="text-decoration: none; color: inherit;">';
                         echo '<div class="job-image"><img src="assets/images/jobs_bin/' . htmlspecialchars($row['img']) . '" alt=""></div>';
                         echo '<div class="job-title"><h2>' . $title . '</h2></div>';
                         echo '<div class="job-location"><img src="assets/images/map-pin.svg" alt="">' . htmlspecialchars($row['country']) . '</div>';
