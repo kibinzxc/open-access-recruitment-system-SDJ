@@ -1,0 +1,188 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('assets/fonts/Inter.ttf') format('truetype');
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #FAFAFA;
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../images/backdrop3.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.container {
+
+    display: flex;
+    flex-direction: column;
+    padding: 70px 250px;
+    justify-content: center;
+}
+
+.job-image {
+    width: 50%;
+    height: 300px;
+    display: block;
+    overflow: hidden;
+    /* Ensures content doesn't overflow the container */
+    min-width: 500px;
+}
+
+.job-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 25%;
+    /* Positions the subject in the lower part of the image */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.job-header {
+    display: flex;
+    gap: 50px;
+    color: #FFFF;
+    justify-content: center;
+}
+
+.job-header>div {
+    flex: 1;
+    /* Ensures each div takes up 50% of the available space */
+}
+
+.job-title {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.job-title>h1 {
+    margin: 0 0 0 0;
+    /* Top, right, bottom, and left */
+    letter-spacing: 2px;
+}
+
+.job-location {
+    display: flex;
+    font-size: 20px;
+    font-weight: 500;
+    color: #FFF;
+    font-family: 'Inter';
+    font-style: italic;
+
+}
+
+.job-location img {
+    margin-right: 5px;
+}
+
+hr {
+    width: 100%;
+}
+
+.tags {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+
+.job-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+
+
+.job-tag {
+    background-color: #412BAD;
+    color: #FFF;
+    font-size: 14px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-weight: 500;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.buttons button[type="submit"] {
+    width: 100%;
+    font-size: 20px;
+    font-family: 'Inter';
+    text-align: center;
+    justify-content: center;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.buttons button[type="submit"] img {
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+#apply-button {
+    color: #FFF;
+    background-color: #FF5EB2;
+    font-weight: 700;
+}
+
+#apply-button:hover {
+    background-color: #E04C9D;
+}
+
+#share-button {
+    width: 200px;
+    display: flex;
+    align-items: center;
+}
+
+#share-button:hover {
+    background-color: #e0e0e0;
+}
+
+@media screen and (max-width: 1600px) {}
+
+@media screen and (max-width: 1280px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding: 70px 100px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding: 70px;
+        justify-content: center;
+    }
+
+    .job-tags {
+        gap: 5px;
+    }
+
+    .job-image {
+        height: 340px;
+    }
+}

@@ -6,7 +6,7 @@ if (isset($_GET['id'])) {
 $jobId = $_GET['id'];
 
 } else {
-    echo "Job ID not provided.";
+    // echo "Job ID not provided.";
 }
 ?>
 <html lang="en">
@@ -17,7 +17,7 @@ $jobId = $_GET['id'];
     <meta name="description" content="Sweet Dream Job - Your dream job awaits!">
     <meta name="keywords" content="job, career, dream job, employment, opportunities">
     <link rel="icon" href="assets/images/icon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/jobs.css">
+    <link rel="stylesheet" href="assets/css/job-details.css">
     <title> Jobs | Sweet Dream Job</title>
     <!-- <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script> -->
@@ -27,26 +27,68 @@ $jobId = $_GET['id'];
 <body class="body">
 
     <?php
-    
-    $query = "SELECT * FROM jobs WHERE job_code = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("s", $jobId);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    if (isset($jobId)) {
+        $query = "SELECT * FROM jobs WHERE job_code = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("i", $jobId);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-    if ($result->num_rows > 0) {
-        $job = $result->fetch_assoc();
-        //echo the job_code 
-        echo $job['job_code'];
-        echo "<h1>" . htmlspecialchars($job['title']) . "</h1>";
-        echo "<p>" . htmlspecialchars($job['description']) . "</p>";
+        if ($result->num_rows > 0) {
+            $job = $result->fetch_assoc();
+            $jobTitle = htmlspecialchars($job['title']);
+            $jobImage = htmlspecialchars($job['img']);
+            $jobCountry = htmlspecialchars($job['country']);
+        } else {
+            echo "Job not found.";
+            exit;
+        }
+        $stmt->close();
     } else {
-        echo "No job found.";
+        echo "Error: Job ID not found";
+        exit;
     }
+    ?>
+    <div class="container">
+        <div class="job-header">
+            <div class="job-image">
+                <img src="assets/images/jobs_bin/<?= $jobImage; ?>" alt="Job Image">
+            </div>
+            <div class="job-title">
+                <h1><?= $jobTitle; ?></h1>
+                <p class="job-location"><img src="assets/images/details-pin.svg" alt=""><?= $jobCountry; ?> </p>
+                <hr />
 
+                <div class="tags">
+                    <div class="label">
+                        <p>Needed:</p>
+                    </div>
 
+                    <div class="job-tags">
+                        <?php
+                            $qualifications = json_decode($job['qualification'], true);
+                            if (is_array($qualifications) && isset($qualifications['qualification'])) {
+                                foreach ($qualifications['qualification'] as $qualification) {
+                                    echo '<div class="job-tag">' . htmlspecialchars($qualification) . '</div>';
+                                }
+                            } else {
+                                echo '<div class="job-tag">No qualifications listed</div>';
+                            }
+                        ?>
+                    </div>
 
+                </div>
 
-?>
+                <div class="buttons">
+                    <button type="submit" id="apply-button">Apply Now</button>
+                    <button type="submit" id="share-button"><img src="assets/images/share.svg" alt=""
+                            style="width:24px;">Share</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="job-description">
+
+        </div>
 
 </body>
