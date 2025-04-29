@@ -7,8 +7,22 @@ $searchKeyword = isset($_GET['what']) ? trim($_GET['what']) : '';
 
 // Base query
 $query = "SELECT * FROM jobs";
+$conditions = [];
+
+// Add search keyword condition
 if (!empty($searchKeyword)) {
-    $query .= " WHERE title LIKE '%" . mysqli_real_escape_string($conn, $searchKeyword) . "%'";
+    $conditions[] = "title LIKE '%" . mysqli_real_escape_string($conn, $searchKeyword) . "%'";
+}
+
+// Add country condition
+$selectedCountry = isset($_GET['where']) ? trim($_GET['where']) : '';
+if (!empty($selectedCountry)) {
+    $conditions[] = "country = '" . mysqli_real_escape_string($conn, $selectedCountry) . "'";
+}
+
+// Combine conditions into the query
+if (!empty($conditions)) {
+    $query .= " WHERE " . implode(" AND ", $conditions);
 }
 
 $result = mysqli_query($conn, $query);
@@ -49,11 +63,16 @@ $result = mysqli_query($conn, $query);
                         <label for="where">Where:</label>
                         <select id="where" name="where" class="placeholder-shown">
                             <option value="" disabled selected>Select location</option>
-                            <option value="new-york">New York</option>
-                            <option value="los-angeles">Los Angeles</option>
-                            <option value="chicago">Chicago</option>
-                            <option value="houston">Houston</option>
-                            <option value="miami">Miami</option>
+                            <?php
+                            $locationQuery = "SELECT DISTINCT country FROM jobs ORDER BY country ASC";
+                            $locationResult = mysqli_query($conn, $locationQuery);
+                            if (mysqli_num_rows($locationResult) > 0) {
+                                while ($locationRow = mysqli_fetch_assoc($locationResult)) {
+                                    $location = htmlspecialchars($locationRow['country']);
+                                    echo '<option value="' . $location . '">' . $location . '</option>';
+                                }
+                            }
+                            ?>
                         </select>
                     </div>
 
@@ -68,48 +87,51 @@ $result = mysqli_query($conn, $query);
     <div class="container">
         <div class="wrapper">
             <?php
-                if (mysqli_num_rows($result) > 0) {
-                    echo '<div class="content">';
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        // Highlight matches in title only
-                        $title = htmlspecialchars($row['title']);
-                        
-                        if (!empty($searchKeyword)) {
-                            $title = preg_replace(
-                                "/(" . preg_quote($searchKeyword, '/') . ")/i",
-                                '<span class="highlight">$1</span>',
-                                $title
-                            );
-                        }
-                        
-                        echo '<a href="job-details.php?id=' . $row['job_code'] . '" class="job-card" style="text-decoration: none; color: inherit;">';
-                        echo '<div class="job-image"><img src="assets/images/jobs_bin/' . htmlspecialchars($row['img']) . '" alt=""></div>';
-                        echo '<div class="job-title"><h2>' . $title . '</h2></div>';
-                        echo '<div class="job-location"><img src="assets/images/map-pin.svg" alt="">' . htmlspecialchars($row['country']) . '</div>';
-                        echo '<div class="job-tags">';
-                        
-                        $qualifications = json_decode($row['qualification'], true);
-                        if (is_array($qualifications) && isset($qualifications['qualification'])) {
-                            foreach ($qualifications['qualification'] as $qualification) {
-                                echo '<div class="job-tag">' . htmlspecialchars($qualification) . '</div>';
-                            }
-                        } else {
-                            // echo '<div class="job-tag">No qualifications listed</div>';
-                        }
-                        
-                        echo '</div>';
-                        echo '</a>';
-                    }
-                    echo '</div>';
-                } else {
-                    echo '<div class="no-results">';
-                    echo '<p style="text-align:center">No jobs found';
-                    if (!empty($searchKeyword)) {
-                        echo ' for "' . htmlspecialchars($searchKeyword) . '"';
-                    }
-                    echo '</p>';
-                    echo '</div>';
+            $query .= " ORDER BY title ASC";
+            $result = mysqli_query($conn, $query);
+
+            if (mysqli_num_rows($result) > 0) {
+                echo '<div class="content">';
+                while ($row = mysqli_fetch_assoc($result)) {
+                // Highlight matches in title only
+                $title = htmlspecialchars($row['title']);
+                
+                if (!empty($searchKeyword)) {
+                    $title = preg_replace(
+                    "/(" . preg_quote($searchKeyword, '/') . ")/i",
+                    '<span class="highlight">$1</span>',
+                    $title
+                    );
                 }
+                
+                echo '<a href="job-details.php?id=' . $row['job_code'] . '" class="job-card" style="text-decoration: none; color: inherit;">';
+                echo '<div class="job-image"><img src="assets/images/jobs_bin/' . htmlspecialchars($row['img']) . '" alt=""></div>';
+                echo '<div class="job-title"><h2>' . $title . '</h2></div>';
+                echo '<div class="job-location"><img src="assets/images/map-pin.svg" alt="">' . htmlspecialchars($row['country']) . '</div>';
+                echo '<div class="job-tags">';
+                
+                $qualifications = json_decode($row['qualification'], true);
+                if (is_array($qualifications) && isset($qualifications['qualification'])) {
+                    foreach ($qualifications['qualification'] as $qualification) {
+                    echo '<div class="job-tag">' . htmlspecialchars($qualification) . '</div>';
+                    }
+                } else {
+                    // echo '<div class="job-tag">No qualifications listed</div>';
+                }
+                
+                echo '</div>';
+                echo '</a>';
+                }
+                echo '</div>';
+            } else {
+                echo '<div class="no-results">';
+                echo '<p style="text-align:center">No jobs found';
+                if (!empty($searchKeyword)) {
+                echo ' for "' . htmlspecialchars($searchKeyword) . '"';
+                }
+                echo '</p>';
+                echo '</div>';
+            }
             ?>
         </div>
     </div>
