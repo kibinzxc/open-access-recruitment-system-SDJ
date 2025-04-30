@@ -6,8 +6,9 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: #FAFAFA;
-    overflow: hidden;
-    height: 100vh;
+    overflow: auto;
+    height: auto;
+    min-height: 100vh;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -19,39 +20,42 @@ body {
 }
 
 .container {
-
     display: flex;
     flex-direction: column;
     padding: 70px 250px;
-    justify-content: center;
+    justify-content: flex-start;
+    min-height: 0;
+    flex: 1;
 }
 
 .job-image {
     width: 50%;
-    height: 300px;
-    display: block;
-    overflow: hidden;
-    /* Ensures content doesn't overflow the container */
     min-width: 500px;
+    position: relative;
+    display: flex;
+    align-self: stretch;
+    min-height: 300px;
+    height: auto;
 }
 
 .job-image img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
     object-position: center 25%;
-    /* Positions the subject in the lower part of the image */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
 }
 
 .job-header {
     display: flex;
     gap: 50px;
-    color: #FFFF;
-    justify-content: center;
+    align-items: stretch;
+    color: #FAFAFA;
 }
+
 
 .job-header>div {
     flex: 1;
@@ -61,8 +65,9 @@ body {
 .job-title {
     display: flex;
     flex-direction: column;
-
+    flex: 1;
 }
+
 
 .job-title>h1 {
     margin: 0 0 0 0;
@@ -108,18 +113,21 @@ hr {
 .job-tag {
     background-color: #412BAD;
     color: #FFF;
-    font-size: 14px;
     padding: 10px 10px;
     border-radius: 10px;
     font-family: 'Inter';
     font-weight: 500;
     align-items: center;
+    display: flex;
 }
 
 .buttons {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    margin-top: auto;
+    position: relative;
+
 }
 
 .buttons button[type="submit"] {
@@ -185,4 +193,13 @@ hr {
     .job-image {
         height: 340px;
     }
+}
+
+
+.job-description {
+    height: 100vh;
+    background-color: #FAFAFA;
+    border-radius: 5px;
+    margin-top: 50px;
+    padding: 20px;
 }

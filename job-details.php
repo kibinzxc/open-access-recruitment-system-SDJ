@@ -2,12 +2,11 @@
 <?php
 include 'includes/db-connection.php';
 
-if (isset($_GET['id'])) {
-$jobId = $_GET['id'];
 
-} else {
-    // echo "Job ID not provided.";
+if (!isset($_GET['id']) || empty($_GET['id'])) {
+    die("Error: Job ID (job_code) not provided in the URL.");
 }
+$jobCode = $_GET['id']; 
 ?>
 <html lang="en">
 
@@ -27,10 +26,10 @@ $jobId = $_GET['id'];
 <body class="body">
 
     <?php
-    if (isset($jobId)) {
+    if (isset($jobCode)) {
         $query = "SELECT * FROM jobs WHERE job_code = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("i", $jobId);
+        $stmt->bind_param("s", $jobCode);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -68,13 +67,22 @@ $jobId = $_GET['id'];
                         <?php
                             $qualifications = json_decode($job['qualification'], true);
                             if (is_array($qualifications) && isset($qualifications['qualification'])) {
-                                foreach ($qualifications['qualification'] as $qualification) {
+                                // Get all qualifications
+                                $tags = $qualifications['qualification'];
+                                
+                                // Sort by string length (shortest first)
+                                usort($tags, function($a, $b) {
+                                    return strlen($a) - strlen($b);
+                                });
+                                
+                                // Display sorted tags
+                                foreach ($tags as $qualification) {
                                     echo '<div class="job-tag">' . htmlspecialchars($qualification) . '</div>';
                                 }
                             } else {
                                 echo '<div class="job-tag">No qualifications listed</div>';
                             }
-                        ?>
+                            ?>
                     </div>
 
                 </div>
