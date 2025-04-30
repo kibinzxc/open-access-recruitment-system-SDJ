@@ -48,6 +48,11 @@ $jobCode = $_GET['id'];
         exit;
     }
     ?>
+
+    <a class="back-button" href="jobs.php">
+        <img src="assets/images/back-button.svg" alt="Back">Back
+    </a>
+
     <div class="container">
         <div class="content-wrapper">
             <div class="job-header">
@@ -90,38 +95,90 @@ $jobCode = $_GET['id'];
 
                     <div class="buttons">
                         <button type="submit" id="apply-button">Apply Now</button>
-                        <button type="submit" id="share-button"><img src="assets/images/share.svg" alt=""
-                                style="width:24px;">Share</button>
+                        <button type="button" id="share-button" onclick="copyLinkToClipboard()">
+                            <img src="assets/images/share.svg" alt="" style="width:24px;">Share
+                        </button>
+
                     </div>
                 </div>
 
             </div>
             <div class="job-description">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita dolorem explicabo illo eveniet
-                    vitae consectetur. Tempora, deserunt? Deleniti, esse consequuntur non impedit doloribus, excepturi
-                    repellendus aspernatur nam debitis quas porro.</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita dolorem explicabo illo eveniet
-                    vitae consectetur. Tempora, deserunt? Deleniti, esse consequuntur non impedit doloribus, excepturi
-                    repellendus aspernatur nam debitis quas porro.</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita dolorem explicabo illo eveniet
-                    vitae consectetur. Tempora, deserunt? Deleniti, esse consequuntur non impedit doloribus, excepturi
-                    repellendus aspernatur nam debitis quas porro.</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita dolorem explicabo illo eveniet
-                    vitae consectetur. Tempora, deserunt? Deleniti, esse consequuntur non impedit doloribus, excepturi
-                    repellendus aspernatur nam debitis quas porro.</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita dolorem explicabo illo eveniet
-                    vitae consectetur. Tempora, deserunt? Deleniti, esse consequuntur non impedit doloribus, excepturi
-                    repellendus aspernatur nam debitis quas porro.</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita dolorem explicabo illo eveniet
-                    vitae consectetur. Tempora, deserunt? Deleniti, esse consequuntur non impedit doloribus, excepturi
-                    repellendus aspernatur nam debitis quas porro.</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita dolorem explicabo illo eveniet
-                    vitae consectetur. Tempora, deserunt? Deleniti, esse consequuntur non impedit doloribus, excepturi
-                    repellendus aspernatur nam debitis quas porro.</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita dolorem explicabo illo eveniet
-                    vitae consectetur. Tempora, deserunt? Deleniti, esse consequuntur non impedit doloribus, excepturi
-                    repellendus aspernatur nam debitis quas porro123.</p>
+                <div class="job-desc">
+                    <h2>Job Description</h2>
+                    <p><?= htmlspecialchars($job['description']); ?></p>
+                </div>
+                <div class="job-responsibilities">
+                    <h2>Responsibilities</h2>
+                    <?php
+                            $responsibilities = json_decode($job['responsibilities'], true);
+                            if (is_array($responsibilities) && isset($responsibilities['responsibilities'])) {
+                                // Get all responsibilities
+                                $tasks = $responsibilities['responsibilities'];
+                                
+                                // Display responsibilities in an unordered list
+                                echo '<ul class="job-responsibilities">';
+                                foreach ($tasks as $responsibility) {
+                                    echo '<li>' . htmlspecialchars($responsibility) . '</li>';
+                                }
+                                echo '</ul>';
+                            } else {
+                                echo '<p>No responsibilities listed</p>';
+                            }
+                        ?>
+                </div>
+                <div class="job-qualification">
+
+                    <h2>Qualifications</h2>
+                    <?php
+                        if (is_array($qualifications) && isset($qualifications['qualification'])) {
+                            // Sort qualifications by string length (shortest first)
+                            usort($qualifications['qualification'], function($a, $b) {
+                                return strlen($a) - strlen($b);
+                            });
+
+                            echo '<ul class="qualification-list">';
+                            foreach ($qualifications['qualification'] as $qualification) {
+                                echo '<li>' . htmlspecialchars($qualification) . '</li>';
+                            }
+                            echo '</ul>';
+                        } else {
+                            echo '<p>No qualifications listed</p>';
+                        }
+                    ?>
+                </div>
             </div>
         </div>
 
 </body>
+
+<script>
+function copyLinkToClipboard() {
+    const link = window.location.href;
+    navigator.clipboard.writeText(link).then(() => {
+        showCopiedMessage();
+    }).catch(err => {
+        console.error('Failed to copy link: ', err);
+    });
+}
+
+function showCopiedMessage() {
+    let msg = document.createElement('div');
+    msg.innerText = 'Link copied to clipboard!';
+    msg.style.position = 'fixed';
+    msg.style.bottom = '20px';
+    msg.style.left = '50%';
+    msg.style.transform = 'translateX(-50%)';
+    msg.style.backgroundColor = '#4caf50';
+    msg.style.color = 'white';
+    msg.style.padding = '10px 15px';
+    msg.style.borderRadius = '5px';
+    msg.style.zIndex = '1000';
+    msg.style.boxShadow = '0 2px 6px rgba(0,0,0,0.3)';
+    document.body.appendChild(msg);
+
+    setTimeout(() => {
+        msg.remove();
+    }, 2000);
+}
+</script>

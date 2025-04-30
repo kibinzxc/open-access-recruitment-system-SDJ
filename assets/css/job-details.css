@@ -139,7 +139,8 @@ hr {
 
 }
 
-.buttons button[type="submit"] {
+.buttons button[type="submit"],
+button[type="button"] {
     width: 100%;
     font-size: 20px;
     font-family: 'Inter';
@@ -151,7 +152,8 @@ hr {
     cursor: pointer;
 }
 
-.buttons button[type="submit"] img {
+.buttons button[type="submit"] img,
+button[type="button"] img {
     font-size: 12px;
     margin-right: 5px;
 }
@@ -210,4 +212,57 @@ hr {
     background-color: #FAFAFA;
     border-radius: 5px;
     padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    color: #333;
+}
+
+.job-description p {
+    font-size: 20px;
+    font-family: 'Inter';
+    line-height: 40px;
+    margin-top: 0;
+}
+
+.job-description ul {
+    font-size: 20px;
+    font-family: 'Inter';
+    line-height: 30px;
+    margin-top: 0;
+}
+
+.job-description ul li {
+    margin-bottom: 15px;
+    /* Adjust the value to set the desired gap */
+}
+
+.back-button {
+    position: absolute;
+    top: 110px;
+    left: 20px;
+    background-color: #FF5EB2;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter';
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+    font-size: 16px;
+    flex-direction: row;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.back-button img {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+
+.back-button:hover {
+    background-color: #E04C9D;
 }
