@@ -49,22 +49,23 @@ $jobCode = $_GET['id'];
     }
     ?>
     <div class="container">
-        <div class="job-header">
-            <div class="job-image">
-                <img src="assets/images/jobs_bin/<?= $jobImage; ?>" alt="Job Image">
-            </div>
-            <div class="job-title">
-                <h1><?= $jobTitle; ?></h1>
-                <p class="job-location"><img src="assets/images/details-pin.svg" alt=""><?= $jobCountry; ?> </p>
-                <hr />
+        <div class="content-wrapper">
+            <div class="job-header">
+                <div class="job-image">
+                    <img src="assets/images/jobs_bin/<?= $jobImage; ?>" alt="Job Image">
+                </div>
+                <div class="job-title">
+                    <h1><?= $jobTitle; ?></h1>
+                    <p class="job-location"><img src="assets/images/details-pin.svg" alt=""><?= $jobCountry; ?> </p>
+                    <hr />
 
-                <div class="tags">
-                    <div class="label">
-                        <p>Needed:</p>
-                    </div>
+                    <div class="tags">
+                        <div class="label">
+                            <p>Needed:</p>
+                        </div>
 
-                    <div class="job-tags">
-                        <?php
+                        <div class="job-tags">
+                            <?php
                             $qualifications = json_decode($job['qualification'], true);
                             if (is_array($qualifications) && isset($qualifications['qualification'])) {
                                 // Get all qualifications
@@ -83,20 +84,44 @@ $jobCode = $_GET['id'];
                                 echo '<div class="job-tag">No qualifications listed</div>';
                             }
                             ?>
+                        </div>
+
                     </div>
 
+                    <div class="buttons">
+                        <button type="submit" id="apply-button">Apply Now</button>
+                        <button type="submit" id="share-button"><img src="assets/images/share.svg" alt=""
+                                style="width:24px;">Share</button>
+                    </div>
                 </div>
 
-                <div class="buttons">
-                    <button type="submit" id="apply-button">Apply Now</button>
-                    <button type="submit" id="share-button"><img src="assets/images/share.svg" alt=""
-                            style="width:24px;">Share</button>
-                </div>
             </div>
-
-        </div>
-        <div class="job-description">
-
+            <div class="job-description">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita dolorem explicabo illo eveniet
+                    vitae consectetur. Tempora, deserunt? Deleniti, esse consequuntur non impedit doloribus, excepturi
+                    repellendus aspernatur nam debitis quas porro.</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita dolorem explicabo illo eveniet
+                    vitae consectetur. Tempora, deserunt? Deleniti, esse consequuntur non impedit doloribus, excepturi
+                    repellendus aspernatur nam debitis quas porro.</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita dolorem explicabo illo eveniet
+                    vitae consectetur. Tempora, deserunt? Deleniti, esse consequuntur non impedit doloribus, excepturi
+                    repellendus aspernatur nam debitis quas porro.</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita dolorem explicabo illo eveniet
+                    vitae consectetur. Tempora, deserunt? Deleniti, esse consequuntur non impedit doloribus, excepturi
+                    repellendus aspernatur nam debitis quas porro.</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita dolorem explicabo illo eveniet
+                    vitae consectetur. Tempora, deserunt? Deleniti, esse consequuntur non impedit doloribus, excepturi
+                    repellendus aspernatur nam debitis quas porro.</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita dolorem explicabo illo eveniet
+                    vitae consectetur. Tempora, deserunt? Deleniti, esse consequuntur non impedit doloribus, excepturi
+                    repellendus aspernatur nam debitis quas porro.</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita dolorem explicabo illo eveniet
+                    vitae consectetur. Tempora, deserunt? Deleniti, esse consequuntur non impedit doloribus, excepturi
+                    repellendus aspernatur nam debitis quas porro.</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita dolorem explicabo illo eveniet
+                    vitae consectetur. Tempora, deserunt? Deleniti, esse consequuntur non impedit doloribus, excepturi
+                    repellendus aspernatur nam debitis quas porro123.</p>
+            </div>
         </div>
 
 </body>

@@ -110,10 +110,18 @@ $result = mysqli_query($conn, $query);
                 echo '<div class="job-location"><img src="assets/images/map-pin.svg" alt="">' . htmlspecialchars($row['country']) . '</div>';
                 echo '<div class="job-tags">';
                 
-                $qualifications = json_decode($row['qualification'], true);
+               $qualifications = json_decode($row['qualification'], true);
+
                 if (is_array($qualifications) && isset($qualifications['qualification'])) {
-                    foreach ($qualifications['qualification'] as $qualification) {
-                    echo '<div class="job-tag">' . htmlspecialchars($qualification) . '</div>';
+                    $list = $qualifications['qualification'];
+
+                    // Sort by number of letters (string length)
+                    usort($list, function($a, $b) {
+                        return strlen($a) - strlen($b);
+                    });
+
+                    foreach ($list as $qualification) {
+                        echo '<div class="job-tag">' . htmlspecialchars($qualification) . '</div>';
                     }
                 } else {
                     // echo '<div class="job-tag">No qualifications listed</div>';

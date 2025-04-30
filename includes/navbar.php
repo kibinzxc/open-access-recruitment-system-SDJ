@@ -201,10 +201,22 @@
     </div>
 
     <script>
-    document.querySelectorAll('.navbar a').forEach(link => {
-        if (link.getAttribute('href') === window.location.pathname.split('/').pop()) {
+    document.querySelectorAll('.menu a').forEach(link => {
+        // Get the current page filename
+        const currentPage = window.location.pathname.split('/').pop();
+
+        // Check if the current page is job-details.php
+        if (currentPage === 'job-details.php') {
+            // If so, find the Jobs link and add active class
+            if (link.getAttribute('href') === 'jobs.php') {
+                link.classList.add('active');
+            }
+        }
+        // Normal case - match href with current page
+        else if (link.getAttribute('href') === currentPage) {
             link.classList.add('active');
         }
+
         link.addEventListener('click', function() {
             document.querySelectorAll('.menu a').forEach(item => item.classList.remove('active'));
             this.classList.add('active');
