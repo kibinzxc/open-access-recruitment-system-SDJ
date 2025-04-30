@@ -175,7 +175,20 @@ function showCopiedMessage() {
     msg.style.borderRadius = '5px';
     msg.style.zIndex = '1000';
     msg.style.boxShadow = '0 2px 6px rgba(0,0,0,0.3)';
+    msg.style.opacity = '0';
+    msg.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     document.body.appendChild(msg);
+
+    // Trigger animation
+    setTimeout(() => {
+        msg.style.opacity = '1';
+        msg.style.transform = 'translateX(-50%) translateY(-10px)';
+    }, 10);
+
+    setTimeout(() => {
+        msg.style.opacity = '0';
+        msg.style.transform = 'translateX(-50%) translateY(0)';
+    }, 1500);
 
     setTimeout(() => {
         msg.remove();

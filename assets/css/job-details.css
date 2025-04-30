@@ -217,11 +217,17 @@ button[type="button"] img {
     color: #333;
 }
 
+.job-desc h2 {
+    margin-bottom: 10px;
+}
+
 .job-description p {
     font-size: 20px;
     font-family: 'Inter';
     line-height: 40px;
     margin-top: 0;
+    margin-left: 20px;
+    text-align: justify;
 }
 
 .job-description ul {
