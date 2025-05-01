@@ -120,14 +120,12 @@ body {
 }
 
 .note {
-    color: #333;
-    font-family: Inter;
-    font-size: 1.2rem;
-    font-style: normal;
-    font-weight: 400;
-    margin-top: 20px;
-    text-align: center;
     display: none;
+    color: #FF0000;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 500;
 }
 
 @media screen and (max-width: 1600px) {
