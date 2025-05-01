@@ -96,7 +96,7 @@ $jobCode = $_GET['id'];
                     <div class="buttons">
                         <button type="submit" id="apply-button">Apply Now</button>
                         <button type="button" id="share-button" onclick="copyLinkToClipboard()">
-                            <img src="assets/images/share.svg" alt="" style="width:24px;">Share
+                            <img src="assets/images/share.svg" class="share-button-icon" alt="">Share
                         </button>
 
                     </div>

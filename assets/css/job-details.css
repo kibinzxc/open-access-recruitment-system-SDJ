@@ -178,6 +178,10 @@ button[type="button"] img {
     background-color: #e0e0e0;
 }
 
+.share-button-icon {
+    width: 24px;
+}
+
 @media screen and (max-width: 1600px) {}
 
 @media screen and (max-width: 1280px) {
@@ -201,9 +205,6 @@ button[type="button"] img {
         gap: 5px;
     }
 
-    .job-image {
-        height: 340px;
-    }
 }
 
 
@@ -271,4 +272,180 @@ button[type="button"] img {
 
 .back-button:hover {
     background-color: #E04C9D;
+}
+
+
+@media screen and (max-width: 1600px) {
+    .back-button {
+        font-size: 16px;
+        padding: 10px 20px;
+        top: 100px;
+        left: 20px;
+        gap: 5px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .back-button {
+        font-size: 14px;
+        padding: 8px 15px;
+        top: 95px;
+        left: 15px;
+        gap: 3px;
+    }
+
+
+    .buttons button[type="submit"],
+    button[type="button"] {
+        font-size: 16px;
+        height: 40px;
+    }
+
+    .job-image {
+        min-height: 100px;
+    }
+
+    .job-tags {
+        font-size: 14px;
+    }
+
+    .job-description p {
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+    .job-description ul {
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+    .job-description ul li {
+        margin-bottom: 10px;
+    }
+
+    .job-responsibilities h2,
+    .job-qualification h2 {
+        margin-bottom: 10px;
+    }
+
+}
+
+@media screen and (max-width: 1120px) {
+    .back-button {
+        font-size: 12px;
+        padding: 5px 10px;
+        top: 80px;
+        left: 10px;
+        gap: 2px;
+    }
+
+    .buttons button[type="submit"],
+    button[type="button"] {
+        font-size: 16px;
+        height: 40px;
+    }
+
+    .job-image {
+        min-height: 200px;
+    }
+
+    .job-tags {
+        font-size: 14px;
+    }
+
+    .job-description p {
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+    .job-description ul {
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+    .job-description ul li {
+        margin-bottom: 10px;
+    }
+
+    .job-description h2 {
+        font-size: 20px;
+    }
+
+}
+
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .content-wrapper {
+        gap: 10px;
+    }
+
+    .tags {
+        margin-bottom: 10px;
+    }
+
+    .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .job-image {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .job-title {
+        margin-bottom: 20px;
+    }
+
+    .job-location {
+        font-size: 16px;
+    }
+
+    .buttons {
+        position: fixed;
+        bottom: 60px;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        background-color: #FAFAFA;
+        padding: 10px 10px;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #share-button {
+        width: 100px;
+    }
+
+
+    .back-button {
+        display: none;
+    }
+
+    .buttons button[type="submit"],
+    button[type="button"] {
+        width: 100%;
+        font-size: 14px;
+        height: 40px;
+        padding: 10px;
+    }
+
+    #share-button img {
+        width: 15px;
+    }
+
+    .job-description {
+        padding: 10px 20px;
+        margin-bottom: 150px;
+    }
 }
