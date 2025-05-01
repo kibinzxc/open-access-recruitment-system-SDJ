@@ -162,4 +162,11 @@ body {
     .note {
         display: block;
     }
+
+    .header,
+    .content,
+    .horizontal-line,
+    .footer {
+        display: none;
+    }
 }

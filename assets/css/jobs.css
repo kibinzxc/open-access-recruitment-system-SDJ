@@ -562,4 +562,9 @@ button[type="submit"]:hover {
     .note {
         display: block;
     }
+
+    .header,
+    .container {
+        display: none;
+    }
 }

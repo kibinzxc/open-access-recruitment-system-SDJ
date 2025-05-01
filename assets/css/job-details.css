@@ -527,4 +527,8 @@ button[type="button"] img {
     .note {
         display: block;
     }
+
+    .container {
+        display: none;
+    }
 }

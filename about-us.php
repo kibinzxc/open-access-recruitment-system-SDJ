@@ -65,7 +65,7 @@ include 'includes/db-connection.php';
             with <span class="bold-text">opportunities</span> that truly fit you</p>
         <p>Take the first step toward the <span class="bold-text">career</span> you've always wanted!</p>
         <a class="submit-cv-button" href="jobs.php">
-            Submit your CV now<a>
+            Submit your CV now</a>
     </div>
 
 </body>
