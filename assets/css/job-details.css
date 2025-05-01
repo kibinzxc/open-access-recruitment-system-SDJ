@@ -275,6 +275,28 @@ button[type="button"] img {
 }
 
 
+.copied-message {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+    /* Prevents interaction with the message */
+}
+
+.copied-message.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px);
+}
+
 @media screen and (max-width: 1600px) {
     .back-button {
         font-size: 16px;
@@ -448,5 +470,18 @@ button[type="button"] img {
     .job-description {
         padding: 10px 20px;
         margin-bottom: 150px;
+    }
+
+    .copied-message {
+        padding: 8px 12px;
+        font-size: 14px;
+        width: 90%;
+        text-align: center;
+        bottom: auto;
+        top: 20px;
+    }
+
+    .copied-message.show {
+        transform: translateX(-50%) translateY(10px);
     }
 }
