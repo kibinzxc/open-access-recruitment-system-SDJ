@@ -528,7 +528,13 @@ button[type="button"] img {
         display: block;
     }
 
-    .container {
+    .container,
+    .back-button {
         display: none;
+    }
+
+    body {
+        background-image: none;
+        background-color: #FFF;
     }
 }
