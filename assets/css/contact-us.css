@@ -182,12 +182,17 @@ textarea:focus {
     background: #2E1F7A;
 }
 
-
-
-
-
 .no-underline {
     text-decoration: none;
+}
+
+.note {
+    display: none;
+    color: #FF0000;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 500;
 }
 
 @media screen and (max-width: 1600px) {
@@ -416,8 +421,20 @@ textarea:focus {
 
     }
 
+}
 
 
+@media screen and (max-height: 350px) and (min-height: 200px) {
+    body {
+        background-image: none;
+        background-color: #FFF;
+    }
 
+    .note {
+        display: block;
+    }
 
+    .contact-us-container {
+        display: none;
+    }
 }
