@@ -172,6 +172,8 @@ button[type="button"] img {
     width: 200px;
     display: flex;
     align-items: center;
+    color: #333;
+    font-weight: 500;
 }
 
 #share-button:hover {
@@ -326,6 +328,10 @@ button[type="button"] img {
         gap: 3px;
     }
 
+    #share-button img {
+        width: 20px;
+    }
+
 
     .buttons button[type="submit"],
     button[type="button"] {
@@ -370,6 +376,11 @@ button[type="button"] img {
         left: 10px;
         gap: 2px;
     }
+
+    #share-button img {
+        width: 18px;
+    }
+
 
     .buttons button[type="submit"],
     button[type="button"] {
@@ -485,6 +496,10 @@ button[type="button"] img {
     #share-button {
         width: 100px;
         background-color: #e0e0e0;
+    }
+
+    #share-button:hover {
+        background-color: #bdbdbd;
     }
 
 
