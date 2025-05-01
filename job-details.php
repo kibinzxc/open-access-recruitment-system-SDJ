@@ -24,7 +24,7 @@ $jobCode = $_GET['id'];
 <?php include 'includes/navbar.php'; ?>
 
 <body class="body">
-
+    <div class="note">Rotate your device for the best experience!</div>
     <?php
     if (isset($jobCode)) {
         $query = "SELECT * FROM jobs WHERE job_code = ?";

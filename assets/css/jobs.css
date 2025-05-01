@@ -406,6 +406,15 @@ button[type="submit"]:hover {
     font-weight: 500;
 }
 
+.note {
+    display: none;
+    color: #FF0000;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+
 @media screen and (max-width: 1600px) {
     .wrapper {
         width: 60%;
@@ -547,4 +556,10 @@ button[type="submit"]:hover {
         ;
     }
 
+}
+
+@media screen and (max-height: 350px) and (min-height: 200px) {
+    .note {
+        display: block;
+    }
 }

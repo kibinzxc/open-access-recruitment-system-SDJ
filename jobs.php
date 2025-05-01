@@ -44,6 +44,7 @@ $result = mysqli_query($conn, $query);
 <?php include 'includes/navbar.php'; ?>
 
 <body class="body">
+    <div class="note">Rotate your device for the best experience!</div>
     <div class="header" style="position: relative;">
         <img class="header-photo" src="assets/images/cover-photo.png" alt="Cover Photo">
         <div class="header-container">

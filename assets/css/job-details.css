@@ -298,6 +298,15 @@ button[type="button"] img {
     transform: translateX(-50%) translateY(-10px);
 }
 
+.note {
+    display: none;
+    color: #FF0000;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+
 @media screen and (max-width: 1600px) {
     .back-button {
         font-size: 16px;
@@ -511,5 +520,11 @@ button[type="button"] img {
 
     .copied-message.show {
         transform: translateX(-50%) translateY(10px);
+    }
+}
+
+@media screen and (max-height: 350px) and (min-height: 200px) {
+    .note {
+        display: block;
     }
 }

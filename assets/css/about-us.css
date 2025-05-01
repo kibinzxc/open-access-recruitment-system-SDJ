@@ -104,6 +104,15 @@ body {
     text-decoration: underline;
 }
 
+.note {
+    display: none;
+    color: #FF0000;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+
 @media (max-width: 768px) {
     body {
         height: auto;
@@ -146,5 +155,11 @@ body {
     .footer {
         padding: 0px 30px;
         margin-bottom: 100px;
+    }
+}
+
+@media screen and (max-height: 350px) and (min-height: 200px) {
+    .note {
+        display: block;
     }
 }
