@@ -72,6 +72,12 @@
             /* Medium stars on tablets */
         }
     }
+
+    @media screen and (max-height: 350px) and (min-height: 200px) {
+        .stars-container {
+            display: none;
+        }
+    }
     </style>
 </head>
 
