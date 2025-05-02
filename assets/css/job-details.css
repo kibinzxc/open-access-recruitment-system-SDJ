@@ -172,7 +172,8 @@ button[type="button"] img {
     width: 200px;
     display: flex;
     align-items: center;
-    color: #333;
+    color: #333 !important;
+    /* Ensure the color is applied */
     font-weight: 500;
 }
 
