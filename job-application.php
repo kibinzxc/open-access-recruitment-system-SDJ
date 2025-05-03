@@ -101,6 +101,103 @@ $jobCode = $_GET['id'];
         </div>
 
         <div class="job-details">
+            <div class="job-details-container">
+                <h1> <?= htmlspecialchars($job['title']); ?></h1>
+                <div class="location2"><img src="assets/images/map-pin.svg" alt="">
+                    <p><?= htmlspecialchars($job['country']); ?>
+                    </p>
+                </div>
+                <hr class="job-details-divider" />
+                <div class="scroll">
+                    <h2 class="top-h2">Responsibilities</h2>
+                    <div class="early-show" id="early-show">
+                        <?php
+                            $responsibilities = json_decode($job['responsibilities'], true);
+                            if (is_array($responsibilities) && isset($responsibilities['responsibilities'])) {
+                                // Get all responsibilities
+                                $tasks = $responsibilities['responsibilities'];
+                                
+
+                                // Display only the first two responsibilities in an unordered list
+                                echo '<ul class="job-responsibilities">';
+                                foreach (array_slice($tasks, 0, 2) as $responsibility) {
+                                    echo '<li>' . htmlspecialchars($responsibility) . '</li>';
+                                }
+                                echo '</ul>';
+                            } else {
+                                echo '<p>No responsibilities listed</p>';
+                            }
+                ?>
+                    </div>
+
+                    <div class="late-show" id="desc" style="display: none;">
+                        <?php
+                            $responsibilities = json_decode($job['responsibilities'], true);
+                            if (is_array($responsibilities) && isset($responsibilities['responsibilities'])) {
+                                // Get all responsibilities
+                                $tasks = $responsibilities['responsibilities'];
+                                
+                                // Display responsibilities in an unordered list
+                                echo '<ul class="job-responsibilities2">';
+                                foreach ($tasks as $responsibility) {
+                                    echo '<li>' . htmlspecialchars($responsibility) . '</li>';
+                                }
+                                echo '</ul>';
+                            } else {
+                                echo '<p>No responsibilities listed</p>';
+                            }
+                        ?>
+                        <h2>Qualifications</h2>
+                        <?php
+                            $qualifications = json_decode($job['qualification'], true);
+                            if (is_array($qualifications) && isset($qualifications['qualification'])) {
+                                // Get all qualifications
+                                $tags = $qualifications['qualification'];
+                                
+                                // Sort by string length (shortest first)
+                                usort($tags, function($a, $b) {
+                                    return strlen($a) - strlen($b);
+                                });
+                                
+                                // Display sorted qualifications in an unordered list
+                                echo '<ul class="job-responsibilities2">';
+                                foreach ($tags as $qualification) {
+                                    echo '<li>' . htmlspecialchars($qualification) . '</li>';
+                                }
+                                echo '</ul>';
+                            } else {
+                                echo '<p>No qualifications listed</p>';
+                            }
+                        ?>
+
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, harum numquam
+                            veritatis corporis, quidem iste voluptatum animi blanditiis at sequi id. Aspernatur deserunt
+                            sapiente illum quod dolor qui, iusto reiciendis!</p>
+
+                    </div>
+                </div>
+                <button id="toggleDesc"><span class="desc-label">View full job description</span> <img
+                        src="assets/images/down-arrow.svg" alt=""></button>
+            </div>
         </div>
     </div>
+    </div>
 </body>
+
+<script>
+document.getElementById("toggleDesc").addEventListener("click", function() {
+    var earlyShow = document.getElementById("early-show");
+    var desc = document.getElementById("desc");
+    if (desc.style.display === "none") {
+        desc.style.display = "block";
+        earlyShow.style.display = "none";
+        this.innerHTML =
+            "<span class=\"desc-label\">Hide full job description </span> <img src='assets/images/up-arrow.svg' alt=''>";
+    } else {
+        desc.style.display = "none";
+        earlyShow.style.display = "block";
+        this.innerHTML =
+            "<span class=\"desc-label\"> View full job description </span><img src='assets/images/down-arrow.svg' alt=''>";
+    }
+});
+</script>

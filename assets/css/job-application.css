@@ -65,6 +65,7 @@ body {
     height: 100%;
 }
 
+/* Application Form Container  */
 .job-apply-form {
     grid-column: span 1 / span 1;
     grid-row: span 1 / span 1;
@@ -204,20 +205,180 @@ textarea:focus {
 }
 
 
+
 .form-column-full button[type="submit"]:hover {
     background: #2E1F7A;
 }
 
+/* Job Description Container */
+
 .job-details {
-    grid-column: span 1 / span 1;
-    grid-row: span 1 / span 1;
-    color: white;
-    padding: 50px 0 50px 75px;
-    /* Top: 0, Right: 0, Bottom: 0, Left: 0 */
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    color: #333;
+    margin: 0 auto;
     cursor: default;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
+.job-details-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 50px;
+    background-color: #FAFAFA;
+    margin: 100px 0 0 0;
+    border-radius: 20px;
+    width: 550px;
+    max-height: 70vh;
+}
+
+.scroll {
+    overflow-y: auto;
+    max-height: 70vh;
+    padding-right: 10px;
+    overflow-x: hidden;
+    /* Add padding to the right to prevent content from touching the scrollbar */
+}
+
+.top-h2 {
+    margin-top: 10px !important;
+}
+
+.job-details-container h1 {
+    font-size: 1.8em;
+    margin: 0 0 10px 0;
+}
+
+.job-details-container h2 {
+    font-size: 1.3em;
+    margin: 0 0 0 0;
+}
+
+.job-responsibilities {
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-bottom: 25px;
+    text-align: left;
+    overflow: hidden;
+    width: 100%;
+    padding-left: 20px;
+    list-style-type: disc;
+
+}
+
+.job-responsibilities li {
+    margin-bottom: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: list-item;
+    /* Ensure the list style is preserved */
+    max-width: 100%;
+    vertical-align: top;
+    /* Adjust list style position if needed */
+    padding-right: 20px;
+    list-style-position: inside;
+}
+
+.job-responsibilities li::after {
+    content: "...";
+}
+
+.job-responsibilities li::marker {
+    text-align-last: left !important;
+}
+
+
+.job-responsibilities2 {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-bottom: 25px;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+
+
+}
+
+.job-responsibilities2 li {
+    margin-bottom: 10px;
+    /* Adjust list style position if needed */
+    padding-left: 5px;
+}
+
+.location2 {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #757575;
+    font-family: 'Inter';
+    font-style: italic;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    /* Or remove if you want to allow wrapping */
+    margin-bottom: 5px;
+}
+
+.location2 p {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    flex: 1;
+    /* Let it use remaining space */
+    margin: 0;
+    font-size: 20px;
+}
+
+.location2 img {
+    vertical-align: middle;
+    width: 18px;
+    margin-right: 5px;
+}
+
+.job-details-divider {
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid #D3D3D3;
+}
+
+button#toggleDesc {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: default;
+    pointer-events: none;
+    color: #412BAD;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+button#toggleDesc span,
+button#toggleDesc img {
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+
+button#toggleDesc:hover {
+    color: #2E1F7A;
+}
+
+button#toggleDesc img {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+    width: 24px;
+}
+
+
+/* Mobile Responsive Design */
 .top-nav {
     display: none;
     justify-content: space-between;
@@ -301,6 +462,7 @@ input[type="file"] {
 
 .toggle-info {}
 
+
 @media screen and (max-width: 1600px) {
     .form-column-full {
         margin-bottom: 25px;
@@ -339,13 +501,45 @@ input[type="file"] {
         padding: 15px;
         height: auto;
     }
+
+    .job-apply-form-container {
+        padding: 20px 20px;
+    }
+
+    .job-details-container {
+        width: 350px;
+        max-height: 60vh;
+    }
+
+    .job-details-container h1 {
+        font-size: 1.5em;
+    }
+
+    .job-details-container h2 {
+        font-size: 1.2em;
+    }
+
+    .job-details-container p {
+        font-size: 1em;
+    }
+
+    .job-details-container span {
+        font-size: 0.9em;
+    }
+
+    .job-details-container li {
+        font-size: 0.9em;
+    }
+
+
 }
 
 
 @media screen and (max-width: 1120px) {
 
     .job-apply-form-container {
-        padding: 30px 30px;
+        padding: 20px 20px;
+        margin: 60px 0 0 0;
     }
 
     .form-column-full {
@@ -362,8 +556,14 @@ input[type="file"] {
     }
 
     .form-column-full button[type="submit"] {
-        font-size: 18px;
+        font-size: 14px;
         padding: 15px;
+        height: auto;
+    }
+
+    .cancel-button {
+        font-size: 14px;
+        padding: 10px;
         height: auto;
     }
 
@@ -373,6 +573,32 @@ input[type="file"] {
         top: 80px;
         left: 10px;
         gap: 5px;
+    }
+
+    .job-details-container {
+        width: 300px;
+        max-height: 60vh;
+        margin: 60px 0 0 0;
+    }
+
+    .job-details-container h1 {
+        font-size: 1.5em;
+    }
+
+    .job-details-container h2 {
+        font-size: 1.2em;
+    }
+
+    .job-details-container p {
+        font-size: 1em;
+    }
+
+    .job-details-container span {
+        font-size: 0.8em;
+    }
+
+    .job-details-container li {
+        font-size: 0.8em;
     }
 
 }
@@ -481,6 +707,7 @@ input[type="file"] {
     .cancel-button {
         display: none;
     }
+
 
 
 
