@@ -85,7 +85,8 @@ $jobCode = $_GET['id'];
                     </div>
                     <div class="form-column-full">
                         <label for="phone">Phone Number*</label>
-                        <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required>
+                        <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                     </div>
                     <div class="form-column-full">
                         <label for="resume">Upload Resume (PDF only)*</label>
@@ -170,9 +171,6 @@ $jobCode = $_GET['id'];
                             }
                         ?>
 
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, harum numquam
-                            veritatis corporis, quidem iste voluptatum animi blanditiis at sequi id. Aspernatur deserunt
-                            sapiente illum quod dolor qui, iusto reiciendis!</p>
 
                     </div>
                 </div>
