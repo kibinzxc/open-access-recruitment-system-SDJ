@@ -206,7 +206,7 @@
         const currentPage = window.location.pathname.split('/').pop();
 
         // Check if the current page is job-details.php
-        if (currentPage === 'job-details.php') {
+        if (currentPage === 'job-details.php' || currentPage === 'job-application.php') {
             // If so, find the Jobs link and add active class
             if (link.getAttribute('href') === 'jobs.php') {
                 link.classList.add('active');
@@ -228,7 +228,7 @@
         const currentPage = window.location.pathname.split('/').pop();
 
         // Check if the current page is job-details.php
-        if (currentPage === 'job-details.php') {
+        if (currentPage === 'job-details.php' || currentPage === 'job-application.php') {
             // If so, find the Jobs link and add active class
             if (link.getAttribute('href') === 'jobs.php') {
                 link.classList.add('active');

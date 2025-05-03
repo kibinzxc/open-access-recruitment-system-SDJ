@@ -26,9 +26,6 @@ $jobCode = $_GET['id'];
 <body class="body">
     <div class="note">Rotate your device for the best experience!</div>
 
-    <a class="back-button" href="jobs.php">
-        <img src="assets/images/back-button.svg" alt="Back">Back
-    </a>
 
     <?php
     if (isset($jobCode)) {
@@ -53,7 +50,7 @@ $jobCode = $_GET['id'];
         exit;
     }
     ?>
-    <?php include 'includes/dreamy-stars.php'; ?>
+    <?php include 'includes/dreamy-stars2.php'; ?>
     <div class="top-nav">
         <div class="job-title">
             <h1><?= htmlspecialchars($job['title']); ?></h1>
@@ -63,7 +60,7 @@ $jobCode = $_GET['id'];
             </div>
         </div>
         <div class="cancel">
-            <a href="jobs.php" class="cancel-button">Cancel</a>
+            <a href="jobs.php" class="cancel-button-mobile">Cancel</a>
         </div>
     </div>
     <div class="container">
@@ -83,7 +80,7 @@ $jobCode = $_GET['id'];
                         </div>
                     </div>
                     <div class="form-column-full">
-                        <label for="email">Email*</label>
+                        <label for="email">Email Address*</label>
                         <input type="email" id="email" name="email" placeholder="yourname@example.com" required>
                     </div>
                     <div class="form-column-full">
@@ -97,6 +94,7 @@ $jobCode = $_GET['id'];
 
                     <div class="form-column-full">
                         <button type="submit" class="submit-button">Submit</button>
+                        <a href="jobs.php" class="cancel-button">Cancel</a>
                     </div>
                 </form>
             </div>
