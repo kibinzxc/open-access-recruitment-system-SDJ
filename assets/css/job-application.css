@@ -396,6 +396,7 @@ textarea:focus {
         flex-grow: 1;
         display: flex;
         animation: slide-in 1s ease-in-out;
+        padding-bottom: 70px;
     }
 
     @keyframes slide-in {
