@@ -352,7 +352,7 @@ textarea:focus {
         /* Remove any default margin */
         background-image: url('../images/backdrop3-inverted.png');
         background-size: cover;
-        background-position: left;
+        background-position: right;
         overflow: auto;
     }
 

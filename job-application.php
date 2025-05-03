@@ -53,7 +53,7 @@ $jobCode = $_GET['id'];
         exit;
     }
     ?>
-
+    <?php include 'includes/dreamy-stars.php'; ?>
     <div class="top-nav">
         <div class="job-title">
             <h1><?= htmlspecialchars($job['title']); ?></h1>
