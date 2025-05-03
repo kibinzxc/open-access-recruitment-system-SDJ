@@ -372,7 +372,8 @@ textarea:focus {
         justify-content: center;
         flex: 1;
         height: 100%;
-        margin: 10rem 0 0 0;
+        margin: 9rem 0 0 0;
+
     }
 
     .form-grid {
@@ -388,10 +389,10 @@ textarea:focus {
     .job-apply-form-container {
         padding: 10px 30px;
         margin: 0 auto;
-        border-radius: 20px;
+        border-radius: 20px 20px 0 0;
+        /* Top-left: 20px, Top-right: 20px, Bottom-right: 0, Bottom-left: 0 */
         box-sizing: border-box;
         width: 100%;
-        /* Ensure it does not exceed the width of the contact-form */
         flex-grow: 1;
         display: flex;
         animation: slide-in 0.5s ease-in-out;
