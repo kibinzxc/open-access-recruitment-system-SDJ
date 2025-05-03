@@ -94,7 +94,10 @@ $jobCode = $_GET['id'];
                     </div>
 
                     <div class="buttons">
-                        <button type="submit" id="apply-button">Apply Now</button>
+                        <form action="job-application.php" method="get">
+                            <input type="hidden" name="id" value="<?= htmlspecialchars($jobCode); ?>">
+                            <button type="submit" id="apply-button" class="apply-button">Apply Now</button>
+                        </form>
                         <button type="button" id="share-button" onclick="copyLinkToClipboard()">
                             <img src="assets/images/share.svg" class="share-button-icon" alt="">Share
                         </button>

@@ -96,7 +96,7 @@ include 'includes/db-connection.php';
                     </div>
                     <div class="form-column-full">
                         <label for="email">Email*</label>
-                        <input type="email" id="email" name="email" placeholder="email@email.com" required>
+                        <input type="email" id="email" name="email" placeholder="yourname@example.com" required>
                     </div>
                     <div class="form-column-full">
                         <label for="message">Message*</label>

@@ -1,0 +1,518 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('assets/fonts/Inter.ttf') format('truetype');
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #FAFAFA;
+    overflow: hidden;
+    height: 100vh;
+    flex-direction: column;
+    background-image: url('../images/backdrop3-inverted.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+
+.note {
+    display: none;
+    color: #FF0000;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.back-button {
+    position: absolute;
+    top: 110px;
+    left: 20px;
+    background-color: #FF5EB2;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter';
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+    font-size: 16px;
+    flex-direction: row;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.back-button img {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+
+.back-button:hover {
+    background-color: #E04C9D;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr auto;
+    gap: 8px;
+    height: 100%;
+}
+
+.job-apply-form {
+    grid-column: span 1 / span 1;
+    grid-row: span 1 / span 1;
+    grid-column-start: 1;
+}
+
+.job-apply-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px 50px;
+    background-color: #FAFAFA;
+    margin: 70px 0 0 0;
+    height: 100%;
+    border-radius: 0 20px 0 0;
+    width: 100%;
+    box-sizing: border-box;
+    /* Ensure padding is included in the width */
+    max-width: 100%;
+    /* Prevent it from exceeding the width of the contact-form */
+
+}
+
+.form-column-full {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.name-column {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-grow: 1;
+
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.form-column-full {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+
+.form-column label {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #333333;
+}
+
+.form-column-full label {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #333333;
+}
+
+.form-column-full input,
+textarea {
+    padding: 20px;
+    border: 1px solid #D3D3D3;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333333;
+    font-family: 'Inter';
+    background-color: #FAFAFA;
+    transition: border-color 0.3s ease;
+
+}
+
+.form-column-full input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #412BAD;
+}
+
+.form-column-full textarea {
+    height: 15em;
+    max-height: 15em;
+    min-height: 15em;
+    /* Prevent resizing */
+    resize: none;
+    overflow-y: auto;
+    box-sizing: border-box;
+    /* Include padding and border in the element's height */
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    /* Ensure it does not exceed the container's width */
+}
+
+.form-column-full button[type="submit"] {
+    background: #412BAD;
+    color: white;
+    border: none;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    height: 60px;
+}
+
+.form-column-full button[type="submit"]:hover {
+    background: #2E1F7A;
+}
+
+.job-details {
+    grid-column: span 1 / span 1;
+    grid-row: span 1 / span 1;
+    color: white;
+    padding: 50px 0 50px 75px;
+    /* Top: 0, Right: 0, Bottom: 0, Left: 0 */
+    cursor: default;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #FAFAFA;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.job-title {
+    font-weight: 700;
+    color: #333;
+    word-wrap: break-word;
+    /* Break long words to fit within width */
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+    overflow-wrap: break-word;
+    /* Break long words */
+    box-sizing: border-box;
+}
+
+.cancel {
+    color: #2E1F7A;
+    width: auto;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.cancel a {
+    text-decoration: none;
+    color: #2E1F7A;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.job-title h1 {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #757575;
+    font-family: 'Inter';
+    font-style: italic;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    /* Or remove if you want to allow wrapping */
+    margin-bottom: 5px;
+}
+
+.location p {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    flex: 1;
+    /* Let it use remaining space */
+    margin: 0;
+    font-size: 16px;
+}
+
+.location img {
+    vertical-align: middle;
+    width: 16px;
+}
+
+.toggle-info {}
+
+@media screen and (max-width: 1600px) {
+    .form-column-full {
+        margin-bottom: 25px;
+    }
+
+
+    .form-column-full button[type="submit"] {
+        font-size: 18px;
+        padding: 15px;
+        height: auto;
+    }
+
+    .back-button {
+        font-size: 16px;
+        padding: 10px 20px;
+        top: 95px;
+        left: 10px;
+        gap: 5px;
+    }
+
+}
+
+@media screen and (max-width: 1280px) {
+    .form-column-full label {
+        font-size: 1.2em;
+    }
+
+    .form-column-full input,
+    textarea {
+        padding: 10px;
+    }
+
+
+    .form-column-full button[type="submit"] {
+        font-size: 18px;
+        padding: 15px;
+        height: auto;
+    }
+}
+
+
+@media screen and (max-width: 1120px) {
+
+    .job-apply-form-container {
+        padding: 30px 30px;
+    }
+
+    .form-column-full {
+        margin-bottom: 20px;
+    }
+
+    .form-column-full label {
+        font-size: 1em;
+    }
+
+    .form-column-full input,
+    textarea {
+        padding: 10px;
+    }
+
+    .form-column-full button[type="submit"] {
+        font-size: 18px;
+        padding: 15px;
+        height: auto;
+    }
+
+    .back-button {
+        font-size: 17px;
+        padding: 10px 15px;
+        top: 80px;
+        left: 10px;
+        gap: 5px;
+    }
+
+}
+
+
+@media screen and (max-width: 768px) {
+    body {
+        height: 100svh;
+        margin: 0;
+        /* Remove any default margin */
+        background-image: url('../images/backdrop3-inverted.png');
+        background-size: cover;
+        background-position: left;
+        overflow: auto;
+    }
+
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        overflow: auto;
+        height: 100%;
+    }
+
+    .job-apply-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        height: 100%;
+        margin: 14rem 0 0 0;
+    }
+
+    .form-grid {
+        padding-top: 20px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        /* Ensure it occupies all remaining vertical space */
+    }
+
+    .job-apply-form-container {
+        padding: 10px 30px;
+        margin: 0 auto;
+        border-radius: 20px;
+        box-sizing: border-box;
+        width: 100%;
+        /* Ensure it does not exceed the width of the contact-form */
+        flex-grow: 1;
+        display: flex;
+        animation: slide-in 0.5s ease-in-out;
+    }
+
+    @keyframes slide-in {
+        from {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+
+    .name-column {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        flex-grow: 1;
+    }
+
+
+    .form-column-full {
+        margin-bottom: 15px;
+    }
+
+    .form-column-full label {}
+
+    .form-column-full button[type="submit"] {
+        font-size: 18px;
+        padding: 10px;
+        height: auto;
+
+    }
+
+    .back-button {
+        display: none;
+    }
+
+    .job-details {
+        display: none;
+    }
+
+
+
+}
+
+
+@media screen and (max-width: 375px) and (max-height: 667px) {
+    body {
+        height: 100svh;
+        margin: 0;
+        background-image: url('../images/backdrop3-inverted.png');
+        background-size: cover;
+        background-position: center;
+        overflow: auto;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        overflow: auto;
+        height: 100%;
+    }
+
+    .job-apply-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        height: 100%;
+        margin: 8rem 0 0 0;
+    }
+
+    .job-title h1 {
+        font-size: 1.2em;
+        margin-bottom: 5px;
+    }
+
+    .cancel {
+        font-size: 0.9em;
+    }
+
+    .toggle-info {
+        font-size: 0.9em;
+    }
+
+    form {
+        font-size: 0.9em;
+    }
+
+    .form-column-full label {
+        font-size: 0.9em;
+    }
+
+    .form-column-full input,
+    textarea {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+}
+
+@media screen and (max-height: 350px) and (min-height: 200px) {
+    .note {
+        display: block;
+    }
+
+    .container,
+    .back-button {
+        display: none;
+    }
+
+    body {
+        background-image: none;
+        background-color: #FFF;
+    }
+}

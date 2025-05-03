@@ -185,6 +185,11 @@ button[type="button"] img {
     width: 24px;
 }
 
+form {
+    display: relative;
+    flex: 1;
+}
+
 @media screen and (max-width: 1600px) {}
 
 @media screen and (max-width: 1280px) {
