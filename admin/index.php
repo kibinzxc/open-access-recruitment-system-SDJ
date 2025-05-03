@@ -13,7 +13,7 @@
 <body>
     <h1>Hello There!</h1>
     <p>Welcome to the admin panel. Here you can manage your job listings and applications.</p>
-    <img src="../assets/images/icon.svg" alt="">
+    <img src="pages/assets/images/icon.svg" alt="">
 </body>
 
 </html>
