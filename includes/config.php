@@ -9,7 +9,7 @@ define('DB_NAME', 'u238690332_sdj');
 // define('DB_HOST', 'localhost');
 // define('DB_USER', 'root');
 // define('DB_PASS', '');
-// define('DB_NAME', 'sdj_db');
+// define('DB_NAME', 'sdj_db')trtr;
 
 // Error reporting settings
 error_reporting(E_ALL); // Show all errors for debugging
