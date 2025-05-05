@@ -25,7 +25,7 @@ include('pages/includes/dreamy-stars2.php');
             <input type="password" id="password" name="password" required>
 
             <a class="forgot-password" href="#">Forgot Password?</a>
-            <button type="submit">Sign in</button>
+            <button type="submit">Sign In</button>
         </form>
 
     </div>
