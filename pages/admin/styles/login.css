@@ -60,8 +60,10 @@ label {
     display: inline-block;
     padding: 0;
     align-self: center
-        /* Prevent it from stretching full width */
+}
 
+.forgot-password:hover {
+    color: #2E1F7A;
 }
 
 input {
@@ -73,7 +75,10 @@ input {
     font-size: 16px;
     color: #333;
     font-family: 'Inter';
+    box-sizing: border-box;
 }
+
+
 
 input:focus {
     border-color: #412BAD;
@@ -100,4 +105,19 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #2E1F7A;
+}
+
+.error-message {
+    color: #FF0000;
+    font-size: 14px;
+    margin: 0;
+    text-align: center;
+    border: 1px solid #FF0000;
+    background-color: #FFCCCC;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.error-message.hidden {
+    display: none;
 }
