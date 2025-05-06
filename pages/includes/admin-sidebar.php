@@ -144,7 +144,6 @@ body {
     <div class="brand">
         <img src="../assets/images/sdj-icon2.svg" alt="Logo" />
     </div>
-
     <a href="dashboard.php" class="<?= $currentPage === 'dashboard.php' ? 'active' : '' ?>">
         <img src="<?= $currentPage === 'dashboard.php' ? '../assets/images/active-admin-home.svg' : '../assets/images/admin-home.svg' ?>"
             alt="Dashboard Icon" data-active-src="../assets/images/active-admin-home.svg"
@@ -167,7 +166,7 @@ body {
     </a>
 
     <a href="settings.php" class="<?= $currentPage === 'settings.php' ? 'active' : '' ?>">
-        <img src="<?= $currentPage === 'settings.php' ? '../assets/images/active-admin-settings.svg' : '../assets/images/admin-settings.svg'  ?>"
+        <img src="<?= $currentPage === 'settings.php' ? '../assets/images/active-admin-settings.svg' : '../assets/images/admin-settings.svg' ?>"
             alt="Settings Icon" data-active-src="../assets/images/active-admin-settings.svg"
             data-inactive-src="../assets/images/admin-settings.svg" />
         Settings
@@ -241,7 +240,6 @@ document.querySelectorAll('.menu a').forEach(link => {
 
     // Store the inactive and active image URLs in data attributes
     img.dataset.inactiveSrc = img.src;
-    img.dataset.activeSrc = img.src.replace('admin', 'active-admin'); // Assuming 'admin' is the inactive part
 
     // Update images on hover
     link.addEventListener('mouseover', function() {
