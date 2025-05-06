@@ -22,13 +22,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo json_encode(['success' => true, 'redirect' => 'pages/admin/dashboard.php']);
             exit;
         } else {
-            $response['message'] = 'Invalid email or password';
+            $response['message'] = 'Invalid login credentials';
         }
     } else {
-        $response['message'] = 'Invalid email or password';
+        $response['message'] = 'Invalid login credentials';
     }
 } else {
-    $response['message'] = 'Invalid request method';
+    $response['message'] = 'Invalid login credentials';
 }
 
 echo json_encode($response);
