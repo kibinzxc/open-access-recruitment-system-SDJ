@@ -14,9 +14,10 @@ $id = $_SESSION['user_id'];
     <link rel="stylesheet" href="styles/settings.css">
     <title>Settings | Admin</title>
 </head>
+<?php include '../includes/admin-sidebar.php'; ?>
 
 <body>
-    <?php include '../includes/admin-sidebar.php'; ?>
+
 
     <div class="content" id="main-content">
         <?php
