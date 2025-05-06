@@ -121,6 +121,14 @@ button[type="submit"]:hover {
     display: none;
 }
 
+.note {
+    display: none;
+    color: #FF0000;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 500;
+}
 
 
 @media screen and (max-width: 768px) {
@@ -172,5 +180,19 @@ button[type="submit"]:hover {
     button[type="submit"] {
         font-size: 14px;
         margin: 0;
+    }
+}
+
+@media screen and (max-height: 350px) and (min-height: 200px) {
+    .note {
+        display: block;
+    }
+
+    .login-container {
+        display: none;
+    }
+
+    body {
+        background-image: none;
     }
 }

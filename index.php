@@ -18,6 +18,7 @@ include('pages/includes/dreamy-stars-admin.php');
 </head>
 
 <body>
+    <div class="note">Rotate your device for the best experience!</div>
     <div class="login-container">
         <img src="pages/assets/images/sdj-icon.png" alt="">
         <div id="loginMessageContainer"></div>
