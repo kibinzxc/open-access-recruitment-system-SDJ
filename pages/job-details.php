@@ -6,7 +6,7 @@ include 'includes/db-connection.php';
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     die("Error: Job ID (job_code) not provided in the URL.");
 }
-$jobCode = $_GET['id']; 
+$jobCode = $_GET['id'];
 ?>
 <html lang="en">
 
@@ -24,6 +24,8 @@ $jobCode = $_GET['id'];
 <?php include 'includes/navbar.php'; ?>
 
 <body class="body">
+    <?php include 'includes/dreamy-stars2.php'; ?>
+
     <div class="note">Rotate your device for the best experience!</div>
     <?php
     if (isset($jobCode)) {
@@ -75,12 +77,12 @@ $jobCode = $_GET['id'];
                             if (is_array($qualifications) && isset($qualifications['qualification'])) {
                                 // Get all qualifications
                                 $tags = $qualifications['qualification'];
-                                
+
                                 // Sort by string length (shortest first)
-                                usort($tags, function($a, $b) {
+                                usort($tags, function ($a, $b) {
                                     return strlen($a) - strlen($b);
                                 });
-                                
+
                                 // Display sorted tags
                                 foreach ($tags as $qualification) {
                                     echo '<div class="job-tag">' . htmlspecialchars($qualification) . '</div>';
@@ -114,40 +116,40 @@ $jobCode = $_GET['id'];
                 <div class="job-responsibilities">
                     <h2>Responsibilities</h2>
                     <?php
-                            $responsibilities = json_decode($job['responsibilities'], true);
-                            if (is_array($responsibilities) && isset($responsibilities['responsibilities'])) {
-                                // Get all responsibilities
-                                $tasks = $responsibilities['responsibilities'];
-                                
-                                // Display responsibilities in an unordered list
-                                echo '<ul class="job-responsibilities">';
-                                foreach ($tasks as $responsibility) {
-                                    echo '<li>' . htmlspecialchars($responsibility) . '</li>';
-                                }
-                                echo '</ul>';
-                            } else {
-                                echo '<p>No responsibilities listed</p>';
-                            }
-                        ?>
+                    $responsibilities = json_decode($job['responsibilities'], true);
+                    if (is_array($responsibilities) && isset($responsibilities['responsibilities'])) {
+                        // Get all responsibilities
+                        $tasks = $responsibilities['responsibilities'];
+
+                        // Display responsibilities in an unordered list
+                        echo '<ul class="job-responsibilities">';
+                        foreach ($tasks as $responsibility) {
+                            echo '<li>' . htmlspecialchars($responsibility) . '</li>';
+                        }
+                        echo '</ul>';
+                    } else {
+                        echo '<p>No responsibilities listed</p>';
+                    }
+                    ?>
                 </div>
                 <div class="job-qualification">
 
                     <h2>Qualifications</h2>
                     <?php
-                        if (is_array($qualifications) && isset($qualifications['qualification'])) {
-                            // Sort qualifications by string length (shortest first)
-                            usort($qualifications['qualification'], function($a, $b) {
-                                return strlen($a) - strlen($b);
-                            });
+                    if (is_array($qualifications) && isset($qualifications['qualification'])) {
+                        // Sort qualifications by string length (shortest first)
+                        usort($qualifications['qualification'], function ($a, $b) {
+                            return strlen($a) - strlen($b);
+                        });
 
-                            echo '<ul class="qualification-list">';
-                            foreach ($qualifications['qualification'] as $qualification) {
-                                echo '<li>' . htmlspecialchars($qualification) . '</li>';
-                            }
-                            echo '</ul>';
-                        } else {
-                            echo '<p>No qualifications listed</p>';
+                        echo '<ul class="qualification-list">';
+                        foreach ($qualifications['qualification'] as $qualification) {
+                            echo '<li>' . htmlspecialchars($qualification) . '</li>';
                         }
+                        echo '</ul>';
+                    } else {
+                        echo '<p>No qualifications listed</p>';
+                    }
                     ?>
                 </div>
             </div>
@@ -156,32 +158,32 @@ $jobCode = $_GET['id'];
 </body>
 
 <script>
-function copyLinkToClipboard() {
-    const link = window.location.href;
-    navigator.clipboard.writeText(link).then(() => {
-        showCopiedMessage();
-    }).catch(err => {
-        console.error('Failed to copy link: ', err);
-    });
-}
+    function copyLinkToClipboard() {
+        const link = window.location.href;
+        navigator.clipboard.writeText(link).then(() => {
+            showCopiedMessage();
+        }).catch(err => {
+            console.error('Failed to copy link: ', err);
+        });
+    }
 
-function showCopiedMessage() {
-    let msg = document.createElement('div');
-    msg.className = 'copied-message';
-    msg.innerText = 'Link copied to clipboard!';
-    document.body.appendChild(msg);
+    function showCopiedMessage() {
+        let msg = document.createElement('div');
+        msg.className = 'copied-message';
+        msg.innerText = 'Link copied to clipboard!';
+        document.body.appendChild(msg);
 
-    // Trigger animation
-    setTimeout(() => {
-        msg.classList.add('show');
-    }, 10);
+        // Trigger animation
+        setTimeout(() => {
+            msg.classList.add('show');
+        }, 10);
 
-    setTimeout(() => {
-        msg.classList.remove('show');
-    }, 1500);
+        setTimeout(() => {
+            msg.classList.remove('show');
+        }, 1500);
 
-    setTimeout(() => {
-        msg.remove();
-    }, 2000);
-}
+        setTimeout(() => {
+            msg.remove();
+        }, 2000);
+    }
 </script>

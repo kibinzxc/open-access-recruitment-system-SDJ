@@ -18,6 +18,7 @@ include 'includes/db-connection.php';
 <?php include 'includes/navbar.php'; ?>
 
 <body class="body">
+    <?php include 'includes/dreamy-stars2.php'; ?>
     <div class="note">Rotate your device for the best experience!</div>
     <div class="contact-us-container">
 
