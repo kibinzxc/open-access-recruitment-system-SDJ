@@ -146,8 +146,8 @@ body {
     </div>
 
     <a href="dashboard.php" class="<?= $currentPage === 'dashboard.php' ? 'active' : '' ?>">
-        <img src="<?= $currentPage === 'dashboard.php' ? '../assets/images/active-admin-dashboard.svg' : '../assets/images/admin-home.svg' ?>"
-            alt="Dashboard Icon" data-active-src="../assets/images/active-admin-dashboard.svg"
+        <img src="<?= $currentPage === 'dashboard.php' ? '../assets/images/active-admin-home.svg' : '../assets/images/admin-home.svg' ?>"
+            alt="Dashboard Icon" data-active-src="../assets/images/active-admin-home.svg"
             data-inactive-src="../assets/images/admin-home.svg" />
         Dashboard
     </a>
