@@ -145,41 +145,43 @@ body {
         <img src="../assets/images/sdj-icon2.svg" alt="Logo" />
     </div>
 
-    <div class="menu" id="menu">
-        <a href="dashboard.php" class="<?php echo $currentPage === 'dashboard.php' ? 'active' : ''; ?>">
-            <img src="../assets/images/admin-home.svg" data-active-src="../assets/images/active-admin-home.svg"
-                data-inactive-src="../assets/images/admin-home.svg" alt="Dashboard Icon" />
-            Dashboard
-        </a>
+    <a href="dashboard.php" class="<?= $currentPage === 'dashboard.php' ? 'active' : '' ?>">
+        <img src="<?= $currentPage === 'dashboard.php' ? '../assets/images/active-admin-dashboard.svg' : '../assets/images/admin-home.svg' ?>"
+            alt="Dashboard Icon" data-active-src="../assets/images/active-admin-dashboard.svg"
+            data-inactive-src="../assets/images/admin-home.svg" />
+        Dashboard
+    </a>
 
+    <a href="jobs.php" class="<?= $currentPage === 'jobs.php' ? 'active' : '' ?>">
+        <img src="<?= $currentPage === 'jobs.php' ? '../assets/images/active-admin-jobs.svg' : '../assets/images/admin-jobs.svg' ?>"
+            alt="Jobs Icon" data-active-src="../assets/images/active-admin-jobs.svg"
+            data-inactive-src="../assets/images/admin-jobs.svg" />
+        Jobs
+    </a>
 
-        <a href="jobs.php" class="<?php echo $currentPage === 'jobs.php' ? 'active' : ''; ?>">
-            <img src="../assets/images/admin-jobs.svg" data-active-src="../assets/images/active-admin-jobs.svg"
-                data-inactive-src="../assets/images/admin-jobs.svg" alt="Jobs Icon" />
-            Jobs
-        </a>
+    <a href="inbox.php" class="<?= $currentPage === 'inbox.php' ? 'active' : '' ?>">
+        <img src="<?= $currentPage === 'inbox.php' ? '../assets/images/active-admin-inbox.svg' : '../assets/images/admin-inbox.svg' ?>"
+            alt="Inbox Icon" data-active-src="../assets/images/active-admin-inbox.svg"
+            data-inactive-src="../assets/images/admin-inbox.svg" />
+        Inbox
+    </a>
 
-        <a href="inbox.php" class="<?php echo $currentPage === 'inbox.php' ? 'active' : ''; ?>">
-            <img src="../assets/images/admin-inbox.svg" data-active-src="../assets/images/active-admin-inbox.svg"
-                data-inactive-src="../assets/images/admin-inbox.svg" alt="Inbox Icon" />
-            Inbox
-        </a>
+    <a href="settings.php" class="<?= $currentPage === 'settings.php' ? 'active' : '' ?>">
+        <img src="<?= $currentPage === 'settings.php' ? '../assets/images/active-admin-settings.svg' : '../assets/images/admin-settings.svg' ?>"
+            alt="Settings Icon" data-active-src="../assets/images/active-admin-settings.svg"
+            data-inactive-src="../assets/images/admin-settings.svg" />
+        Settings
+    </a>
 
-        <a href="settings.php" class="<?php echo $currentPage === 'settings.php' ? 'active' : ''; ?>">
-            <img src="../assets/images/admin-settings.svg" data-active-src="../assets/images/active-admin-settings.svg"
-                data-inactive-src="../assets/images/admin-settings.svg" alt="Settings Icon" />
-            Settings
-        </a>
+</div>
 
-    </div>
-
-    <div class="logout">
-        <a href="logout.php" onmouseover="this.querySelector('img').src='../assets/images/active-admin-logout.svg';"
-            onmouseout="this.querySelector('img').src='../assets/images/admin-logout.svg';">
-            <img src="../assets/images/admin-logout.svg" alt="Logout Icon" />
-            Logout
-        </a>
-    </div>
+<div class="logout">
+    <a href="logout.php" onmouseover="this.querySelector('img').src='../assets/images/active-admin-logout.svg';"
+        onmouseout="this.querySelector('img').src='../assets/images/admin-logout.svg';">
+        <img src="../assets/images/admin-logout.svg" alt="Logout Icon" />
+        Logout
+    </a>
+</div>
 </div>
 
 
@@ -254,15 +256,19 @@ document.querySelectorAll('.menu a').forEach(link => {
         }
     });
 });
-// On page load, set the active image correctly
 document.querySelectorAll('.menu a').forEach(link => {
     const img = link.querySelector('img');
 
-    // If already has the active class (e.g., on page refresh), set image to active
-    if (link.classList.contains('active')) {
-        img.src = img.dataset.activeSrc;
-    } else {
-        img.src = img.dataset.inactiveSrc;
-    }
+    link.addEventListener('mouseover', function() {
+        if (!this.classList.contains('active')) {
+            img.src = img.dataset.activeSrc;
+        }
+    });
+
+    link.addEventListener('mouseout', function() {
+        if (!this.classList.contains('active')) {
+            img.src = img.dataset.inactiveSrc;
+        }
+    });
 });
 </script>
