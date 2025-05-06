@@ -20,11 +20,12 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        position: fixed;
+        position: relative;
         top: 0;
         left: 0;
         z-index: 1000;
     }
+
 
     .brand {
         text-align: center;

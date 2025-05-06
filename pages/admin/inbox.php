@@ -11,8 +11,8 @@ $id = $_SESSION['user_id'];
     <meta name="description" content="Sweet Dream Job - Your dream job awaits!">
     <meta name="keywords" content="job, career, dream job, employment, opportunities">
     <link rel="icon" href="../assets/images/icon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="styles/dashboard.css">
-    <title>Dashboard | Admin</title>
+    <link rel="stylesheet" href="styles/inbox.css">
+    <title>Inbox | Admin</title>
 </head>
 
 <body>
@@ -37,13 +37,9 @@ $id = $_SESSION['user_id'];
         $stmt->close();
         ?>
         <h1>Welcome, <?php echo htmlspecialchars($name); ?>!</h1>
-        <p>This is your dashboard where you can manage your account and settings.</p>
+        <p>This is your inbox where you can manage your messages and notifications.</p>
 
     </div>
 </body>
 
 </html>
-
-<script>
-
-</script>
