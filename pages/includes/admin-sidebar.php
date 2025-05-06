@@ -167,7 +167,7 @@ body {
     </a>
 
     <a href="settings.php" class="<?= $currentPage === 'settings.php' ? 'active' : '' ?>">
-        <img src="<?= $currentPage === 'settings.php' ? '../assets/images/active-admin-settings.svg' : '../assets/images/admin-settings.svg' ?>"
+        <img src="<?= $currentPage === 'settings.php' ? '../assets/images/active-admin-settings.svg' : '../assets/images/admin-settings.svg'  ?>"
             alt="Settings Icon" data-active-src="../assets/images/active-admin-settings.svg"
             data-inactive-src="../assets/images/admin-settings.svg" />
         Settings
@@ -200,7 +200,7 @@ document.querySelectorAll('.menu a').forEach(link => {
         // Add 'active' class to the clicked link and update the image
         this.classList.add('active');
         const img = this.querySelector('img');
-        img.src = img.dataset.activeSrc; // Set to the active image
+        img.src = img.dataset.activeSrc; // Set to the active image test
 
         const url = this.getAttribute('href');
 
