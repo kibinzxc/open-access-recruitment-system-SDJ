@@ -177,11 +177,9 @@
     </div>
 
     <div class="logout">
-        <a href="logout.php" class="<?php echo basename($_SERVER['PHP_SELF']) === 'logout.php' ? 'active' : ''; ?>"
-            onmouseover="this.querySelector('img').src='../assets/images/active-admin-logout.svg';"
-            onmouseout="if (!this.classList.contains('active')) this.querySelector('img').src='../assets/images/admin-logout.svg';">
-            <img src="<?php echo basename($_SERVER['PHP_SELF']) === 'logout.php' ? '../assets/images/active-admin-logout.svg' : '../assets/images/admin-logout.svg'; ?>"
-                alt="Logout Icon" />
+        <a href="logout.php" onmouseover="this.querySelector('img').src='../assets/images/active-admin-logout.svg';"
+            onmouseout="this.querySelector('img').src='../assets/images/admin-logout.svg';">
+            <img src="../assets/images/admin-logout.svg" alt="Logout Icon" />
             Logout
         </a>
     </div>

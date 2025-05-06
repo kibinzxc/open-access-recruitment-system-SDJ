@@ -18,39 +18,10 @@ include('pages/includes/dreamy-stars-admin.php');
 </head>
 
 <body>
-    <?php
-
-    ?>
-
     <div class="login-container">
         <img src="pages/assets/images/sdj-icon.png" alt="">
-
-        <?php
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-            $email = mysqli_real_escape_string($conn, $_POST['email']);
-            $password = mysqli_real_escape_string($conn, $_POST['password']);
-
-            $query = "SELECT * FROM users WHERE email = '$email'";
-            $result = mysqli_query($conn, $query);
-
-            if ($result && mysqli_num_rows($result) > 0) {
-                $user = mysqli_fetch_assoc($result);
-
-                if (md5($password) === $user['password']) {
-                    $_SESSION['user_id'] = $user['id'];
-                    $_SESSION['user_email'] = $user['email'];
-                    header('Location: pages/admin/dashboard.php');
-                    exit;
-                } else {
-                    echo "<p class='error-message'>Invalid account credentials: {$email} {$password}</p>";
-                }
-            } else {
-                echo "<p class='error-message'>Invalid account credentials</p>";
-            }
-        }
-        ?>
-        <form action="" method="POST" class="login-form">
+        <div id="loginMessageContainer"></div>
+        <form action="pages/admin/login-handler.php" id="loginForm" method="POST" class="login-form">
             <label for="email">Email</label>
             <input type="text" id="email" name="email" required>
 
@@ -65,14 +36,37 @@ include('pages/includes/dreamy-stars-admin.php');
 </body>
 
 <script>
-//timer for error-message #
-setTimeout(function() {
-    var errorMessage = document.querySelector('.error-message');
-    if (errorMessage) {
-        errorMessage.style.display = 'none';
-        errorMessage.classList.add('hidden');
-    }
-}, 5000);
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // prevent page reload
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    fetch('pages/admin/login-handler.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                window.location.href = data.redirect;
+            } else {
+                const container = document.getElementById('loginMessageContainer');
+                container.innerHTML = `<p class="error-message">${data.message}</p>`;
+
+                setTimeout(() => {
+                    container.innerHTML = '';
+                }, 5000);
+            }
+        })
+        .catch(err => {
+            console.error('Login request failed', err);
+        });
+});
 </script>
+
 
 </html>

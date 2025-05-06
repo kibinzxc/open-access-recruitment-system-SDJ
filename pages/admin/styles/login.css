@@ -99,7 +99,6 @@ button[type="submit"] {
     cursor: pointer;
     font-size: 15px;
     margin-top: auto;
-    margin-bottom: 30px;
     font-weight: 500;
 }
 
@@ -120,4 +119,58 @@ button[type="submit"]:hover {
 
 .error-message.hidden {
     display: none;
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+    body {
+        background-image: url('../../assets/images/backdrop3-inverted.png');
+        background-size: cover;
+        background-position: right;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .login-container {
+        position: static;
+        top: auto;
+        left: auto;
+        transform: none;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px 30px;
+        margin-top: 100px;
+        border-radius: 20px;
+        animation: slideUp 1s ease-in-out;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    @keyframes slideUp {
+        0% {
+            opacity: 0;
+            transform: translateY(100%);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+
+    .login-container img {
+        width: 150px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    button[type="submit"] {
+        font-size: 14px;
+        margin: 0;
+    }
 }
