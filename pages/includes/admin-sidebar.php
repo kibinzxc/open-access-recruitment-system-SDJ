@@ -233,13 +233,13 @@ window.addEventListener('popstate', function(e) {
     }
 });
 
-// For mouseover and mouseout, manage the images using data attributes
 document.querySelectorAll('.menu a').forEach(link => {
     const img = link.querySelector('img');
 
     // Store the inactive and active image URLs in data attributes
-    img.dataset.inactiveSrc = img.src;
-    img.dataset.activeSrc = img.src.replace('admin', 'active-admin'); // Assuming 'admin' is the inactive part
+    img.dataset.activeSrc = img.dataset.activeSrc || img.src.replace('admin-',
+    'active-admin-'); // Replace 'admin-' with 'active-admin-'
+    img.dataset.inactiveSrc = img.dataset.inactiveSrc || img.src; // Keep the original src as the inactive image
 
     // Update images on hover
     link.addEventListener('mouseover', function() {
@@ -254,6 +254,7 @@ document.querySelectorAll('.menu a').forEach(link => {
         }
     });
 });
+
 // On page load, set the active image correctly
 document.querySelectorAll('.menu a').forEach(link => {
     const img = link.querySelector('img');
