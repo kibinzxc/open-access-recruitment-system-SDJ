@@ -144,7 +144,7 @@ body {
         /* fixes baseline alignment issues */
         width: 20px !important;
         height: auto !important;
-        margin-bottom: 4px !important;
+        margin: 4px 0 !important;
     }
 
     .bottom-nav-item a.active {
