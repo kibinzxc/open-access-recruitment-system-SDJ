@@ -129,7 +129,12 @@ body {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        padding: 10px 0 !important;
+        justify-content: center !important;
+        /* this helps vertically center everything */
+        height: 100% !important;
+        box-sizing: border-box !important;
+        padding: 0 !important;
+        /* remove excess padding */
     }
 
     .bottom-nav-item img {
@@ -187,12 +192,7 @@ body {
     </div>
 </div>
 <div class="bottom-nav">
-    <div class="bottom-nav-item">
-        <a href="dashboard.php" class="<?php echo $currentPage === 'dashboard.php' ? 'active' : ''; ?>">
-            <img src="../assets/images/admin-home.svg" alt="Dashboard Icon" />
-            <span>Dashboard</span>
-        </a>
-    </div>
+
     <div class="bottom-nav-item">
         <a href="jobs.php" class="<?php echo $currentPage === 'jobs.php' ? 'active' : ''; ?>">
             <img src="../assets/images/admin-jobs.svg" alt="Jobs Icon" />
@@ -205,6 +205,14 @@ body {
             <span>Inbox</span>
         </a>
     </div>
+
+    <div class="bottom-nav-item">
+        <a href="dashboard.php" class="<?php echo $currentPage === 'dashboard.php' ? 'active' : ''; ?>">
+            <img src="../assets/images/admin-home.svg" alt="Dashboard Icon" />
+            <span>Dashboard</span>
+        </a>
+    </div>
+
     <div class="bottom-nav-item">
         <a href="settings.php" class="<?php echo $currentPage === 'settings.php' ? 'active' : ''; ?>">
             <img src="../assets/images/admin-settings.svg" alt="Settings Icon" />
