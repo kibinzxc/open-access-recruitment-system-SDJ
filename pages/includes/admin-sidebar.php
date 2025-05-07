@@ -135,11 +135,12 @@ body {
         box-sizing: border-box !important;
         padding: 0 !important;
         /* remove excess padding */
+        gap: 0 !important;
     }
 
     .bottom-nav-item img {
         width: 20px !important;
-        margin-bottom: 5px !important;
+        margin-bottom: 3px !important;
     }
 
     .bottom-nav-item a.active {
