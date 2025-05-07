@@ -114,6 +114,7 @@ body {
         height: 60px !important;
         z-index: 1000 !important;
         box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1) !important;
+        align-items: stretch !important;
     }
 
     .bottom-nav-item {
@@ -135,12 +136,15 @@ body {
         box-sizing: border-box !important;
         padding: 0 !important;
         /* remove excess padding */
-        gap: 0 !important;
+        height: 100% !important;
     }
 
     .bottom-nav-item img {
+        display: block !important;
+        /* fixes baseline alignment issues */
         width: 20px !important;
-        margin-bottom: 3px !important;
+        height: auto !important;
+        margin-bottom: 4px !important;
     }
 
     .bottom-nav-item a.active {
