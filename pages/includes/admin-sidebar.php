@@ -120,6 +120,7 @@ body {
         flex: 1 !important;
         text-align: center !important;
         height: 100% !important;
+        display: flex;
     }
 
     .bottom-nav-item a {
@@ -129,14 +130,14 @@ body {
         font-weight: 500 !important;
         display: flex !important;
         flex-direction: column !important;
-        align-items: center !important;
         justify-content: center !important;
-        /* this helps vertically center everything */
+        align-items: center !important;
         height: 100% !important;
-        box-sizing: border-box !important;
+        width: 100% !important;
         padding: 0 !important;
-        /* remove excess padding */
-        height: 100% !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        line-height: 1 !important;
     }
 
     .bottom-nav-item img {
