@@ -110,7 +110,6 @@ body {
         left: 0 !important;
         right: 0 !important;
         background-color: #FFF !important;
-        border-top: 1px solid #AEAEAE !important;
         height: 60px !important;
         z-index: 1000 !important;
         box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1) !important;
@@ -120,6 +119,7 @@ body {
     .bottom-nav-item {
         flex: 1 !important;
         text-align: center !important;
+        height: 100% !important;
     }
 
     .bottom-nav-item a {
