@@ -21,3 +21,15 @@ body {
     flex-direction: column;
     background-color: #E7E7E7;
 }
+
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: none;
+
+    }
+
+    .content {
+        padding: 10px;
+        margin-bottom: 60px;
+    }
+}

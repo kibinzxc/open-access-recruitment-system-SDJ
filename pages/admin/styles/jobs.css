@@ -20,4 +20,157 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #E7E7E7;
+    overflow: auto;
+}
+
+.table-jobs {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fafafa;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+#jobTable_filter {
+    margin-bottom: 10px !important
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 34px;
+    font-weight: 600;
+}
+
+.view-applicants-btn,
+.add-job-btn {
+    background-color: #412BAD;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    height: auto;
+    align-self: center;
+    text-decoration: none;
+    display: inline-flex;
+    gap: 5px;
+
+}
+
+
+
+.view-applicants-btn:hover,
+.add-job-btn:hover {
+    background-color: #2E1F7A;
+}
+
+.view-applicants-btn:active,
+.add-job-btn:active {
+    background-color: #1E0F5A;
+}
+
+.plus-btn {
+    width: 20px;
+}
+
+.action-btns {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+    justify-content: center;
+}
+
+.action-btns a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.action-btns img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.tbl-img {
+    width: 100px;
+}
+
+th:nth-child(6),
+td:nth-child(6) {
+    width: 100px;
+    /* Adjust as needed */
+    white-space: nowrap;
+}
+
+td,
+th {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+
+    #jobTable {
+        border-collapse: collapse;
+        table-layout: auto !important;
+        width: 100%;
+        display: block;
+    }
+
+    body {
+        grid-template-columns: none;
+
+    }
+
+    .content {
+        padding: 10px;
+        margin-bottom: 60px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-btns {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .action-btns {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+
+    .action-btns img {
+        width: 42px;
+    }
+
+    .action-btns a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 5px;
+    }
+
+    .action-btns a span {}
+
+
 }

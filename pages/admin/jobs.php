@@ -12,6 +12,8 @@ $id = $_SESSION['user_id'];
     <meta name="keywords" content="job, career, dream job, employment, opportunities">
     <link rel="icon" href="../assets/images/icon.svg" type="image/x-icon">
     <link rel="stylesheet" href="styles/jobs.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <title>Jobs | Admin</title>
 </head>
 <?php include '../includes/admin-sidebar.php'; ?>
@@ -19,27 +21,72 @@ $id = $_SESSION['user_id'];
 <body>
 
     <div class="content" id="main-content">
-        <?php
-        // Query to fetch the name based on the user ID from the session
-        $query = "SELECT name FROM users WHERE id = ?";
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("i", $id); // Use the user ID from the session
-        $stmt->execute();
-        $result = $stmt->get_result();
+        <div class="container-fluid">
+            <div class="header">
+                <h1 class="my-4">Manage Job Listings</h1>
+                <a href="" class="view-applicants-btn"> <img class="plus-btn" src="../assets/images/external-link.svg"
+                        alt="">View
+                    Applicants</a>
+            </div>
+            <div class="header-btns"> <a href="add-job.php" class="add-job-btn"> <img class="plus-btn"
+                        src="../assets/images/plus.svg" alt=""> Add
+                    New Job</a></div>
 
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $name = $row['name'];
-        } else {
-            $name = "Guest"; // Default name if no user is found
-        }
+            <div class="table-jobs">
+                <div class="table-responsive">
+                    <table id="jobTable" class="table table-striped table-bordered table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Image</th>
+                                <th>Job Title</th>
+                                <th>Location</th>
+                                <th>Job Code</th>
+                                <th>Availability</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $query = "SELECT * FROM jobs";
+                            $result = mysqli_query($conn, $query);
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<tr>";
+                                echo "<td><img class ='tbl-img' src='../assets/images/jobs_bin/" . $row['img'] . "' alt='Job Image'></td>";
+                                echo "<td>" . $row['title'] . "</td>";
+                                echo "<td>" . $row['country'] . "</td>";
+                                echo "<td>" . $row['job_code'] . "</td>";
+                                echo "<td>" . $row['availability'] . "</td>";
+                                echo "<td>
+                                <div class='action-btns'>
+                                    <a target='_blank' href='../job-details.php?id=" . $row['job_code'] . "' class='btn btn-info btn-sm action-btn'>
+                                        <img src='../assets/images/view-icon.svg' alt='View Icon'> <span>View</span>
+                                    </a>
+                                    <a href='edit-job.php?id=" . $row['id'] . "' class='btn btn-warning btn-sm action-btn'>
+                                        <img src='../assets/images/edit-icon.svg' alt='Edit Icon'> <span>Edit</span>
+                                    </a>
+                                    <a href='delete-job.php?id=" . $row['id'] . "' class='btn btn-danger btn-sm action-btn'>
+                                        <img src='../assets/images/delete-icon.svg' alt='Delete Icon'> <span>Delete</span>
+                                    </a>
+                                </div>
+                                </td>";
+                                echo "</tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-        $stmt->close();
-        ?>
-        <h1>Welcome, <?php echo htmlspecialchars($name); ?>!</h1>
-        <p>This is your jobs page where you can manage job listings and applications.</p>
-
+        </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#jobTable').DataTable();
+    });
+    </script>
 </body>
 
 </html>

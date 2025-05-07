@@ -96,45 +96,50 @@ body {
 
 @media (max-width: 768px) {
     .sidebar {
-        display: none;
+        display: none !important;
     }
 
     .content {
-        margin-left: 0;
+        margin-left: 0 !important;
     }
 
     .bottom-nav {
-        display: flex;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: #FFF;
-        border-top: 1px solid #AEAEAE;
-        z-index: 1000;
+        display: flex !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        background-color: #FFF !important;
+        border-top: 1px solid #AEAEAE !important;
+        height: 60px !important;
+        z-index: 1000 !important;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1) !important;
     }
 
     .bottom-nav-item {
-        flex: 1;
-        text-align: center;
-        padding: 10px 0;
+        flex: 1 !important;
+        text-align: center !important;
     }
 
     .bottom-nav-item a {
-        text-decoration: none;
-        color: #313638;
-        font-size: 12px;
-        font-weight: 500;
+        text-decoration: none !important;
+        color: #313638 !important;
+        font-size: 12px !important;
+        font-weight: 500 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 10px 0 !important;
     }
 
     .bottom-nav-item img {
-        width: 20px;
-        height: 20px;
-        margin-bottom: 5px;
+        width: 20px !important;
+        margin-bottom: 5px !important;
     }
 
     .bottom-nav-item a.active {
-        background-color: rgba(0, 0, 0, 0.08);
+        background-color: rgba(65, 43, 173, 0.1) !important;
+        color: #412BAD !important;
     }
 }
 </style>
@@ -181,7 +186,38 @@ body {
         </a>
     </div>
 </div>
-
+<div class="bottom-nav">
+    <div class="bottom-nav-item">
+        <a href="dashboard.php" class="<?php echo $currentPage === 'dashboard.php' ? 'active' : ''; ?>">
+            <img src="../assets/images/admin-home.svg" alt="Dashboard Icon" />
+            <span>Dashboard</span>
+        </a>
+    </div>
+    <div class="bottom-nav-item">
+        <a href="jobs.php" class="<?php echo $currentPage === 'jobs.php' ? 'active' : ''; ?>">
+            <img src="../assets/images/admin-jobs.svg" alt="Jobs Icon" />
+            <span>Jobs</span>
+        </a>
+    </div>
+    <div class="bottom-nav-item">
+        <a href="inbox.php" class="<?php echo $currentPage === 'inbox.php' ? 'active' : ''; ?>">
+            <img src="../assets/images/admin-inbox.svg" alt="Inbox Icon" />
+            <span>Inbox</span>
+        </a>
+    </div>
+    <div class="bottom-nav-item">
+        <a href="settings.php" class="<?php echo $currentPage === 'settings.php' ? 'active' : ''; ?>">
+            <img src="../assets/images/admin-settings.svg" alt="Settings Icon" />
+            <span>Settings</span>
+        </a>
+    </div>
+    <div class="bottom-nav-item">
+        <a href="logout.php">
+            <img src="../assets/images/admin-logout.svg" alt="Logout Icon" />
+            <span>Logout</span>
+        </a>
+    </div>
+</div>
 
 <script>
 document.querySelectorAll('.menu a').forEach(link => {
@@ -238,7 +274,7 @@ document.querySelectorAll('.menu a').forEach(link => {
 
     // Store the inactive and active image URLs in data attributes
     img.dataset.activeSrc = img.dataset.activeSrc || img.src.replace('admin-',
-    'active-admin-'); // Replace 'admin-' with 'active-admin-'
+        'active-admin-'); // Replace 'admin-' with 'active-admin-'
     img.dataset.inactiveSrc = img.dataset.inactiveSrc || img.src; // Keep the original src as the inactive image
 
     // Update images on hover
