@@ -272,6 +272,9 @@ document.querySelectorAll('.menu a').forEach(link => {
                     html: newContent.innerHTML,
                     pageTitle: newTitle
                 }, "", url);
+
+                // ✅ Reinitialize scripts here
+                reinitializeScripts();
             });
     });
 });
@@ -317,4 +320,21 @@ document.querySelectorAll('.menu a').forEach(link => {
         img.src = img.dataset.inactiveSrc;
     }
 });
+
+function reinitializeScripts() {
+    if (typeof $ === 'undefined') return;
+
+    // Reinitialize DataTables for any table with class 'datatable'
+    $('.datatable').each(function() {
+        if (!$.fn.DataTable.isDataTable(this)) {
+            $(this).DataTable({
+                ordering: true,
+                searching: true
+                // Optionally add page-specific configs here using conditions or data attributes
+            });
+        }
+    });
+
+    // Add reinitialization for other plugins or scripts here, if needed
+}
 </script>

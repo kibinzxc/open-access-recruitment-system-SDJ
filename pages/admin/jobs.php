@@ -36,7 +36,7 @@ $id = $_SESSION['user_id'];
 
             <div class="table-jobs">
                 <div class="table-responsive">
-                    <table id="jobTable" class="table table-striped table-bordered table-hover">
+                    <table id="jobTable" class="table datatable table-striped table-bordered table-hover">
                         <thead class="table-dark">
                             <tr>
                                 <th>Image</th>
@@ -80,16 +80,19 @@ $id = $_SESSION['user_id'];
             </div>
 
         </div>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-        <script>
-        $(document).ready(function() {
-            $('#jobTable').DataTable();
-        });
-        </script>
-    </div>
 
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#jobTable').DataTable({
+            "ordering": true, // Enable column sorting
+            "searching": true // Enable search functionality
+        });
+    });
+    </script>
 </body>
 
 </html>
