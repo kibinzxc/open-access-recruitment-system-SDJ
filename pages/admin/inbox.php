@@ -11,7 +11,7 @@ $id = $_SESSION['user_id'];
     <meta name="description" content="Sweet Dream Job - Your dream job awaits!">
     <meta name="keywords" content="job, career, dream job, employment, opportunities">
     <link rel="icon" href="../assets/images/icon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="styles/inbox.css">
+
     <title>Inbox | Admin</title>
 </head>
 <?php include '../includes/admin-sidebar.php'; ?>
@@ -20,6 +20,9 @@ $id = $_SESSION['user_id'];
 
 
     <div class="content" id="main-content">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="styles/inbox.css">
         <?php
         // Query to fetch the name based on the user ID from the session
         $query = "SELECT name FROM users WHERE id = ?";

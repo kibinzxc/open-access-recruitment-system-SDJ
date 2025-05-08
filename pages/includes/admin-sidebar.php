@@ -50,12 +50,13 @@ body {
 .menu a {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 20px !important;
     color: #313638;
     text-decoration: none;
     font-size: 18px;
     font-weight: 500;
     border-radius: 5px;
+
 }
 
 .menu a img,
