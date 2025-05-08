@@ -11,9 +11,8 @@ $id = $_SESSION['user_id'];
     <meta name="description" content="Sweet Dream Job - Your dream job awaits!">
     <meta name="keywords" content="job, career, dream job, employment, opportunities">
     <link rel="icon" href="../assets/images/icon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="styles/jobs.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+
     <title>Jobs | Admin</title>
 </head>
 <?php include '../includes/admin-sidebar.php'; ?>
@@ -21,6 +20,9 @@ $id = $_SESSION['user_id'];
 <body>
 
     <div class="content" id="main-content">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="styles/jobs.css">
         <div class="container-fluid">
             <div class="header">
                 <h1 class="my-4">Manage Job Listings</h1>
@@ -78,15 +80,16 @@ $id = $_SESSION['user_id'];
             </div>
 
         </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+        <script>
+        $(document).ready(function() {
+            $('#jobTable').DataTable();
+        });
+        </script>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script>
-    $(document).ready(function() {
-        $('#jobTable').DataTable();
-    });
-    </script>
+
 </body>
 
 </html>
