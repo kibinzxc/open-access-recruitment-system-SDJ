@@ -95,6 +95,19 @@ body {
     display: none;
 }
 
+.unread-bar {
+    position: absolute;
+    top: 50;
+    right: 20px;
+    background-color: #3A7CA5;
+    color: #FFFFFF;
+    border-radius: 20%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 1;
+}
+
 @media (max-width: 768px) {
     .sidebar {
         display: none !important;
@@ -177,6 +190,21 @@ body {
         </a>
 
         <a href="inbox.php" class="<?php echo $currentPage === 'inbox.php' ? 'active' : ''; ?>">
+            <?php
+            // Fetch unread count from the database
+            include_once 'config.php'; // Include your database connection file
+
+            $query = "SELECT COUNT(*) AS unread_count FROM messages WHERE is_read = 0";
+            $result = $conn->query($query);
+
+            $unreadCount = 0;
+            if ($result && $row = $result->fetch_assoc()) {
+                $unreadCount = $row['unread_count'];
+            }
+            ?>
+            <?php if ($unreadCount > 0): ?>
+            <div class="unread-bar"><?php echo $unreadCount; ?></div>
+            <?php endif; ?>
             <img src="../assets/images/admin-inbox.svg" data-active-src="../assets/images/active-admin-inbox.svg"
                 data-inactive-src="../assets/images/admin-inbox.svg" alt="Inbox Icon" />
             Inbox
@@ -284,6 +312,9 @@ window.addEventListener('popstate', function(e) {
     if (e.state) {
         document.querySelector('#main-content').innerHTML = e.state.html;
         document.title = e.state.pageTitle;
+
+        reinitializeScripts();
+
     }
 });
 
@@ -329,22 +360,26 @@ function reinitializeScripts() {
         return;
     }
 
-    // Initialize all tables with class "datatable"
-    $('.datatable').each(function() {
-        const $table = $(this);
+    const tablesToInitialize = ['#jobTable', '#msgTable'];
 
-        // Destroy if already initialized
-        if ($.fn.DataTable.isDataTable($table)) {
-            $table.DataTable().destroy();
+    tablesToInitialize.forEach((selector) => {
+        const tableElement = document.querySelector(selector);
+        if (tableElement) {
+            console.log(`Initializing ${selector}...`);
+
+            const $table = $(selector);
+
+            if ($.fn.DataTable.isDataTable(selector)) {
+                $table.DataTable().destroy();
+            }
+
+            $table.DataTable({
+                ordering: true,
+                searching: true,
+                paging: true,
+                responsive: true
+            });
         }
-
-        // Initialize with options
-        $table.DataTable({
-            ordering: true,
-            searching: true,
-            paging: true,
-            responsive: true
-        });
     });
 }
 </script>

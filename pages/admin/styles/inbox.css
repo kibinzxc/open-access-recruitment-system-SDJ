@@ -22,6 +22,75 @@ body {
     background-color: #E7E7E7;
 }
 
+.header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 34px;
+    font-weight: 600;
+    margin-bottom: 5px !important;
+
+}
+
+.unread {
+    background-color: #E7E7E7;
+    color: #412BAD;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-left: 10px;
+}
+
+.table-inbox {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fafafa;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.action-btns {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+    justify-content: center;
+}
+
+.action-btns a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.action-btns img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+
+.unread-row td {
+    background-color: #e6e6e6 !important;
+    font-weight: bold;
+}
+
+th:last-child,
+td:last-child {
+    width: 100px !important;
+    /* Adjust as needed */
+    white-space: nowrap !important;
+}
+
+#msgTable_filter {
+    margin-bottom: 10px !important;
+}
+
 @media (max-width: 768px) {
     body {
         grid-template-columns: none;

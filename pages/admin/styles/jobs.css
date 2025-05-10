@@ -109,15 +109,16 @@ body {
 
 th:nth-child(6),
 td:nth-child(6) {
-    width: 100px;
+    width: 100px !important;
     /* Adjust as needed */
-    white-space: nowrap;
+    white-space: nowrap !important;
 }
 
 td,
 th {
-    text-align: center;
+    text-align: center !important;
 }
+
 
 @media (max-width: 768px) {
 

@@ -22,32 +22,89 @@ $id = $_SESSION['user_id'];
 
 <body>
 
-
     <div class="content" id="main-content">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="styles/inbox.css">
-        <?php
-        // Query to fetch the name based on the user ID from the session
-        $query = "SELECT name FROM users WHERE id = ?";
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param("i", $id); // Use the user ID from the session
-        $stmt->execute();
-        $result = $stmt->get_result();
+        <div class="container-fluid">
+            <div class="header">
+                <?php
+                $unreadQuery = "SELECT COUNT(*) AS unread_count FROM messages WHERE status = 'unread'";
+                $unreadResult = mysqli_query($conn, $unreadQuery);
+                $unreadCount = 0;
+                if ($unreadResult) {
+                    $row = mysqli_fetch_assoc($unreadResult);
+                    $unreadCount = $row['unread_count'];
+                }
+                ?>
+                <h1 class="my-4">Inbox
+                    <?php if ($unreadCount > 0): ?>
+                    <span class="unread">(<?php echo $unreadCount; ?> unread)</span>
+                    <?php endif; ?>
+                </h1>
+            </div>
+            <p class="subheadline">All messages/inquiries/concerns from users</p>
 
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $name = $row['name'];
-        } else {
-            $name = "Guest"; // Default name if no user is found
-        }
+            <div class="table-inbox">
+                <div class="table-responsive">
+                    <table id="msgTable" class="table datatable  table-bordered table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>From</th>
+                                <th>Date Received</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $query = "SELECT * FROM messages";
+                            $result = mysqli_query($conn, $query);
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                // Check if the status is "unread"
+                                $rowClass = ($row["status"] === "unread") ? "unread-row" : "";
+                                echo "<tr class='$rowClass'>";
+                                echo "<td>" . $row['email'] . "</td>";
+                                echo "<td>" . date("F j, Y g:i A", strtotime($row['date_sent'])) . "</td>";
+                                echo "<td>" . ($row["status"] === "read" ? "already viewed" : $row["status"]) . "</td>";
+                                echo "<td>
+                                    <div class='action-btns'>
+                                        <a target='_blank' href='view-message.php?id=" . $row['msg_id'] . "' class='btn btn-info btn-sm action-btn'>
+                                            <img src='../assets/images/view-icon.svg' alt='View Icon'> <span>View</span>
+                                        </a>
+                                        <a href='delete-message.php?id=" . $row['msg_id'] . "' class='btn btn-danger btn-sm action-btn'>
+                                            <img src='../assets/images/delete-icon.svg' alt='Delete Icon'> <span>Delete</span>
+                                        </a>
+                                    </div>
+                                    </td>";
+                                echo "</tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-        $stmt->close();
-        ?>
-        <h1>Welcome, <?php echo htmlspecialchars($name); ?>!</h1>
-        <p>This is your inbox where you can manage your messages and notifications.</p>
+
+
+        </div>
 
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        $('#msgTable').DataTable({
+            ordering: true,
+            searching: true,
+            paging: true,
+            responsive: true
+        });
+    });
+    </script>
 </body>
 
 </html>
