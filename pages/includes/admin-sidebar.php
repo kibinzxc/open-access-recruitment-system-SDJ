@@ -266,15 +266,15 @@ document.querySelectorAll('.menu a').forEach(link => {
 
                 // Update title
                 document.title = newTitle;
-
+                // ✅ Reinitialize scripts here
+                reinitializeScripts();
                 // Push new state to browser history
                 history.pushState({
                     html: newContent.innerHTML,
                     pageTitle: newTitle
                 }, "", url);
 
-                // ✅ Reinitialize scripts here
-                reinitializeScripts();
+
             });
     });
 });
@@ -322,19 +322,29 @@ document.querySelectorAll('.menu a').forEach(link => {
 });
 
 function reinitializeScripts() {
-    if (typeof $ === 'undefined') return;
+    console.log('Reinitializing scripts...');
 
-    // Reinitialize DataTables for any table with class 'datatable'
+    if (typeof $ === 'undefined' || typeof $.fn.DataTable === 'undefined') {
+        console.warn('jQuery or DataTables not loaded.');
+        return;
+    }
+
+    // Initialize all tables with class "datatable"
     $('.datatable').each(function() {
-        if (!$.fn.DataTable.isDataTable(this)) {
-            $(this).DataTable({
-                ordering: true,
-                searching: true
-                // Optionally add page-specific configs here using conditions or data attributes
-            });
-        }
-    });
+        const $table = $(this);
 
-    // Add reinitialization for other plugins or scripts here, if needed
+        // Destroy if already initialized
+        if ($.fn.DataTable.isDataTable($table)) {
+            $table.DataTable().destroy();
+        }
+
+        // Initialize with options
+        $table.DataTable({
+            ordering: true,
+            searching: true,
+            paging: true,
+            responsive: true
+        });
+    });
 }
 </script>
