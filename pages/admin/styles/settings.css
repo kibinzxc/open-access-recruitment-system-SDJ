@@ -20,6 +20,140 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #E7E7E7;
+    overflow: auto;
+}
+
+.table-title {
+    font-weight: 600;
+    margin: 0;
+
+}
+
+.content {
+    color: #333333;
+    font-family: 'Inter', sans-serif;
+    padding: 20px 60px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #E7E7E7;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 34px;
+    font-weight: 600;
+    margin-bottom: 5px !important;
+
+}
+
+.unread {
+    background-color: #E7E7E7;
+    color: #412BAD;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-left: 10px;
+}
+
+.table-settings {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fafafa;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.action-btns {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+    justify-content: center;
+}
+
+.action-btns a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.action-btns img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+
+#accTable_filter {
+    margin-bottom: 10px !important;
+}
+
+
+.create-acc-btn {
+    background-color: #412BAD;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    height: auto;
+    align-self: center;
+    text-decoration: none;
+    display: inline-flex;
+    gap: 5px;
+
+}
+
+
+
+.create-acc-btn:hover {
+    background-color: #2E1F7A;
+}
+
+.create-acc-btn:active {
+    background-color: #1E0F5A;
+}
+
+.plus-btn {
+    width: 20px;
+}
+
+.header-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none;
+    text-align: justify;
+}
+
+textarea:focus {
+    outline: none !important;
+    border-color: #412BAD !important;
+    box-shadow: none !important;
 }
 
 @media (max-width: 768px) {

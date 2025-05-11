@@ -32,7 +32,7 @@ $id = $_SESSION['user_id'];
                 <h1 class="my-4">Manage Job Listings</h1>
                 <a href="" class="view-applicants-btn"> <img class="plus-btn" src="../assets/images/external-link.svg"
                         alt="">View
-                    Applicants</a>
+                    Applications</a>
             </div>
             <div class="header-btns"> <a href="add-job.php" class="add-job-btn"> <img class="plus-btn"
                         src="../assets/images/plus.svg" alt=""> Add
@@ -92,14 +92,14 @@ $id = $_SESSION['user_id'];
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 
     <script>
-    $(document).ready(function() {
-        $('#jobTable').DataTable({
-            ordering: true,
-            searching: true,
-            paging: true,
-            responsive: true
+        $(document).ready(function() {
+            $('#jobTable').DataTable({
+                ordering: true,
+                searching: true,
+                paging: true,
+                responsive: true
+            });
         });
-    });
     </script>
 </body>
 

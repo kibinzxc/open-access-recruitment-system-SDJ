@@ -39,7 +39,7 @@ $id = $_SESSION['user_id'];
                 ?>
                 <h1 class="my-4">Inbox
                     <?php if ($unreadCount > 0): ?>
-                    <span class="unread">(<?php echo $unreadCount; ?> unread)</span>
+                        <span class="unread">(<?php echo $unreadCount; ?> unread)</span>
                     <?php endif; ?>
                 </h1>
             </div>
@@ -50,6 +50,7 @@ $id = $_SESSION['user_id'];
                     <table id="msgTable" class="table datatable  table-bordered table-hover">
                         <thead class="table-dark">
                             <tr>
+                                <th>#</th>
                                 <th>From</th>
                                 <th>Date Received</th>
                                 <th>Status</th>
@@ -60,10 +61,14 @@ $id = $_SESSION['user_id'];
                             <?php
                             $query = "SELECT * FROM messages";
                             $result = mysqli_query($conn, $query);
+                            $rowCount = 1;
                             while ($row = mysqli_fetch_assoc($result)) {
                                 // Check if the status is "unread"
                                 $rowClass = ($row["status"] === "unread") ? "unread-row" : "";
                                 echo "<tr class='$rowClass'>";
+                                //count the number of rows
+
+                                echo "<td>" . $rowCount++ . "</td>";
                                 echo "<td>" . $row['email'] . "</td>";
                                 echo "<td>" . date("F j, Y g:i A", strtotime($row['date_sent'])) . "</td>";
                                 echo "<td>" . ($row["status"] === "read" ? "already viewed" : $row["status"]) . "</td>";
@@ -96,14 +101,14 @@ $id = $_SESSION['user_id'];
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 
     <script>
-    $(document).ready(function() {
-        $('#msgTable').DataTable({
-            ordering: true,
-            searching: true,
-            paging: true,
-            responsive: true
+        $(document).ready(function() {
+            $('#msgTable').DataTable({
+                ordering: true,
+                searching: true,
+                paging: true,
+                responsive: true
+            });
         });
-    });
     </script>
 </body>
 
