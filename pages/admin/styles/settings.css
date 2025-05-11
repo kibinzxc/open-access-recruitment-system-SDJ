@@ -156,6 +156,10 @@ textarea:focus {
     box-shadow: none !important;
 }
 
+.space-top {
+    margin-top: 40px;
+}
+
 @media (max-width: 768px) {
     body {
         grid-template-columns: none;

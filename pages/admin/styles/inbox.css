@@ -91,6 +91,12 @@ td:last-child {
     margin-bottom: 10px !important;
 }
 
+td,
+th {
+    text-align: center !important;
+}
+
+
 @media (max-width: 768px) {
     body {
         grid-template-columns: none;

@@ -73,7 +73,7 @@ $id = $_SESSION['user_id'];
             </div>
 
 
-            <div class="table-settings">
+            <div class="table-settings space-top">
 
                 <div class="header-btns">
                     <h4 class="table-title">Company Details</h4> <a href="add-job.php" class="create-acc-btn"> <img

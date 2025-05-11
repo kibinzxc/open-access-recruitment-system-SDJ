@@ -51,7 +51,7 @@ $id = $_SESSION['user_id'];
                         <thead class="table-dark">
                             <tr>
                                 <th>#</th>
-                                <th>From</th>
+                                <th>Sender's Email</th>
                                 <th>Date Received</th>
                                 <th>Status</th>
                                 <th>Actions</th>
