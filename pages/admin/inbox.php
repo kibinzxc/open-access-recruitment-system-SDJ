@@ -39,7 +39,7 @@ $id = $_SESSION['user_id'];
                 ?>
                 <h1 class="my-4">Inbox
                     <?php if ($unreadCount > 0): ?>
-                        <span class="unread">(<?php echo $unreadCount; ?> unread)</span>
+                    <span class="unread">(<?php echo $unreadCount; ?> unread)</span>
                     <?php endif; ?>
                 </h1>
             </div>
@@ -59,7 +59,7 @@ $id = $_SESSION['user_id'];
                         </thead>
                         <tbody>
                             <?php
-                            $query = "SELECT * FROM messages";
+                            $query = "SELECT * FROM messages ORDER BY date_sent DESC";
                             $result = mysqli_query($conn, $query);
                             $rowCount = 1;
                             while ($row = mysqli_fetch_assoc($result)) {
@@ -101,14 +101,14 @@ $id = $_SESSION['user_id'];
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('#msgTable').DataTable({
-                ordering: true,
-                searching: true,
-                paging: true,
-                responsive: true
-            });
+    $(document).ready(function() {
+        $('#msgTable').DataTable({
+            ordering: true,
+            searching: true,
+            paging: true,
+            responsive: true
         });
+    });
     </script>
 </body>
 

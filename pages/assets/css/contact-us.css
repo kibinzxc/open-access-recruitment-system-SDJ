@@ -467,6 +467,14 @@ textarea:focus {
 
     }
 
+    .alert {
+        padding: 8px 12px;
+        font-size: 14px;
+        text-align: center;
+        bottom: auto;
+        top: 20px;
+    }
+
 }
 
 
@@ -483,4 +491,6 @@ textarea:focus {
     .contact-us-container {
         display: none;
     }
+
+
 }
