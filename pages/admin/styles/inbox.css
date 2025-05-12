@@ -20,6 +20,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #E7E7E7;
+    overflow: auto;
 }
 
 .header {
@@ -89,6 +90,18 @@ td:last-child {
 
 #msgTable_filter {
     margin-bottom: 10px !important;
+}
+
+#msgTable_filter input:focus {
+    border-color: #412BAD !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.form-select:focus {
+    border-color: #412BAD !important;
+    box-shadow: none !important;
+    outline: none !important;
 }
 
 td,

@@ -26,7 +26,8 @@ body {
 .table-title {
     font-weight: 600;
     margin: 0;
-
+    align-self: flex-end;
+    text-align: center;
 }
 
 .content {
@@ -96,6 +97,18 @@ body {
     margin-bottom: 10px !important;
 }
 
+#accTable_filter input:focus {
+    border-color: #412BAD !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.form-select:focus {
+    border-color: #412BAD !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
 
 .create-acc-btn {
     background-color: #412BAD;
@@ -131,11 +144,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .form-label {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     margin-bottom: 10px;
     text-transform: capitalize;

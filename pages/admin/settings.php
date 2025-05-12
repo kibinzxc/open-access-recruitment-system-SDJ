@@ -110,14 +110,14 @@ $id = $_SESSION['user_id'];
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('#accTable').DataTable({
-                ordering: true,
-                searching: true,
-                paging: true,
-                responsive: true
-            });
+    $(document).ready(function() {
+        $('#accTable').DataTable({
+            ordering: true,
+            searching: true,
+            paging: true,
+            responsive: true
         });
+    });
     </script>
 </body>
 
