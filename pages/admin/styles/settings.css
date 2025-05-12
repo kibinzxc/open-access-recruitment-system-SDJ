@@ -183,4 +183,47 @@ textarea:focus {
         padding: 10px;
         margin-bottom: 60px;
     }
+
+    .header {
+        text-align: center;
+    }
+
+    .table-settings {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .my-4 {
+        font-size: 2rem !important;
+        margin-bottom: 15px !important;
+        text-align: center;
+    }
+
+    .header-btns {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        text-align: center !important;
+
+    }
+
+
+    .group-btns {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+    }
+
+    .table-title {
+        text-align: center !important;
+        align-self: center;
+    }
+
+
+
 }

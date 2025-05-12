@@ -120,4 +120,24 @@ th {
         padding: 10px;
         margin-bottom: 60px;
     }
+
+    .unread {
+        font-size: 1rem;
+        margin-left: 0px;
+    }
+
+    .my-4 {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .header {
+        margin-bottom: 0;
+    }
+
+    .subheadline {
+        font-size: 1rem;
+        text-align: center;
+    }
+
 }

@@ -157,6 +157,11 @@ th {
         align-items: center;
     }
 
+    .my-4 {
+        font-size: 2rem !important;
+        margin-bottom: 15px !important;
+    }
+
     .header-btns {
         display: flex;
         flex-direction: column;
@@ -186,5 +191,12 @@ th {
 
     .action-btns a span {}
 
+    .view-applicants-btn,
+    .add-job-btn {
+        font-size: 14px;
+        padding: 5px 10px;
+        height: auto;
+        align-self: center;
+    }
 
 }
