@@ -19,6 +19,15 @@ include 'includes/db-connection.php';
 
 <body class="body">
     <?php include 'includes/dreamy-stars2.php'; ?>
+    <?php
+    if (isset($_GET['success'])) {
+        echo '<div class="alert alert-success" id="alert-message">' . htmlspecialchars($_GET['success']) . '</div>';
+    }
+
+    if (isset($_GET['error'])) {
+        echo '<div class="alert alert-danger" id="alert-message">' . htmlspecialchars($_GET['error']) . '</div>';
+    }
+    ?>
     <div class="note">Rotate your device for the best experience!</div>
     <div class="contact-us-container">
 
@@ -112,4 +121,15 @@ include 'includes/db-connection.php';
             </div>
         </div>
     </div>
+    <script>
+        // Automatically hide the alert message after 5 seconds
+        setTimeout(() => {
+            const alertMessage = document.getElementById('alert-message');
+            if (alertMessage) {
+                alertMessage.style.transition = 'opacity 0.5s ease';
+                alertMessage.style.opacity = '0';
+                setTimeout(() => alertMessage.remove(), 500); // Remove the element after fading out
+            }
+        }, 5000); // 5 seconds
+    </script>
 </body>
