@@ -89,7 +89,7 @@ $result = mysqli_query($conn, $query);
     <div class="container">
         <div class="wrapper">
             <?php
-            $query .= " ORDER BY title ASC";
+            $query .= " ORDER BY title ASC WHERE status ='open'";
             $result = mysqli_query($conn, $query);
 
             if (mysqli_num_rows($result) > 0) {
@@ -148,13 +148,13 @@ $result = mysqli_query($conn, $query);
 </body>
 
 <script>
-document.querySelectorAll('.search-column select').forEach(select => {
-    select.addEventListener('change', function() {
-        if (this.value === "") {
-            this.classList.add('placeholder-shown');
-        } else {
-            this.classList.remove('placeholder-shown');
-        }
+    document.querySelectorAll('.search-column select').forEach(select => {
+        select.addEventListener('change', function() {
+            if (this.value === "") {
+                this.classList.add('placeholder-shown');
+            } else {
+                this.classList.remove('placeholder-shown');
+            }
+        });
     });
-});
 </script>
