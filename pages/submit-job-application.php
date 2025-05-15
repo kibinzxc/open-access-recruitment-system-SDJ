@@ -12,10 +12,10 @@ require 'libs/vendor/autoload.php';
 // Check if the form is submitted via POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Check if submission cookie exists
-    // if (isset($_COOKIE['job_application_submitted'])) {
-    //     header('Location: job-application.php?id=' . $_POST['job_code'] . '&error=You have already submitted an application recently.');
-    //     exit;
-    // }
+    if (isset($_COOKIE['job_application_submitted'])) {
+        header('Location: job-application.php?id=' . $_POST['job_code'] . '&error=You have already submitted an application recently.');
+        exit;
+    }
 
     // Validate job code
     if (!isset($_POST['job_code']) || empty($_POST['job_code'])) {
