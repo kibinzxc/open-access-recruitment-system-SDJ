@@ -215,6 +215,7 @@ textarea:focus {
     pointer-events: none;
     /* Prevents interaction with the message */
     animation: slideDown 0.5s ease forwards;
+    text-align: center;
 }
 
 @keyframes slideDown {

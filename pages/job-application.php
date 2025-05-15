@@ -6,7 +6,7 @@ include 'includes/db-connection.php';
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     die("Error: Job ID (job_code) not provided in the URL.");
 }
-$jobCode = $_GET['id']; 
+$jobCode = $_GET['id'];
 ?>
 <html lang="en">
 
@@ -25,7 +25,15 @@ $jobCode = $_GET['id'];
 
 <body class="body">
     <div class="note">Rotate your device for the best experience!</div>
+    <?php
+    if (isset($_GET['success'])) {
+        echo '<div class="alert alert-success" id="alert-message">' . htmlspecialchars($_GET['success']) . '</div>';
+    }
 
+    if (isset($_GET['error'])) {
+        echo '<div class="alert alert-danger" id="alert-message">' . htmlspecialchars($_GET['error']) . '</div>';
+    }
+    ?>
 
     <?php
     if (isset($jobCode)) {
@@ -70,6 +78,9 @@ $jobCode = $_GET['id'];
                     <div class="form-column-full">
                         <div class="name-column">
                             <div class="form-column">
+                                <input type="hidden" id="job-code" name="job_code"
+                                    value="<?= htmlspecialchars($job['job_code']); ?>">
+
                                 <label for="first-name">First Name*</label>
                                 <input type="text" id="first-name" name="first_name" placeholder="First Name" required>
                             </div>
@@ -113,62 +124,62 @@ $jobCode = $_GET['id'];
                     <h2 class="top-h2">Responsibilities</h2>
                     <div class="early-show" id="early-show">
                         <?php
-                            $responsibilities = json_decode($job['responsibilities'], true);
-                            if (is_array($responsibilities) && isset($responsibilities['responsibilities'])) {
-                                // Get all responsibilities
-                                $tasks = $responsibilities['responsibilities'];
-                                
+                        $responsibilities = json_decode($job['responsibilities'], true);
+                        if (is_array($responsibilities) && isset($responsibilities['responsibilities'])) {
+                            // Get all responsibilities
+                            $tasks = $responsibilities['responsibilities'];
 
-                                // Display only the first two responsibilities in an unordered list
-                                echo '<ul class="job-responsibilities">';
-                                foreach (array_slice($tasks, 0, 2) as $responsibility) {
-                                    echo '<li>' . htmlspecialchars($responsibility) . '</li>';
-                                }
-                                echo '</ul>';
-                            } else {
-                                echo '<p>No responsibilities listed</p>';
+
+                            // Display only the first two responsibilities in an unordered list
+                            echo '<ul class="job-responsibilities">';
+                            foreach (array_slice($tasks, 0, 2) as $responsibility) {
+                                echo '<li>' . htmlspecialchars($responsibility) . '</li>';
                             }
-                ?>
+                            echo '</ul>';
+                        } else {
+                            echo '<p>No responsibilities listed</p>';
+                        }
+                        ?>
                     </div>
 
                     <div class="late-show" id="desc" style="display: none;">
                         <?php
-                            $responsibilities = json_decode($job['responsibilities'], true);
-                            if (is_array($responsibilities) && isset($responsibilities['responsibilities'])) {
-                                // Get all responsibilities
-                                $tasks = $responsibilities['responsibilities'];
-                                
-                                // Display responsibilities in an unordered list
-                                echo '<ul class="job-responsibilities2">';
-                                foreach ($tasks as $responsibility) {
-                                    echo '<li>' . htmlspecialchars($responsibility) . '</li>';
-                                }
-                                echo '</ul>';
-                            } else {
-                                echo '<p>No responsibilities listed</p>';
+                        $responsibilities = json_decode($job['responsibilities'], true);
+                        if (is_array($responsibilities) && isset($responsibilities['responsibilities'])) {
+                            // Get all responsibilities
+                            $tasks = $responsibilities['responsibilities'];
+
+                            // Display responsibilities in an unordered list
+                            echo '<ul class="job-responsibilities2">';
+                            foreach ($tasks as $responsibility) {
+                                echo '<li>' . htmlspecialchars($responsibility) . '</li>';
                             }
+                            echo '</ul>';
+                        } else {
+                            echo '<p>No responsibilities listed</p>';
+                        }
                         ?>
                         <h2>Qualifications</h2>
                         <?php
-                            $qualifications = json_decode($job['qualification'], true);
-                            if (is_array($qualifications) && isset($qualifications['qualification'])) {
-                                // Get all qualifications
-                                $tags = $qualifications['qualification'];
-                                
-                                // Sort by string length (shortest first)
-                                usort($tags, function($a, $b) {
-                                    return strlen($a) - strlen($b);
-                                });
-                                
-                                // Display sorted qualifications in an unordered list
-                                echo '<ul class="job-responsibilities2">';
-                                foreach ($tags as $qualification) {
-                                    echo '<li>' . htmlspecialchars($qualification) . '</li>';
-                                }
-                                echo '</ul>';
-                            } else {
-                                echo '<p>No qualifications listed</p>';
+                        $qualifications = json_decode($job['qualification'], true);
+                        if (is_array($qualifications) && isset($qualifications['qualification'])) {
+                            // Get all qualifications
+                            $tags = $qualifications['qualification'];
+
+                            // Sort by string length (shortest first)
+                            usort($tags, function ($a, $b) {
+                                return strlen($a) - strlen($b);
+                            });
+
+                            // Display sorted qualifications in an unordered list
+                            echo '<ul class="job-responsibilities2">';
+                            foreach ($tags as $qualification) {
+                                echo '<li>' . htmlspecialchars($qualification) . '</li>';
                             }
+                            echo '</ul>';
+                        } else {
+                            echo '<p>No qualifications listed</p>';
+                        }
                         ?>
 
 
@@ -198,4 +209,16 @@ document.getElementById("toggleDesc").addEventListener("click", function() {
             "<span class=\"desc-label\"> View full job description </span><img src='assets/images/down-arrow.svg' alt=''>";
     }
 });
+</script>
+
+<script>
+// Automatically hide the alert message after 5 seconds
+setTimeout(() => {
+    const alertMessage = document.getElementById('alert-message');
+    if (alertMessage) {
+        alertMessage.style.transition = 'opacity 0.5s ease';
+        alertMessage.style.opacity = '0';
+        setTimeout(() => alertMessage.remove(), 500); // Remove the element after fading out
+    }
+}, 5000); // 5 seconds
 </script>

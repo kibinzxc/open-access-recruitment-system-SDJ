@@ -10,10 +10,10 @@ require 'libs/vendor/autoload.php';
 // Check if the form is submitted via POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Check if submission cookie exists
-    // if (isset($_COOKIE['form_submitted'])) {
-    //     header('Location: contact-us.php?error=You have already submitted a message.');
-    //     exit;
-    // }
+    if (isset($_COOKIE['form_submitted'])) {
+        header('Location: contact-us.php?error=You have already submitted a message.');
+        exit;
+    }
 
 
     // Sanitize and validate input
