@@ -221,8 +221,9 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                 $unreadCount = $row['unread_count'];
             }
             ?>
-            <div class="unread-bar" style="display: none;"></div>
-
+            <?php if ($unreadCount > 0): ?>
+                <div class="unread-bar"><?php echo $unreadCount; ?></div>
+            <?php endif; ?>
             <img src="../assets/images/admin-inbox.svg" data-active-src="../assets/images/active-admin-inbox.svg"
                 data-inactive-src="../assets/images/admin-inbox.svg" alt="Inbox Icon" />
             Inbox
@@ -268,8 +269,9 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                 $unreadCount = $row['unread_count'];
             }
             ?>
-            <div class="unread-bar2" style="display: none;"></div>
-
+            <?php if ($unreadCount > 0): ?>
+                <div class="unread-bar2"><?php echo $unreadCount; ?></div>
+            <?php endif; ?>
             <img src="../assets/images/admin-inbox.svg" alt="Inbox Icon" />
             <span>Inbox</span>
         </a>
@@ -298,38 +300,21 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 </div>
 
 <script>
-    function updateUnreadCount() {
-        fetch('get-unread-count.php')
-            .then(response => response.text())
-            .then(count => {
-                document.querySelectorAll('.unread-bar, .unread-bar2').forEach(el => {
-                    const countNum = parseInt(count);
-                    if (countNum > 0) {
-                        el.textContent = countNum;
-                        el.style.display = 'block';
-                    } else {
-                        el.style.display = 'none';
-                    }
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching unread count:', error);
-            });
-    }
-
     document.querySelectorAll('.menu a').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
 
+            // Remove 'active' class from all links and reset images
             document.querySelectorAll('.menu a').forEach(a => {
                 a.classList.remove('active');
                 const img = a.querySelector('img');
-                img.src = img.dataset.inactiveSrc;
+                img.src = img.dataset.inactiveSrc; // Revert to the inactive image
             });
 
+            // Add 'active' class to the clicked link and update the image
             this.classList.add('active');
             const img = this.querySelector('img');
-            img.src = img.dataset.activeSrc;
+            img.src = img.dataset.activeSrc; // Set to the active image
 
             const url = this.getAttribute('href');
 
@@ -341,40 +326,48 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                     const newContent = doc.querySelector('#main-content');
                     const newTitle = doc.querySelector('title').innerText;
 
+                    // Replace main content
                     document.querySelector('#main-content').innerHTML = newContent.innerHTML;
-                    document.title = newTitle;
 
+                    // Update title
+                    document.title = newTitle;
+                    // ✅ Reinitialize scripts here
                     reinitializeScripts();
                     updateDashboardFooters();
-                    updateUnreadCount();
 
+                    // Update footers every 60 seconds
                     setInterval(updateDashboardFooters, 60000);
-                    setInterval(updateUnreadCount, 60000);
-
+                    // Push new state to browser history
                     history.pushState({
                         html: newContent.innerHTML,
                         pageTitle: newTitle
                     }, "", url);
+
+
                 });
         });
     });
 
+    // Handle back/forward button navigation
     window.addEventListener('popstate', function(e) {
         if (e.state) {
             document.querySelector('#main-content').innerHTML = e.state.html;
             document.title = e.state.pageTitle;
+
             reinitializeScripts();
             updateDashboardFooters();
-            updateUnreadCount();
         }
     });
 
     document.querySelectorAll('.menu a').forEach(link => {
         const img = link.querySelector('img');
 
-        img.dataset.activeSrc = img.dataset.activeSrc || img.src.replace('admin-', 'active-admin-');
-        img.dataset.inactiveSrc = img.dataset.inactiveSrc || img.src;
+        // Store the inactive and active image URLs in data attributes
+        img.dataset.activeSrc = img.dataset.activeSrc || img.src.replace('admin-',
+            'active-admin-'); // Replace 'admin-' with 'active-admin-'
+        img.dataset.inactiveSrc = img.dataset.inactiveSrc || img.src; // Keep the original src as the inactive image
 
+        // Update images on hover
         link.addEventListener('mouseover', function() {
             if (!this.classList.contains('active')) {
                 img.src = img.dataset.activeSrc;
@@ -388,8 +381,11 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         });
     });
 
+    // On page load, set the active image correctly
     document.querySelectorAll('.menu a').forEach(link => {
         const img = link.querySelector('img');
+
+        // If already has the active class (e.g., on page refresh), set image to active
         if (link.classList.contains('active')) {
             img.src = img.dataset.activeSrc;
         } else {
@@ -431,14 +427,16 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             }
         });
 
+        // ✅ Reattach Bootstrap modal functionality
         const modalElements = document.querySelectorAll('.modal');
         modalElements.forEach(modalEl => {
             const modalInstance = bootstrap.Modal.getInstance(modalEl);
             if (!modalInstance) {
-                new bootstrap.Modal(modalEl);
+                new bootstrap.Modal(modalEl); // reinitialize modal
             }
         });
 
+        // ✅ Rebind SweetAlert delete handler
         $(document).off('click', '.delete-job-btn').on('click', '.delete-job-btn', function() {
             const jobId = $(this).data('id');
             Swal.fire({
@@ -455,12 +453,11 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                 }
             });
         });
-
-        updateUnreadCount();
     }
 
+
     function getTimeElapsed(timestamp) {
-        const now = Math.floor(Date.now() / 1000);
+        const now = Math.floor(Date.now() / 1000); // Current time in seconds
         const elapsed = now - timestamp;
 
         if (elapsed < 60) {
@@ -486,11 +483,12 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         });
     }
 
+    // Update footers on page load
     updateDashboardFooters();
-    updateUnreadCount();
 
+    // Update footers every 60 seconds
     setInterval(updateDashboardFooters, 60000);
-    setInterval(updateUnreadCount, 60000);
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script src="../admin/scripts/jobs.js"></script>
