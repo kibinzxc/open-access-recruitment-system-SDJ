@@ -90,7 +90,7 @@ $result = mysqli_query($conn, $query);
         <div class="wrapper">
             <?php
             // Add status condition before ordering
-            $query .= (empty($conditions) ? " WHERE" : " AND") . " status = 'open'";
+            $query .= (empty($conditions) ? " WHERE" : " AND") . " availability = 'open'";
             $query .= " ORDER BY title ASC";
             $result = mysqli_query($conn, $query);
 
