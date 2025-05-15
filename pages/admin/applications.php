@@ -28,6 +28,9 @@ $id = $_SESSION['user_id'];
         <div class="container-fluid">
             <div class="header">
                 <h1 class="my-4">Job Applications</h1>
+                <a href="jobs.php" class="view-applicants-btn"> <img class="plus-btn"
+                        src="../assets/images/external-link.svg" alt="">View
+                    Jobs</a>
             </div>
             <p class="subheadline">List of all submitted job applications</p>
             <div class="table-inbox">

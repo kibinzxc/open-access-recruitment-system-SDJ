@@ -98,6 +98,16 @@ td:last-child {
     margin-bottom: 10px !important;
 }
 
+#appTable_filter {
+    margin-bottom: 10px !important;
+}
+
+#appTable_filter input:focus {
+    border-color: #412BAD !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
 #msgTable_filter input:focus {
     border-color: #412BAD !important;
     box-shadow: none !important;
@@ -115,6 +125,45 @@ th {
     text-align: center !important;
 }
 
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.view-applicants-btn,
+.add-job-btn {
+    background-color: #412BAD;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    height: auto;
+    align-self: center;
+    text-decoration: none;
+    display: inline-flex;
+    gap: 5px;
+
+}
+
+
+
+.view-applicants-btn:hover,
+.add-job-btn:hover {
+    background-color: #2E1F7A;
+}
+
+.view-applicants-btn:active,
+.add-job-btn:active {
+    background-color: #1E0F5A;
+}
+
+.plus-btn {
+    width: 20px;
+}
 
 @media (max-width: 768px) {
     body {
@@ -144,6 +193,20 @@ th {
     .subheadline {
         font-size: 1rem;
         text-align: center;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .view-applicants-btn,
+    .add-job-btn {
+        font-size: 14px;
+        padding: 5px 10px;
+        margin: 10px 0;
+        height: auto;
+        align-self: center;
     }
 
 }

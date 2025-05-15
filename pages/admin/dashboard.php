@@ -91,7 +91,15 @@ $id = $_SESSION['user_id'];
                                 <img src="../assets/images/dashboard-applications.svg" alt=""
                                     class="dashboard-card-icon">
                             </div>
-                            <div class="dashboard-card-value">84</div>
+                            <?php
+                            $query = "SELECT COUNT(*) AS total_applications FROM applications";
+                            $stmt = $conn->prepare($query);
+                            $stmt->execute();
+                            $result = $stmt->get_result();
+                            $row = $result->fetch_assoc();
+                            $totalApplications = $row['total_applications'] ?? 0;
+                            ?>
+                            <div class="dashboard-card-value"><?php echo htmlspecialchars($totalApplications); ?></div>
                         </div>
                         <div class="dashboard-card-footer" data-timestamp="<?php echo time(); ?>"></div>
                     </div>
@@ -132,22 +140,22 @@ $id = $_SESSION['user_id'];
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('#msgTable').DataTable({
-                ordering: true,
-                searching: true,
-                paging: true,
-                responsive: true
-            });
+    $(document).ready(function() {
+        $('#msgTable').DataTable({
+            ordering: true,
+            searching: true,
+            paging: true,
+            responsive: true
         });
+    });
     </script>
 
     <script>
-        // Update footers on page load
-        updateDashboardFooters();
+    // Update footers on page load
+    updateDashboardFooters();
 
-        // Update footers every 60 seconds
-        setInterval(updateDashboardFooters, 60000);
+    // Update footers every 60 seconds
+    setInterval(updateDashboardFooters, 60000);
     </script>
 </body>
 

@@ -202,7 +202,7 @@ body {
 
 
         <a href="jobs.php" id="JobsLink"
-            class="<?php echo ($currentPage === 'jobs.php' || $currentPage === 'edit-job.php') ? 'active' : ''; ?>">
+            class="<?php echo ($currentPage === 'jobs.php' || $currentPage === 'edit-job.php' || $currentPage === 'applications.php') ? 'active' : ''; ?>">
             <img src="../assets/images/admin-jobs.svg" data-active-src="../assets/images/active-admin-jobs.svg"
                 data-inactive-src="../assets/images/admin-jobs.svg" alt="Jobs Icon" />
             Jobs
@@ -250,7 +250,7 @@ body {
 
     <div class="bottom-nav-item">
         <a href="jobs.php" id="jobsLink"
-            class="<?php echo ($currentPage === 'jobs.php' || $currentPage === 'edit-job.php') ? 'active' : ''; ?>">
+            class="<?php echo ($currentPage === 'jobs.php' || $currentPage === 'edit-job.php' || $currentPage === 'applications.php') ? 'active' : ''; ?>">
             <img src="../assets/images/admin-jobs.svg" alt="Jobs Icon" />
             <span>Jobs</span>
         </a>
