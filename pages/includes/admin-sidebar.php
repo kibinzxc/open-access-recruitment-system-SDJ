@@ -2,189 +2,189 @@
 $currentPage = basename($_SERVER['PHP_SELF']);
 ?>
 <style>
-@font-face {
-    font-family: 'Inter';
-    src: url('../assets/fonts/Inter.ttf') format('truetype');
-}
+    @font-face {
+        font-family: 'Inter';
+        src: url('../assets/fonts/Inter.ttf') format('truetype');
+    }
 
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-}
+    body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+    }
 
-.sidebar {
-    width: 220px;
-    height: 100vh;
-    background-color: #FAFAFA;
-    border-right: 1px solid #AEAEAE;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
-
-
-.brand {
-    text-align: center;
-    padding-top: 10px;
-    padding-right: 10px;
-
-}
-
-.brand img {
-    width: 150px;
-    margin: -20px 0;
-}
-
-.menu {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    padding: 0 10px;
-    gap: 20px;
-}
-
-.menu a {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px !important;
-    color: #313638;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 500;
-    border-radius: 5px;
-
-}
-
-.menu a img,
-.logout a img {
-    width: 20px;
-    margin-right: 12px;
-}
-
-.menu a:hover,
-.menu a.active,
-.logout a:hover,
-.logout a.active {
-    background-color: #412BAD;
-    color: #fff;
-}
-
-.logout {
-    padding: 10px 10px;
-}
-
-.logout a {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    color: #313638;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 500;
-    border-radius: 5px;
-}
-
-
-
-/* Mobile view (hide sidebar, show bottom nav) */
-.bottom-nav {
-    display: none;
-}
-
-.unread-bar {
-    position: absolute;
-    top: 50;
-    right: 20px;
-    background-color: #3A7CA5;
-    color: #FFFFFF;
-    border-radius: 20%;
-    padding: 2px 6px;
-    font-size: 12px;
-    font-weight: bold;
-    z-index: 1;
-}
-
-@media (max-width: 768px) {
     .sidebar {
-        display: none !important;
-    }
-
-    .content {
-        margin-left: 0 !important;
-    }
-
-    .bottom-nav {
-        display: flex !important;
-        position: fixed !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        background-color: #FFF !important;
-        height: 60px !important;
-        z-index: 1000 !important;
-        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1) !important;
-        align-items: stretch !important;
-    }
-
-    .bottom-nav-item {
-        flex: 1 !important;
-        text-align: center !important;
-        height: 100% !important;
+        width: 220px;
+        height: 100vh;
+        background-color: #FAFAFA;
+        border-right: 1px solid #AEAEAE;
         display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 1000;
     }
 
-    .bottom-nav-item a {
-        text-decoration: none !important;
-        color: #313638 !important;
-        font-size: 12px !important;
-        font-weight: 500 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
-        height: 100% !important;
-        width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        box-sizing: border-box !important;
-        line-height: 1 !important;
+
+    .brand {
+        text-align: center;
+        padding-top: 10px;
+        padding-right: 10px;
+
     }
 
-    .bottom-nav-item img {
-        display: block !important;
-        /* fixes baseline alignment issues */
-        width: 20px !important;
-        height: auto !important;
-        margin: 4px 0 !important;
+    .brand img {
+        width: 150px;
+        margin: -20px 0;
     }
 
-    .bottom-nav-item a.active {
-        background-color: rgba(65, 43, 173, 0.1) !important;
-        color: #412BAD !important;
+    .menu {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        padding: 0 10px;
+        gap: 20px;
     }
 
-    .unread-bar {
+    .menu a {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px !important;
+        color: #313638;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+        border-radius: 5px;
+
+    }
+
+    .menu a img,
+    .logout a img {
+        width: 20px;
+        margin-right: 12px;
+    }
+
+    .menu a:hover,
+    .menu a.active,
+    .logout a:hover,
+    .logout a.active {
+        background-color: #412BAD;
+        color: #fff;
+    }
+
+    .logout {
+        padding: 10px 10px;
+    }
+
+    .logout a {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        color: #313638;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+        border-radius: 5px;
+    }
+
+
+
+    /* Mobile view (hide sidebar, show bottom nav) */
+    .bottom-nav {
         display: none;
     }
 
-    .unread-bar2 {
+    .unread-bar {
         position: absolute;
-        top: 10px;
-        left: 32%;
-        transform: translateX(-50%);
+        top: 50;
+        right: 20px;
         background-color: #3A7CA5;
         color: #FFFFFF;
         border-radius: 20%;
-        padding: 2px 4px;
-        font-size: 10px;
+        padding: 2px 6px;
+        font-size: 12px;
         font-weight: bold;
         z-index: 1;
     }
-}
+
+    @media (max-width: 768px) {
+        .sidebar {
+            display: none !important;
+        }
+
+        .content {
+            margin-left: 0 !important;
+        }
+
+        .bottom-nav {
+            display: flex !important;
+            position: fixed !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            background-color: #FFF !important;
+            height: 60px !important;
+            z-index: 1000 !important;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1) !important;
+            align-items: stretch !important;
+        }
+
+        .bottom-nav-item {
+            flex: 1 !important;
+            text-align: center !important;
+            height: 100% !important;
+            display: flex;
+        }
+
+        .bottom-nav-item a {
+            text-decoration: none !important;
+            color: #313638 !important;
+            font-size: 12px !important;
+            font-weight: 500 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            height: 100% !important;
+            width: 100% !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            box-sizing: border-box !important;
+            line-height: 1 !important;
+        }
+
+        .bottom-nav-item img {
+            display: block !important;
+            /* fixes baseline alignment issues */
+            width: 20px !important;
+            height: auto !important;
+            margin: 4px 0 !important;
+        }
+
+        .bottom-nav-item a.active {
+            background-color: rgba(65, 43, 173, 0.1) !important;
+            color: #412BAD !important;
+        }
+
+        .unread-bar {
+            display: none;
+        }
+
+        .unread-bar2 {
+            position: absolute;
+            top: 10px;
+            left: 32%;
+            transform: translateX(-50%);
+            background-color: #3A7CA5;
+            color: #FFFFFF;
+            border-radius: 20%;
+            padding: 2px 4px;
+            font-size: 10px;
+            font-weight: bold;
+            z-index: 1;
+        }
+    }
 </style>
 </head>
 
@@ -221,9 +221,8 @@ body {
                 $unreadCount = $row['unread_count'];
             }
             ?>
-            <?php if ($unreadCount > 0): ?>
-            <div class="unread-bar"><?php echo $unreadCount; ?></div>
-            <?php endif; ?>
+            <div class="unread-bar" style="display: none;"></div>
+
             <img src="../assets/images/admin-inbox.svg" data-active-src="../assets/images/active-admin-inbox.svg"
                 data-inactive-src="../assets/images/admin-inbox.svg" alt="Inbox Icon" />
             Inbox
@@ -269,9 +268,8 @@ body {
                 $unreadCount = $row['unread_count'];
             }
             ?>
-            <?php if ($unreadCount > 0): ?>
-            <div class="unread-bar2"><?php echo $unreadCount; ?></div>
-            <?php endif; ?>
+            <div class="unread-bar2" style="display: none;"></div>
+
             <img src="../assets/images/admin-inbox.svg" alt="Inbox Icon" />
             <span>Inbox</span>
         </a>
@@ -300,195 +298,199 @@ body {
 </div>
 
 <script>
-document.querySelectorAll('.menu a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        // Remove 'active' class from all links and reset images
-        document.querySelectorAll('.menu a').forEach(a => {
-            a.classList.remove('active');
-            const img = a.querySelector('img');
-            img.src = img.dataset.inactiveSrc; // Revert to the inactive image
-        });
-
-        // Add 'active' class to the clicked link and update the image
-        this.classList.add('active');
-        const img = this.querySelector('img');
-        img.src = img.dataset.activeSrc; // Set to the active image
-
-        const url = this.getAttribute('href');
-
-        fetch(url)
-            .then(res => res.text())
-            .then(html => {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                const newContent = doc.querySelector('#main-content');
-                const newTitle = doc.querySelector('title').innerText;
-
-                // Replace main content
-                document.querySelector('#main-content').innerHTML = newContent.innerHTML;
-
-                // Update title
-                document.title = newTitle;
-                // ✅ Reinitialize scripts here
-                reinitializeScripts();
-                updateDashboardFooters();
-
-                // Update footers every 60 seconds
-                setInterval(updateDashboardFooters, 60000);
-                // Push new state to browser history
-                history.pushState({
-                    html: newContent.innerHTML,
-                    pageTitle: newTitle
-                }, "", url);
-
-
+    function updateUnreadCount() {
+        fetch('get-unread-count.php')
+            .then(response => response.text())
+            .then(count => {
+                document.querySelectorAll('.unread-bar, .unread-bar2').forEach(el => {
+                    const countNum = parseInt(count);
+                    if (countNum > 0) {
+                        el.textContent = countNum;
+                        el.style.display = 'block';
+                    } else {
+                        el.style.display = 'none';
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching unread count:', error);
             });
-    });
-});
-
-// Handle back/forward button navigation
-window.addEventListener('popstate', function(e) {
-    if (e.state) {
-        document.querySelector('#main-content').innerHTML = e.state.html;
-        document.title = e.state.pageTitle;
-
-        reinitializeScripts();
-        updateDashboardFooters();
     }
-});
 
-document.querySelectorAll('.menu a').forEach(link => {
-    const img = link.querySelector('img');
+    document.querySelectorAll('.menu a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
 
-    // Store the inactive and active image URLs in data attributes
-    img.dataset.activeSrc = img.dataset.activeSrc || img.src.replace('admin-',
-        'active-admin-'); // Replace 'admin-' with 'active-admin-'
-    img.dataset.inactiveSrc = img.dataset.inactiveSrc || img.src; // Keep the original src as the inactive image
+            document.querySelectorAll('.menu a').forEach(a => {
+                a.classList.remove('active');
+                const img = a.querySelector('img');
+                img.src = img.dataset.inactiveSrc;
+            });
 
-    // Update images on hover
-    link.addEventListener('mouseover', function() {
-        if (!this.classList.contains('active')) {
+            this.classList.add('active');
+            const img = this.querySelector('img');
             img.src = img.dataset.activeSrc;
+
+            const url = this.getAttribute('href');
+
+            fetch(url)
+                .then(res => res.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const newContent = doc.querySelector('#main-content');
+                    const newTitle = doc.querySelector('title').innerText;
+
+                    document.querySelector('#main-content').innerHTML = newContent.innerHTML;
+                    document.title = newTitle;
+
+                    reinitializeScripts();
+                    updateDashboardFooters();
+                    updateUnreadCount();
+
+                    setInterval(updateDashboardFooters, 60000);
+                    setInterval(updateUnreadCount, 60000);
+
+                    history.pushState({
+                        html: newContent.innerHTML,
+                        pageTitle: newTitle
+                    }, "", url);
+                });
+        });
+    });
+
+    window.addEventListener('popstate', function(e) {
+        if (e.state) {
+            document.querySelector('#main-content').innerHTML = e.state.html;
+            document.title = e.state.pageTitle;
+            reinitializeScripts();
+            updateDashboardFooters();
+            updateUnreadCount();
         }
     });
 
-    link.addEventListener('mouseout', function() {
-        if (!this.classList.contains('active')) {
+    document.querySelectorAll('.menu a').forEach(link => {
+        const img = link.querySelector('img');
+
+        img.dataset.activeSrc = img.dataset.activeSrc || img.src.replace('admin-', 'active-admin-');
+        img.dataset.inactiveSrc = img.dataset.inactiveSrc || img.src;
+
+        link.addEventListener('mouseover', function() {
+            if (!this.classList.contains('active')) {
+                img.src = img.dataset.activeSrc;
+            }
+        });
+
+        link.addEventListener('mouseout', function() {
+            if (!this.classList.contains('active')) {
+                img.src = img.dataset.inactiveSrc;
+            }
+        });
+    });
+
+    document.querySelectorAll('.menu a').forEach(link => {
+        const img = link.querySelector('img');
+        if (link.classList.contains('active')) {
+            img.src = img.dataset.activeSrc;
+        } else {
             img.src = img.dataset.inactiveSrc;
         }
     });
-});
 
-// On page load, set the active image correctly
-document.querySelectorAll('.menu a').forEach(link => {
-    const img = link.querySelector('img');
+    function reinitializeScripts() {
+        console.log('Reinitializing scripts...');
 
-    // If already has the active class (e.g., on page refresh), set image to active
-    if (link.classList.contains('active')) {
-        img.src = img.dataset.activeSrc;
-    } else {
-        img.src = img.dataset.inactiveSrc;
-    }
-});
-
-function reinitializeScripts() {
-    console.log('Reinitializing scripts...');
-
-    if (typeof $ === 'undefined' || typeof $.fn.DataTable === 'undefined') {
-        console.warn('jQuery or DataTables not loaded.');
-        return;
-    }
-
-    const tablesToInitialize = ['#jobTable', '#msgTable', '#accTable', '#appTable'];
-
-    tablesToInitialize.forEach((selector) => {
-        const tableElement = document.querySelector(selector);
-        if (tableElement) {
-            console.log(`Initializing ${selector}...`);
-
-            const $table = $(selector);
-
-            if ($.fn.DataTable.isDataTable(selector)) {
-                $table.DataTable().destroy();
-            }
-
-            $table.DataTable({
-                ordering: true,
-                searching: true,
-                paging: true,
-                responsive: true
-            });
-
-            if (typeof initJobsModalLogic === 'function') {
-                initJobsModalLogic();
-            }
+        if (typeof $ === 'undefined' || typeof $.fn.DataTable === 'undefined') {
+            console.warn('jQuery or DataTables not loaded.');
+            return;
         }
-    });
 
-    // ✅ Reattach Bootstrap modal functionality
-    const modalElements = document.querySelectorAll('.modal');
-    modalElements.forEach(modalEl => {
-        const modalInstance = bootstrap.Modal.getInstance(modalEl);
-        if (!modalInstance) {
-            new bootstrap.Modal(modalEl); // reinitialize modal
-        }
-    });
+        const tablesToInitialize = ['#jobTable', '#msgTable', '#accTable', '#appTable'];
 
-    // ✅ Rebind SweetAlert delete handler
-    $(document).off('click', '.delete-job-btn').on('click', '.delete-job-btn', function() {
-        const jobId = $(this).data('id');
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "The \"" + $(this).data('title') + "\" will be permanently deleted.",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#6c757d',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = 'delete-job.php?id=' + jobId;
+        tablesToInitialize.forEach((selector) => {
+            const tableElement = document.querySelector(selector);
+            if (tableElement) {
+                console.log(`Initializing ${selector}...`);
+
+                const $table = $(selector);
+
+                if ($.fn.DataTable.isDataTable(selector)) {
+                    $table.DataTable().destroy();
+                }
+
+                $table.DataTable({
+                    ordering: true,
+                    searching: true,
+                    paging: true,
+                    responsive: true
+                });
+
+                if (typeof initJobsModalLogic === 'function') {
+                    initJobsModalLogic();
+                }
             }
         });
-    });
-}
 
+        const modalElements = document.querySelectorAll('.modal');
+        modalElements.forEach(modalEl => {
+            const modalInstance = bootstrap.Modal.getInstance(modalEl);
+            if (!modalInstance) {
+                new bootstrap.Modal(modalEl);
+            }
+        });
 
-function getTimeElapsed(timestamp) {
-    const now = Math.floor(Date.now() / 1000); // Current time in seconds
-    const elapsed = now - timestamp;
+        $(document).off('click', '.delete-job-btn').on('click', '.delete-job-btn', function() {
+            const jobId = $(this).data('id');
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "The \"" + $(this).data('title') + "\" will be permanently deleted.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'delete-job.php?id=' + jobId;
+                }
+            });
+        });
 
-    if (elapsed < 60) {
-        return "updated just now";
-    } else if (elapsed < 3600) {
-        const minutes = Math.floor(elapsed / 60);
-        return `updated ${minutes} minute${minutes === 1 ? '' : 's'} ago`;
-    } else if (elapsed < 86400) {
-        const hours = Math.floor(elapsed / 3600);
-        return `updated ${hours} hour${hours === 1 ? '' : 's'} ago`;
-    } else {
-        const days = Math.floor(elapsed / 86400);
-        return `updated ${days} day${days === 1 ? '' : 's'} ago`;
+        updateUnreadCount();
     }
-}
 
-function updateDashboardFooters() {
-    const footers = document.querySelectorAll('.dashboard-card-footer');
+    function getTimeElapsed(timestamp) {
+        const now = Math.floor(Date.now() / 1000);
+        const elapsed = now - timestamp;
 
-    footers.forEach(footer => {
-        const timestamp = parseInt(footer.getAttribute('data-timestamp'), 10);
-        footer.textContent = getTimeElapsed(timestamp);
-    });
-}
+        if (elapsed < 60) {
+            return "updated just now";
+        } else if (elapsed < 3600) {
+            const minutes = Math.floor(elapsed / 60);
+            return `updated ${minutes} minute${minutes === 1 ? '' : 's'} ago`;
+        } else if (elapsed < 86400) {
+            const hours = Math.floor(elapsed / 3600);
+            return `updated ${hours} hour${hours === 1 ? '' : 's'} ago`;
+        } else {
+            const days = Math.floor(elapsed / 86400);
+            return `updated ${days} day${days === 1 ? '' : 's'} ago`;
+        }
+    }
 
-// Update footers on page load
-updateDashboardFooters();
+    function updateDashboardFooters() {
+        const footers = document.querySelectorAll('.dashboard-card-footer');
 
-// Update footers every 60 seconds
-setInterval(updateDashboardFooters, 60000);
+        footers.forEach(footer => {
+            const timestamp = parseInt(footer.getAttribute('data-timestamp'), 10);
+            footer.textContent = getTimeElapsed(timestamp);
+        });
+    }
+
+    updateDashboardFooters();
+    updateUnreadCount();
+
+    setInterval(updateDashboardFooters, 60000);
+    setInterval(updateUnreadCount, 60000);
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 <script src="../admin/scripts/jobs.js"></script>
