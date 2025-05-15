@@ -1,8 +1,8 @@
 <?php
 include("../includes/db-connection.php");
 
-$name = $_POST['name'] ?? '';
-$email = $_POST['email'] ?? '';
+$name = isset($_POST['name']) ? ucwords(strtolower(trim($_POST['name']))) : '';
+$email = isset($_POST['email']) ? strtolower(trim($_POST['email'])) : '';
 $password = $_POST['password'] ?? '';
 $confirm_password = $_POST['confirm_password'] ?? '';
 
