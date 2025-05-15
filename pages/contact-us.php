@@ -96,17 +96,20 @@ include 'includes/db-connection.php';
                         <div class="name-column">
                             <div class="form-column">
                                 <label for="first-name">First Name*</label>
-                                <input type="text" id="first-name" name="first_name" placeholder="First Name" required>
+                                <input type="text" id="first-name" name="first_name" placeholder="First Name" required
+                                    style="text-transform:uppercase;" oninput="this.value = this.value.toUpperCase();">
                             </div>
                             <div class="form-column">
                                 <label for="last-name">Last Name*</label>
-                                <input type="text" id="last-name" name="last_name" placeholder="Last Name" required>
+                                <input type="text" id="last-name" name="last_name" placeholder="Last Name" required
+                                    style="text-transform:uppercase;" oninput="this.value = this.value.toUpperCase();">
                             </div>
                         </div>
                     </div>
                     <div class="form-column-full">
                         <label for="email">Email*</label>
-                        <input type="email" id="email" name="email" placeholder="yourname@example.com" required>
+                        <input type="email" id="email" name="email" placeholder="yourname@example.com" required
+                            style="text-transform:lowercase;" oninput="this.value = this.value.toLowerCase();">
                     </div>
                     <div class="form-column-full">
                         <label for="message">Message*</label>
@@ -122,14 +125,14 @@ include 'includes/db-connection.php';
         </div>
     </div>
     <script>
-        // Automatically hide the alert message after 5 seconds
-        setTimeout(() => {
-            const alertMessage = document.getElementById('alert-message');
-            if (alertMessage) {
-                alertMessage.style.transition = 'opacity 0.5s ease';
-                alertMessage.style.opacity = '0';
-                setTimeout(() => alertMessage.remove(), 500); // Remove the element after fading out
-            }
-        }, 5000); // 5 seconds
+    // Automatically hide the alert message after 5 seconds
+    setTimeout(() => {
+        const alertMessage = document.getElementById('alert-message');
+        if (alertMessage) {
+            alertMessage.style.transition = 'opacity 0.5s ease';
+            alertMessage.style.opacity = '0';
+            setTimeout(() => alertMessage.remove(), 500); // Remove the element after fading out
+        }
+    }, 5000); // 5 seconds
     </script>
 </body>

@@ -84,12 +84,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Insert data into the database
-    $query = "INSERT INTO applications (app_id, job_code, f_name, l_name, email, p_number, attachment) 
-              VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $query = "INSERT INTO applications (app_id, job_code, f_name, l_name, email, p_number, attachment, status) 
+              VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($query);
 
     if ($stmt) {
-        $stmt->bind_param('sssssss', $app_id, $jobCode, $firstName, $lastName, $email, $phone, $resumeFilename);
+        $status = 'new';
+        $stmt->bind_param('ssssssss', $app_id, $jobCode, $firstName, $lastName, $email, $phone, $resumeFilename, $status);
         if ($stmt->execute()) {
             // Set cookie for 7 days to prevent duplicate submissions
             setcookie('job_application_submitted', '1', time() + 604800, '/');

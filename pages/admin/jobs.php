@@ -106,8 +106,8 @@ $id = $_SESSION['user_id'];
         <div class="container-fluid">
             <div class="header">
                 <h1 class="my-4">Manage Job Listings</h1>
-                <a href="" class="view-applicants-btn"> <img class="plus-btn" src="../assets/images/external-link.svg"
-                        alt="">View
+                <a href="applications.php" class="view-applicants-btn"> <img class="plus-btn"
+                        src="../assets/images/external-link.svg" alt="">View
                     Applications</a>
             </div>
             <div class="header-btns"> <button class="add-job-btn" data-bs-toggle="modal" data-bs-target="#addJobModal">

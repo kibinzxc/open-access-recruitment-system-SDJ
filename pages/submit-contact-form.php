@@ -1,6 +1,7 @@
 <?php
 // Include database connection
 include 'includes/db-connection.php';
+date_default_timezone_set('Asia/Manila');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;

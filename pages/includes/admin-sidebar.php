@@ -401,7 +401,7 @@ function reinitializeScripts() {
         return;
     }
 
-    const tablesToInitialize = ['#jobTable', '#msgTable', '#accTable'];
+    const tablesToInitialize = ['#jobTable', '#msgTable', '#accTable', '#appTable'];
 
     tablesToInitialize.forEach((selector) => {
         const tableElement = document.querySelector(selector);

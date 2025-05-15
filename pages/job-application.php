@@ -82,17 +82,22 @@ $jobCode = $_GET['id'];
                                     value="<?= htmlspecialchars($job['job_code']); ?>">
 
                                 <label for="first-name">First Name*</label>
-                                <input type="text" id="first-name" name="first_name" placeholder="First Name" required>
+                                <input type="text" id="first-name" name="first_name" placeholder="FIRST NAME"
+                                    style="text-transform:uppercase;" required
+                                    oninput="this.value = this.value.toUpperCase();">
                             </div>
                             <div class="form-column">
                                 <label for="last-name">Last Name*</label>
-                                <input type="text" id="last-name" name="last_name" placeholder="Last Name" required>
+                                <input type="text" id="last-name" name="last_name" placeholder="LAST NAME"
+                                    style="text-transform:uppercase;" required
+                                    oninput="this.value = this.value.toUpperCase();">
                             </div>
                         </div>
                     </div>
                     <div class="form-column-full">
                         <label for="email">Email Address*</label>
-                        <input type="email" id="email" name="email" placeholder="yourname@example.com" required>
+                        <input type="email" id="email" name="email" placeholder="yourname@example.com" required
+                            style="text-transform:lowercase;" oninput="this.value = this.value.toLowerCase();">
                     </div>
                     <div class="form-column-full">
                         <label for="phone">Phone Number*</label>
