@@ -89,7 +89,9 @@ $result = mysqli_query($conn, $query);
     <div class="container">
         <div class="wrapper">
             <?php
-            $query .= " ORDER BY title ASC WHERE status ='open'";
+            // Add status condition before ordering
+            $query .= (empty($conditions) ? " WHERE" : " AND") . " status = 'open'";
+            $query .= " ORDER BY title ASC";
             $result = mysqli_query($conn, $query);
 
             if (mysqli_num_rows($result) > 0) {
