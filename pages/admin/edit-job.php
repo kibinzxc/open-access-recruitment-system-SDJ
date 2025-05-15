@@ -19,6 +19,7 @@ $qualifications = $qualifications['qualification'] ?? [];
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="../assets/images/icon.svg" type="image/x-icon">
     <title>Edit Job | Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,6 +31,15 @@ $qualifications = $qualifications['qualification'] ?? [];
 
 <body>
     <div class="content" id="main-content">
+        <!-- DataTables CSS (in <head>) -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+
+        <!-- jQuery (before DataTables JS) -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <!-- DataTables JS -->
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
         <div class="table-jobs">
             <h1>Edit Job</h1>
             <form action="update-job.php" method="POST" enctype="multipart/form-data">
@@ -118,6 +128,11 @@ $qualifications = $qualifications['qualification'] ?? [];
 
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
     <script>
     let responsibilities = <?= json_encode($responsibilities) ?>;
     let qualifications = <?= json_encode($qualifications) ?>;
@@ -180,6 +195,16 @@ $qualifications = $qualifications['qualification'] ?? [];
         renderList('responsibilityList', responsibilities, 'responsibility');
         renderList('qualificationList', qualifications, 'qualification');
         updateHiddenInputs();
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+        $('#accTable').DataTable({
+            ordering: true,
+            searching: true,
+            paging: true,
+            responsive: true
+        });
     });
     </script>
 
