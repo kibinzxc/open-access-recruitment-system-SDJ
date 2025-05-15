@@ -1,14 +1,20 @@
 <?php
 include("../includes/db-connection.php");
-
+function capitalizeWordsArray($array)
+{
+    return array_map(function ($item) {
+        return ucwords(strtolower($item));
+    }, $array);
+}
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $title = $_POST['title'];
-    $country = $_POST['country'];
-    $availability = $_POST['availability'];
+    $title = capitalizeWordsArray([$_POST['title']])[0];
+    $country = capitalizeWordsArray([$_POST['country']])[0];
+    $availability = capitalizeWordsArray([$_POST['availability']])[0];
     $description = $_POST['description'];
 
-    $responsibilities_input = json_decode($_POST['responsibilities'], true);
-    $qualifications_input = json_decode($_POST['qualifications'], true);
+    $responsibilities_input = capitalizeWordsArray(json_decode($_POST['responsibilities'], true));
+    $qualifications_input = capitalizeWordsArray(json_decode($_POST['qualifications'], true));
+
 
     $responsibilities = json_encode([
         'responsibilities' => $responsibilities_input
