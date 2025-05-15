@@ -77,9 +77,7 @@ $id = $_SESSION['user_id'];
                                         <a target='_blank' href='view-message.php?id=" . $row['msg_id'] . "' class='btn btn-info btn-sm action-btn'>
                                             <img src='../assets/images/view-icon.svg' alt='View Icon'> <span>View</span>
                                         </a>
-                                        <a href='delete-message.php?id=" . $row['msg_id'] . "' class='btn btn-danger btn-sm action-btn'>
-                                            <img src='../assets/images/delete-icon.svg' alt='Delete Icon'> <span>Delete</span>
-                                        </a>
+                                       
                                     </div>
                                     </td>";
                                 echo "</tr>";

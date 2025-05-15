@@ -173,6 +173,51 @@ textarea:focus {
     margin-top: 40px;
 }
 
+.alert {
+    position: fixed;
+    top: -30px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 15px;
+    border-radius: 5px;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+    /* Prevents interaction with the message */
+    animation: slideDown 0.5s ease forwards;
+    text-align: center;
+    border: none;
+    width: fit-content;
+    max-width: 90vw;
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(50px);
+        opacity: 1;
+    }
+}
+
+.alert-success {
+    background-color: #4caf50;
+    color: white;
+    border-color: #c3e6cb;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
 @media (max-width: 768px) {
     body {
         grid-template-columns: none;
@@ -224,6 +269,13 @@ textarea:focus {
         align-self: center;
     }
 
+    .alert {
+        padding: 8px 12px;
+        font-size: 14px;
+        text-align: center;
+        bottom: auto;
+
+    }
 
 
 }
