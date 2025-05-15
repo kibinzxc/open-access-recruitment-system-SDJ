@@ -61,6 +61,21 @@ $qualifications = $qualifications['qualification'] ?? [];
                     <textarea name="description" class="form-control" rows="4"
                         required><?= htmlspecialchars($job['description']) ?></textarea>
                 </div>
+                <div class="mb-3">
+                    <label class="form-label">Current Image</label><br>
+                    <?php if (!empty($job['img'])): ?>
+                    <img src="../assets/images/jobs_bin/<?= htmlspecialchars($job['img']) ?>" alt="Current Image"
+                        style="max-height: 150px;"><br>
+                    <?php else: ?>
+                    <p>No image uploaded.</p>
+                    <?php endif; ?>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Change Image</label>
+                    <input type="file" class="form-control" name="image">
+                    <input type="hidden" name="old_image" value="<?= htmlspecialchars($job['img']) ?>">
+                </div>
 
                 <!-- Responsibilities -->
                 <div class="mb-3">

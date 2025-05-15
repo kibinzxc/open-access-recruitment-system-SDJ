@@ -7,15 +7,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $country = mysqli_real_escape_string($conn, $_POST['country']);
     $availability = mysqli_real_escape_string($conn, $_POST['availability']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $oldImage = $_POST['old_image'] ?? '';
 
-    // Decode raw arrays
+    // Decode JSON arrays
     $responsibilities = json_decode($_POST['responsibilities'], true);
     $qualifications = json_decode($_POST['qualifications'], true);
 
-    // Save the raw array as JSON
     $responsibilitiesJson = json_encode(["responsibilities" => $responsibilities]);
     $qualificationsJson = json_encode(["qualification" => $qualifications]);
 
+    // Image processing
+    $newImageName = $oldImage;
+    $image = $_FILES['image'];
+
+    if (!empty($image['name'])) {
+        $uploadDir = '../assets/images/jobs_bin/';
+        $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
+        $newImageName = uniqid('job_', true) . '.' . $ext;
+        $targetFile = $uploadDir . $newImageName;
+
+        if (move_uploaded_file($image['tmp_name'], $targetFile)) {
+            // Delete old image
+            if (!empty($oldImage) && file_exists($uploadDir . $oldImage)) {
+                unlink($uploadDir . $oldImage);
+            }
+        } else {
+            $errorMessage = urlencode("Failed to upload new image.");
+            header("Location: edit-job.php?id=$id&error=$errorMessage");
+            exit();
+        }
+    }
+
+    // Update query
     $query = "
         UPDATE jobs 
         SET 
@@ -24,17 +47,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             availability = '$availability', 
             description = '$description', 
             responsibilities = '$responsibilitiesJson', 
-            qualification = '$qualificationsJson' 
+            qualification = '$qualificationsJson',
+            img = '$newImageName'
         WHERE id = $id
     ";
 
     if (mysqli_query($conn, $query)) {
         $successMessage = urlencode("Job updated successfully.");
-        header("Location: jobs.php?id=$id&success=$successMessage");
+        header("Location: jobs.php?success=$successMessage");
         exit();
     } else {
         $errorMessage = urlencode("Database error: " . mysqli_error($conn));
-        header("Location: jobs.php?id=$id&error=$errorMessage");
+        header("Location: edit-job.php?id=$id&error=$errorMessage");
         exit();
     }
 } else {

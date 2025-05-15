@@ -146,9 +146,10 @@ $id = $_SESSION['user_id'];
                                     <a href='edit-job.php?id=" . $row['id'] . "' class='btn btn-warning btn-sm action-btn'>
                                         <img src='../assets/images/edit-icon.svg' alt='Edit Icon'> <span>Edit</span>
                                     </a>
-                                    <a href='delete-job.php?id=" . $row['id'] . "' class='btn btn-danger btn-sm action-btn'>
-                                        <img src='../assets/images/delete-icon.svg' alt='Delete Icon'> <span>Delete</span>
-                                    </a>
+                                    <button class='btn btn-danger btn-sm action-btn delete-job-btn' data-id='" . $row['id'] . "'>
+    <img src='../assets/images/delete-icon.svg' alt='Delete Icon'> <span>Delete</span>
+</button>
+
                                 </div>
                                 </td>";
                                 echo "</tr>";
@@ -162,13 +163,14 @@ $id = $_SESSION['user_id'];
         </div>
 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
     <script>
     $(document).ready(function() {
-        // Always initialize DataTable
+        // Initialize DataTable
         $('#jobTable').DataTable({
             ordering: true,
             searching: true,
@@ -176,14 +178,34 @@ $id = $_SESSION['user_id'];
             responsive: true
         });
 
-        // ✅ Always call this on initial page load
+        // Initialize modal logic
         initJobsModalLogic();
 
-        // Also initialize when #jobsLink is clicked via AJAX
+        // SweetAlert2 delete confirmation using delegation
+        $(document).on('click', '.delete-job-btn', function() {
+            const jobId = $(this).data('id');
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "The job '" + $(this).closest('tr').find('td:nth-child(2)').text() +
+                    "' will be permanently deleted.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'delete-job.php?id=' + jobId;
+                }
+            });
+        });
+
+        // AJAX content loading
         $('#jobsLink').on('click', function(e) {
             e.preventDefault();
             $('#main-content').load('jobs.php', function() {
-                initJobsModalLogic(); // For AJAX
+                // Reinitialize everything inside the loaded content
+                initJobsModalLogic();
                 $('#jobTable').DataTable({
                     ordering: true,
                     searching: true,
@@ -192,6 +214,7 @@ $id = $_SESSION['user_id'];
                 });
             });
         });
+
     });
     </script>
     <script>
@@ -205,6 +228,7 @@ $id = $_SESSION['user_id'];
         }
     }, 1000);
     </script>
+
 
 </body>
 

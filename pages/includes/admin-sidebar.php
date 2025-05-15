@@ -435,6 +435,24 @@ function reinitializeScripts() {
             new bootstrap.Modal(modalEl); // reinitialize modal
         }
     });
+
+    // ✅ Rebind SweetAlert delete handler
+    $(document).off('click', '.delete-job-btn').on('click', '.delete-job-btn', function() {
+        const jobId = $(this).data('id');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "The \"" + $(this).data('title') + "\" will be permanently deleted.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#6c757d',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'delete-job.php?id=' + jobId;
+            }
+        });
+    });
 }
 
 
@@ -471,5 +489,6 @@ updateDashboardFooters();
 // Update footers every 60 seconds
 setInterval(updateDashboardFooters, 60000);
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script src="../admin/scripts/jobs.js"></script>
