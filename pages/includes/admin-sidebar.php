@@ -201,7 +201,8 @@ body {
         </a>
 
 
-        <a href="jobs.php" class="<?php echo $currentPage === 'jobs.php' ? 'active' : ''; ?>">
+        <a href="jobs.php" id="JobsLink"
+            class="<?php echo ($currentPage === 'jobs.php' || $currentPage === 'edit-job.php') ? 'active' : ''; ?>">
             <img src="../assets/images/admin-jobs.svg" data-active-src="../assets/images/active-admin-jobs.svg"
                 data-inactive-src="../assets/images/admin-jobs.svg" alt="Jobs Icon" />
             Jobs
@@ -228,7 +229,8 @@ body {
             Inbox
         </a>
 
-        <a href="settings.php" class="<?php echo $currentPage === 'settings.php' ? 'active' : ''; ?>">
+        <a href="settings.php"
+            class="<?php echo ($currentPage === 'settings.php' || $currentPage === 'update-company-details.php') ? 'active' : ''; ?>">
             <img src="../assets/images/admin-settings.svg" data-active-src="../assets/images/active-admin-settings.svg"
                 data-inactive-src="../assets/images/admin-settings.svg" alt="Settings Icon" />
             Settings
@@ -247,7 +249,8 @@ body {
 <div class="bottom-nav">
 
     <div class="bottom-nav-item">
-        <a href="jobs.php" class="<?php echo $currentPage === 'jobs.php' ? 'active' : ''; ?>">
+        <a href="jobs.php" id="jobsLink"
+            class="<?php echo ($currentPage === 'jobs.php' || $currentPage === 'edit-job.php') ? 'active' : ''; ?>">
             <img src="../assets/images/admin-jobs.svg" alt="Jobs Icon" />
             <span>Jobs</span>
         </a>
@@ -282,7 +285,8 @@ body {
     </div>
 
     <div class="bottom-nav-item">
-        <a href="settings.php" class="<?php echo $currentPage === 'settings.php' ? 'active' : ''; ?>">
+        <a href="settings.php"
+            class="<?php echo ($currentPage === 'settings.php' || $currentPage === 'update-company-details.php') ? 'active' : ''; ?>">
             <img src="../assets/images/admin-settings.svg" alt="Settings Icon" />
             <span>Settings</span>
         </a>
@@ -416,6 +420,19 @@ function reinitializeScripts() {
                 paging: true,
                 responsive: true
             });
+
+            if (typeof initJobsModalLogic === 'function') {
+                initJobsModalLogic();
+            }
+        }
+    });
+
+    // ✅ Reattach Bootstrap modal functionality
+    const modalElements = document.querySelectorAll('.modal');
+    modalElements.forEach(modalEl => {
+        const modalInstance = bootstrap.Modal.getInstance(modalEl);
+        if (!modalInstance) {
+            new bootstrap.Modal(modalEl); // reinitialize modal
         }
     });
 }
@@ -454,3 +471,5 @@ updateDashboardFooters();
 // Update footers every 60 seconds
 setInterval(updateDashboardFooters, 60000);
 </script>
+
+<script src="../admin/scripts/jobs.js"></script>

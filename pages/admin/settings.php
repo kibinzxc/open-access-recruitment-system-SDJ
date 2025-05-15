@@ -32,6 +32,74 @@ $id = $_SESSION['user_id'];
     ?>
 
     <div class="content" id="main-content">
+        <!-- Add Account Modal -->
+        <div class="modal fade" id="addAccountModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="addAccountForm" method="POST" action="add-account.php">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add New Account</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label>Name</label>
+                                <input type="text" class="form-control" name="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label>Email</label>
+                                <input type="email" class="form-control" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label>Password</label>
+                                <input type="text" class="form-control" name="password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label>Confirm Password</label>
+                                <input type="text" class="form-control" name="confirm_password" required>
+                            </div>
+                            <div id="addAccountError" class="text-danger small"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Update Password Modal -->
+        <div class="modal fade" id="updatePasswordModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="updatePasswordForm" method="POST" action="update-password.php">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Update Password</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label>Old Password</label>
+                                <input type="text" class="form-control" name="old_password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label>New Password</label>
+                                <input type="text" class="form-control" name="new_password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label>Confirm New Password</label>
+                                <input type="text" class="form-control" name="confirm_new_password" required>
+                            </div>
+                            <div id="updatePasswordError" class="text-danger small"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-warning">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
         <link rel="stylesheet" href="styles/settings.css">
@@ -133,73 +201,7 @@ $id = $_SESSION['user_id'];
     </script>
 
 
-    <!-- Add Account Modal -->
-    <div class="modal fade" id="addAccountModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form id="addAccountForm" method="POST" action="add-account.php">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Add New Account</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label>Name</label>
-                            <input type="text" class="form-control" name="name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label>Email</label>
-                            <input type="email" class="form-control" name="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label>Password</label>
-                            <input type="text" class="form-control" name="password" required>
-                        </div>
-                        <div class="mb-3">
-                            <label>Confirm Password</label>
-                            <input type="text" class="form-control" name="confirm_password" required>
-                        </div>
-                        <div id="addAccountError" class="text-danger small"></div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Create</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 
-    <!-- Update Password Modal -->
-    <div class="modal fade" id="updatePasswordModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form id="updatePasswordForm" method="POST" action="update-password.php">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Update Password</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label>Old Password</label>
-                            <input type="text" class="form-control" name="old_password" required>
-                        </div>
-                        <div class="mb-3">
-                            <label>New Password</label>
-                            <input type="text" class="form-control" name="new_password" required>
-                        </div>
-                        <div class="mb-3">
-                            <label>Confirm New Password</label>
-                            <input type="text" class="form-control" name="confirm_new_password" required>
-                        </div>
-                        <div id="updatePasswordError" class="text-danger small"></div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-warning">Update</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
     <script>
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
 
