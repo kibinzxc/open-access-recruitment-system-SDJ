@@ -54,7 +54,7 @@ include 'includes/db-connection.php';
                 <div class="phone">
                     <h2>Call Us</h2>
                     <!-- p and h3 tag will be from the database  -->
-                    <p>Call our team Mon-Fri from 8am to 5pm</p>
+                    <p>Call our team Mon-Fri from 9am to 5pm</p>
                     <h3 class="specific-info no-underline"><img src="assets/images/contact-phone.svg" alt="">
                         <?php
                         $phoneQuery = "SELECT * FROM company_details WHERE category_name = 'telephone'";
