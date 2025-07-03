@@ -15,7 +15,7 @@ $id = $_SESSION['user_id'];
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-    <title>Job Applications | Admin</title>
+    <title>Received Job Applications | Admin</title>
 </head>
 <?php include '../includes/admin-sidebar.php'; ?>
 
@@ -30,9 +30,9 @@ $id = $_SESSION['user_id'];
                 <h1 class="my-4">Job Applications</h1>
                 <a href="jobs.php" class="view-applicants-btn"> <img class="plus-btn"
                         src="../assets/images/external-link.svg" alt="">View
-                    Jobs</a>
+                    Jobs List</a>
             </div>
-            <p class="subheadline">List of all submitted job applications</p>
+            <p class="subheadline">List of all received job applications</p>
             <div class="table-inbox">
                 <div class="table-responsive">
                     <table id="appTable" class="table datatable table-bordered table-hover">
