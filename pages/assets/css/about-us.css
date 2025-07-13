@@ -188,6 +188,94 @@ body {
     font-weight: 500;
 }
 
+
+/* carousel */
+
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    touch-action: pan-y;
+}
+
+.carousel-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+}
+
+.carousel-container:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+.card {
+    flex: 0 0 260px;
+    margin: 0 10px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ✅ Mobile-friendly */
+@media (max-width: 768px) {
+    .card {
+        flex: 0 0 80vw;
+    }
+
+    .carousel-container {
+        padding: 0 10px;
+    }
+
+    .carousel-track {
+        animation-duration: 40s;
+        /* slower scroll on mobile */
+    }
+}
+
+/* Headline */
+a.explore-jobs-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #412BAD;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+a.explore-jobs-btn:hover {
+    background-color: #2e1d80;
+    /* darker purple on hover */
+    transform: scale(1.05);
+    /* slight zoom */
+    box-shadow: 0 4px 12px rgba(65, 43, 173, 0.3);
+    /* soft glow */
+}
+
 @media screen and (max-width: 1280px) {
     .content {
         padding: 20px 150px;

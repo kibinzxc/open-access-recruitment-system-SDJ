@@ -65,6 +65,69 @@ include 'includes/db-connection.php';
         </div>
 
     </div>
+    <br>
+    <hr class="horizontal-line">
+    <br>
+    <section style="text-align: center; padding: 40px 20px;">
+        <h2 style="font-size: 2rem; font-weight: 600;">
+            Sweet Dream Job<span style="color:#412BAD;"> is Hiring! 💼</span>
+        </h2>
+        <p style="margin-top: 10px; color: #555; max-width: 600px; margin-inline: auto;">
+            Discover handpicked job opportunities that fit your goals and lifestyle. Whether you're starting fresh or
+            leveling up, your dream job might just be a scroll away.
+        </p>
+        <a href="#job-carousel" class="explore-jobs-btn">
+            EXPLORE JOBS
+        </a>
+    </section>
+    <div class="job-container">
+        <div class="carousel-container">
+            <div class="carousel-track" id="job-carousel">
+                <?php
+                // Fetch jobs from the database
+                $jobQuery = "SELECT job_code, title, country, img FROM jobs ORDER BY RAND()";
+                $jobResult = mysqli_query($conn, $jobQuery);
+
+                $jobs = [];
+                if ($jobResult && mysqli_num_rows($jobResult) > 0) {
+                    while ($job = mysqli_fetch_assoc($jobResult)) {
+                        $jobs[] = $job;
+                    }
+                    // Output jobs twice for infinite loop effect
+                    foreach (array_merge($jobs, $jobs) as $job) {
+                        echo '<a href="job-details.php?id=' . $job['job_code'] . '" class="card" style="text-decoration:none; color:inherit;">';
+                        echo '<img src="assets/images/jobs_bin/' . htmlspecialchars($job['img']) . '" alt="' . htmlspecialchars($job['title']) . '" style="width:100%;height:150px;object-fit:cover;">';
+                        echo '<h3>' . htmlspecialchars($job['title']) . '</h3>';
+                        echo '<p>' . htmlspecialchars($job['country']) . '</p>';
+                        echo '</a>';
+                    }
+                } else {
+                    echo '<p>No jobs available at the moment.</p>';
+                }
+                ?>
+            </div>
+        </div>
+        <script>
+        // Simple infinite carousel loop (horizontal scroll)
+        const track = document.querySelector('.carousel-track');
+        let scrollAmount = 0;
+        let maxScroll = track.scrollWidth / 2;
+
+        function loopCarousel() {
+            scrollAmount += 1;
+            if (scrollAmount >= maxScroll) {
+                scrollAmount = 0;
+            }
+            track.scrollLeft = scrollAmount;
+            requestAnimationFrame(loopCarousel);
+        }
+        if (track) {
+            loopCarousel();
+        }
+        </script>
+
+    </div>
+    <br>
 
     <hr class="horizontal-line">
 
