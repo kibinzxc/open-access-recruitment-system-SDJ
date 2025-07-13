@@ -31,7 +31,17 @@ body {
 .content {
     color: #333333;
     font-family: 'Inter', sans-serif;
-    padding: 20px 150px;
+    padding: 20px 300px;
+}
+
+.float-right {
+    float: right;
+    margin-left: 20px;
+}
+
+.float-left {
+    float: left;
+    margin-right: 20px;
 }
 
 .content h1 {
