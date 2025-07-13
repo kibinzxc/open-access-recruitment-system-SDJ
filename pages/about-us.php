@@ -77,7 +77,7 @@ include 'includes/db-connection.php';
             leveling up, your dream job might just be a scroll away. <strong>All European country workers are accepted
                 to apply.</strong>
         </p>
-        <a href="#job-carousel" class="explore-jobs-btn">
+        <a href="jobs.php" class="explore-jobs-btn">
             EXPLORE JOBS
         </a>
     </section>
