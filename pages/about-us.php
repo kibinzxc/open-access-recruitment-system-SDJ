@@ -116,9 +116,11 @@ include 'includes/db-connection.php';
 
         let cardWidth = 280; // card width + margin
         let autoScrollInterval;
+        let restartTimeout;
 
         // Auto-scroll
         function startAutoScroll() {
+            clearInterval(autoScrollInterval);
             autoScrollInterval = setInterval(() => {
                 track.scrollLeft += 1;
                 if (track.scrollLeft >= track.scrollWidth / 2) {
@@ -131,21 +133,36 @@ include 'includes/db-connection.php';
             clearInterval(autoScrollInterval);
         }
 
+        // Restart after 2 seconds
+        function restartAutoScrollAfterDelay() {
+            clearTimeout(restartTimeout);
+            restartTimeout = setTimeout(() => {
+                startAutoScroll();
+            }, 2000); // 2 seconds
+        }
+
         // Manual controls
         nextBtn.addEventListener('click', () => {
             stopAutoScroll();
             track.scrollLeft += cardWidth;
+            restartAutoScrollAfterDelay();
         });
 
         prevBtn.addEventListener('click', () => {
             stopAutoScroll();
             track.scrollLeft -= cardWidth;
+            restartAutoScrollAfterDelay();
         });
 
-        // Pause auto-scroll on hover
-        track.addEventListener('mouseenter', stopAutoScroll);
-        track.addEventListener('mouseleave', startAutoScroll);
+        // Pause on hover, resume after 2s
+        track.addEventListener('mouseenter', () => {
+            stopAutoScroll();
+        });
+        track.addEventListener('mouseleave', () => {
+            restartAutoScrollAfterDelay();
+        });
 
+        // Start initially
         startAutoScroll();
         </script>
 
