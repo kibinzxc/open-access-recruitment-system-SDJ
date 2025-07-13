@@ -31,45 +31,90 @@ body {
 .content {
     color: #333333;
     font-family: 'Inter', sans-serif;
-    padding: 20px 300px;
-}
-
-.float-right {
-    align-self: flex-end;
-    margin-left: 20px;
+    padding: 20px 350px;
+    display: flex;
+    align-items: stretch;
+    gap: 50px;
 }
 
 .float-left {
-    align-self: flex-start;
-    margin-right: 20px;
+    flex: 0 0 300px;
+    display: flex;
+}
+
+.float-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .profile-card {
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    /* Fills parent height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
     padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    /* Prevent overflow just in case */
+}
+
+
+.profile-photo {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 6px;
+    /* Slight rounding, not circular */
+    margin-bottom: 15px;
+}
+
+/* CEO name and position */
+.profile-card h2 {
+    margin: 10px 0 0 5px;
+    font-size: 1.5rem;
+}
+
+
+.position {
+    font-style: italic;
+    color: #555;
+}
+
+.company-mission,
+.company-vision {
+    background-color: #fff;
+    padding: 20px;
+    border-left: 5px solid #412BAD;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
     margin-bottom: 20px;
 }
 
-.profile-card img {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
+/* Headings and Paragraphs */
+.company-mission h2,
+.company-vision h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.mission-details,
+.vision-details {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
 }
 
 .position {
-    font-size: 20px;
-    font-weight: bold;
-    color: #412BAD;
+    font-style: italic;
+    color: #555;
 }
 
-.content h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.company-mission>p {
+/* .company-mission>p {
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 20px;
@@ -82,18 +127,18 @@ body {
 .company-mission,
 .company-vision {
     margin-bottom: 50px;
-}
+} */
 
 
 
-.company-vision>p {
+/* .company-vision>p {
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 20px;
     text-indent: 3em;
     text-align: justify;
     text-justify: inter-word;
-}
+} */
 
 .horizontal-line {
     border: 0;
@@ -143,6 +188,97 @@ body {
     font-weight: 500;
 }
 
+@media screen and (max-width: 1280px) {
+    .content {
+        padding: 20px 150px;
+        /* reduce horizontal padding */
+        gap: 30px;
+    }
+
+    .profile-photo {
+        max-height: 280px;
+        width: 90%;
+    }
+
+    .profile-card,
+    .company-mission,
+    .company-vision {
+        padding: 18px;
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .content {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px 40px;
+        /* much smaller padding for tablets */
+        gap: 25px;
+    }
+
+    .float-left,
+    .float-right {
+        flex: none;
+        width: 100%;
+    }
+
+    .float-right {
+        order: 1;
+    }
+
+    .float-left {
+        order: 2;
+    }
+
+    .profile-card {
+        height: auto;
+        padding: 20px;
+    }
+
+    .profile-photo {
+        width: 50%;
+        max-height: 220px;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .float-left,
+    .float-right {
+        flex: none;
+        width: 100%;
+    }
+
+    .float-right {
+        order: 1;
+        /* Mission/Vision first */
+    }
+
+    .float-left {
+        order: 2;
+        /* Profile card last */
+    }
+
+    .profile-card {
+        height: auto;
+        padding: 20px;
+    }
+
+    .profile-photo {
+        width: 50%;
+        max-height: 300px;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
 @media (max-width: 768px) {
     body {
         height: auto;
@@ -158,13 +294,43 @@ body {
 
     .content {
         padding: 10px 20px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
     }
 
     .content h1 {
         font-size: 20px;
     }
 
-    .company-mission,
+    .float-left,
+    .float-right {
+        flex: none;
+        width: 100%;
+    }
+
+    .float-right {
+        order: 1;
+    }
+
+    .float-left {
+        order: 2;
+    }
+
+
+    .profile-card {
+        height: auto;
+        padding: 20px;
+    }
+
+    .profile-photo {
+        width: 50%;
+        height: auto;
+        max-height: 200px;
+        object-fit: cover;
+    }
+
+    /* .company-mission,
     .company-vision {
         margin-bottom: 30px;
     }
@@ -172,7 +338,7 @@ body {
     .company-mission>p,
     .company-vision>p {
         font-size: 16px;
-    }
+    } */
 
     .horizontal-line {
         margin-bottom: 30px;
