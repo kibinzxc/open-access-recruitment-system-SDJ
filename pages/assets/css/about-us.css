@@ -192,7 +192,6 @@ body {
 /* carousel */
 
 .carousel-container {
-    overflow: hidden;
     width: 100%;
     position: relative;
     touch-action: pan-y;
