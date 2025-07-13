@@ -229,6 +229,13 @@ body {
     margin-bottom: 10px;
 }
 
+.card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
 @keyframes scroll {
     0% {
         transform: translateX(0);
