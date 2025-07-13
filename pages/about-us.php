@@ -96,7 +96,7 @@ include 'includes/db-connection.php';
                         $jobs[] = $job;
                     }
                     // Output jobs twice for infinite loop effect
-                    foreach (array_merge($jobs, $jobs) as $job) {
+                    foreach (array_merge($jobs, $jobs, $jobs) as $job) {
                         echo '<a href="job-details.php?id=' . $job['job_code'] . '" class="card" style="text-decoration:none; color:inherit;">';
                         echo '<img src="assets/images/jobs_bin/' . htmlspecialchars($job['img']) . '" alt="' . htmlspecialchars($job['title']) . '" style="width:100%;height:150px;object-fit:cover;">';
                         echo '<h3>' . htmlspecialchars($job['title']) . '</h3>';
@@ -114,18 +114,24 @@ include 'includes/db-connection.php';
         const nextBtn = document.getElementById('next-btn');
         const prevBtn = document.getElementById('prev-btn');
 
-        let cardWidth = 280; // card width + margin
+        let cardWidth = 280; // card + margin
         let autoScrollInterval;
         let restartTimeout;
 
-        // Auto-scroll
+        // ✅ Scroll to the middle copy on load
+        window.addEventListener('load', () => {
+            const middle = track.scrollWidth / 3; // middle copy
+            track.scrollLeft = middle;
+            track.style.scrollBehavior = 'smooth'; // Enable smooth scrolling
+            startAutoScroll();
+        });
+
+        // ✅ Auto-scroll
         function startAutoScroll() {
             clearInterval(autoScrollInterval);
             autoScrollInterval = setInterval(() => {
                 track.scrollLeft += 1;
-                if (track.scrollLeft >= track.scrollWidth / 2) {
-                    track.scrollLeft = 0;
-                }
+                resetScrollIfNeeded();
             }, 10);
         }
 
@@ -133,38 +139,69 @@ include 'includes/db-connection.php';
             clearInterval(autoScrollInterval);
         }
 
-        // Restart after 2 seconds
         function restartAutoScrollAfterDelay() {
             clearTimeout(restartTimeout);
             restartTimeout = setTimeout(() => {
                 startAutoScroll();
-            }, 2000); // 2 seconds
+            }, 2000);
         }
 
-        // Manual controls
+        // ✅ Reset if we scroll too far left or right
+        function resetScrollIfNeeded() {
+            const totalWidth = track.scrollWidth;
+            const section = totalWidth / 3;
+            const currentScroll = track.scrollLeft;
+
+            // If scrolled too far to the right (into the third copy)
+            if (currentScroll >= section * 2) {
+                track.scrollLeft = currentScroll - section;
+            }
+            // If scrolled too far to the left (into the first copy)
+            else if (currentScroll <= 0) {
+                track.scrollLeft = currentScroll + section;
+            }
+        }
+
+        // ✅ Button controls with improved infinite scrolling
         nextBtn.addEventListener('click', () => {
             stopAutoScroll();
+
+            // Move to next card
             track.scrollLeft += cardWidth;
+
+            // Check if we need to reset position for infinite effect
+            setTimeout(() => {
+                const originalBehavior = track.style.scrollBehavior;
+                track.style.scrollBehavior = 'auto'; // Disable smooth scroll for reset
+                resetScrollIfNeeded();
+                track.style.scrollBehavior = originalBehavior; // Re-enable smooth scroll
+            }, 50); // Small delay to ensure scroll completes
+
             restartAutoScrollAfterDelay();
         });
 
         prevBtn.addEventListener('click', () => {
             stopAutoScroll();
+
+            // Move to previous card
             track.scrollLeft -= cardWidth;
+
+            // Check if we need to reset position for infinite effect
+            setTimeout(() => {
+                const originalBehavior = track.style.scrollBehavior;
+                track.style.scrollBehavior = 'auto'; // Disable smooth scroll for reset
+                resetScrollIfNeeded();
+                track.style.scrollBehavior = originalBehavior; // Re-enable smooth scroll
+            }, 50); // Small delay to ensure scroll completes
+
             restartAutoScrollAfterDelay();
         });
 
-        // Pause on hover, resume after 2s
-        track.addEventListener('mouseenter', () => {
-            stopAutoScroll();
-        });
-        track.addEventListener('mouseleave', () => {
-            restartAutoScrollAfterDelay();
-        });
-
-        // Start initially
-        startAutoScroll();
+        // ✅ Hover to pause
+        track.addEventListener('mouseenter', stopAutoScroll);
+        track.addEventListener('mouseleave', restartAutoScrollAfterDelay);
         </script>
+
 
 
 
