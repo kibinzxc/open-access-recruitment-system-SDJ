@@ -381,7 +381,9 @@ a.explore-jobs-btn:hover {
 
 @media (max-width: 768px) {
     body {
-        height: auto;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
     }
 
     .header-photo {
