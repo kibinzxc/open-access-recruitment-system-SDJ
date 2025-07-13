@@ -201,7 +201,7 @@ body {
 .carousel-track {
     display: flex;
     width: max-content;
-    animation: scroll 30s linear infinite;
+    animation: scroll 100s linear infinite;
 }
 
 .carousel-container:hover .carousel-track {
@@ -249,7 +249,7 @@ body {
     }
 
     .carousel-track {
-        animation-duration: 40s;
+        animation-duration: 100s;
         /* slower scroll on mobile */
     }
 }
