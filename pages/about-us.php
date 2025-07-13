@@ -22,7 +22,7 @@ include 'includes/db-connection.php';
     <div class="header" style="position: relative;">
         <img class="header-photo" src="assets/images/cover-photo.png" alt="Cover Photo">
         <div class="header-text">
-            About Us
+            Company Profile
         </div>
     </div>
 
