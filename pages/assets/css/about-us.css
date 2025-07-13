@@ -3,11 +3,19 @@
     src: url('../fonts/Inter.ttf') format('truetype');
 }
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     height: 100vh;
+    display: flex;
     background-color: #FAFAFA;
-    overflow: hidden;
+    flex-direction: column;
+    margin: 0;
 }
 
 .header-photo {
@@ -381,9 +389,7 @@ a.explore-jobs-btn:hover {
 
 @media (max-width: 768px) {
     body {
-        height: 100vh;
         margin: 0;
-        overflow: hidden;
     }
 
     .header-photo {
@@ -391,7 +397,7 @@ a.explore-jobs-btn:hover {
     }
 
     .header-text {
-        font-size: 30px;
+        font-size: 27px;
     }
 
     .content {
