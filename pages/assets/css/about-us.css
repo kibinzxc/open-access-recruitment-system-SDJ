@@ -35,12 +35,12 @@ body {
 }
 
 .float-right {
-    float: right;
+    align-self: flex-end;
     margin-left: 20px;
 }
 
 .float-left {
-    float: left;
+    align-self: flex-start;
     margin-right: 20px;
 }
 
