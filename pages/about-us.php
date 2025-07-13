@@ -82,12 +82,13 @@ include 'includes/db-connection.php';
     </section>
     <div class="job-container">
         <div class="carousel-container">
+            <button id="prev-btn">❮</button>
+            <button id="next-btn">❯</button>
+
             <div class="carousel-track" id="job-carousel">
                 <?php
-                // Fetch jobs from the database
                 $jobQuery = "SELECT job_code, title, country, img FROM jobs ORDER BY RAND()";
                 $jobResult = mysqli_query($conn, $jobQuery);
-
                 $jobs = [];
                 if ($jobResult && mysqli_num_rows($jobResult) > 0) {
                     while ($job = mysqli_fetch_assoc($jobResult)) {
@@ -108,23 +109,46 @@ include 'includes/db-connection.php';
             </div>
         </div>
         <script>
-        // Simple infinite carousel loop (horizontal scroll)
-        const track = document.querySelector('.carousel-track');
-        let scrollAmount = 0;
-        let maxScroll = track.scrollWidth / 2;
+        const track = document.getElementById('job-carousel');
+        const nextBtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
 
-        function loopCarousel() {
-            scrollAmount += 1;
-            if (scrollAmount >= maxScroll) {
-                scrollAmount = 0;
-            }
-            track.scrollLeft = scrollAmount;
-            requestAnimationFrame(loopCarousel);
+        let cardWidth = 280; // card width + margin
+        let autoScrollInterval;
+
+        // Auto-scroll
+        function startAutoScroll() {
+            autoScrollInterval = setInterval(() => {
+                track.scrollLeft += 1;
+                if (track.scrollLeft >= track.scrollWidth / 2) {
+                    track.scrollLeft = 0;
+                }
+            }, 10);
         }
-        if (track) {
-            loopCarousel();
+
+        function stopAutoScroll() {
+            clearInterval(autoScrollInterval);
         }
+
+        // Manual controls
+        nextBtn.addEventListener('click', () => {
+            stopAutoScroll();
+            track.scrollLeft += cardWidth;
+        });
+
+        prevBtn.addEventListener('click', () => {
+            stopAutoScroll();
+            track.scrollLeft -= cardWidth;
+        });
+
+        // Pause auto-scroll on hover
+        track.addEventListener('mouseenter', stopAutoScroll);
+        track.addEventListener('mouseleave', startAutoScroll);
+
+        startAutoScroll();
         </script>
+
+
 
     </div>
     <br>
