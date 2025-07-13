@@ -44,6 +44,26 @@ body {
     margin-right: 20px;
 }
 
+.profile-card {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-card img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.position {
+    font-size: 20px;
+    font-weight: bold;
+    color: #412BAD;
+}
+
 .content h1 {
     font-size: 24px;
     margin-bottom: 20px;
