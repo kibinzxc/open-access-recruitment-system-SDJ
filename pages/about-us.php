@@ -67,6 +67,7 @@ include 'includes/db-connection.php';
     </div>
     <br>
     <hr class="horizontal-line">
+    <br>
     <section style="text-align: center; padding: 40px 20px;">
         <h2 style="font-size: 2rem; font-weight: 600;">
             Sweet Dream Job<span style="color:#412BAD;"> is Hiring! 💼</span>
