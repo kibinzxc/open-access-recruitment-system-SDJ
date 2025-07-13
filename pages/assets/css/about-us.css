@@ -16,6 +16,7 @@ body {
     background-color: #FAFAFA;
     flex-direction: column;
     margin: 0;
+    overflow-x: hidden;
 }
 
 .header-photo {
@@ -389,6 +390,7 @@ a.explore-jobs-btn:hover {
 
 @media (max-width: 768px) {
     body {
+        height: auto;
         margin: 0;
     }
 
@@ -397,7 +399,7 @@ a.explore-jobs-btn:hover {
     }
 
     .header-text {
-        font-size: 27px;
+        font-size: 24px;
     }
 
     .content {
