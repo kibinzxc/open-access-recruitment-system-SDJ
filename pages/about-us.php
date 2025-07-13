@@ -73,7 +73,8 @@ include 'includes/db-connection.php';
         </h2>
         <p style="margin-top: 10px; color: #555; max-width: 600px; margin-inline: auto;">
             Discover handpicked job opportunities that fit your goals and lifestyle. Whether you're starting fresh or
-            leveling up, your dream job might just be a scroll away.
+            leveling up, your dream job might just be a scroll away. <strong>All European country workers are accepted
+                to apply.</strong>
         </p>
         <a href="#job-carousel" class="explore-jobs-btn">
             EXPLORE JOBS
