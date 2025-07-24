@@ -147,6 +147,9 @@ body {
         padding: 10px;
         display: flex;
         flex-direction: column;
+    }
+
+    .dashboard-card:nth-last-child {
         margin-bottom: 50px;
     }
 
