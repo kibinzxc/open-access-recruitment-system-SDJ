@@ -10,7 +10,7 @@ function capitalizeWordsArray($array)
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = intval($_POST['id']);
-    $title = capitalizeWordsArray([mysqli_real_escape_string($conn, $_POST['title'])])[0];
+    $title = mysqli_real_escape_string($conn, $_POST['title']);
     $country = capitalizeWordsArray([mysqli_real_escape_string($conn, $_POST['country'])])[0];
     $availability = capitalizeWordsArray([mysqli_real_escape_string($conn, $_POST['availability'])])[0];
     $description = mysqli_real_escape_string($conn, $_POST['description']);
