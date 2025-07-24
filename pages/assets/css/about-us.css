@@ -3,10 +3,20 @@
     src: url('../fonts/Inter.ttf') format('truetype');
 }
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     height: 100vh;
+    display: flex;
     background-color: #FAFAFA;
+    flex-direction: column;
+    margin: 0;
+    overflow-x: hidden;
 }
 
 .header-photo {
@@ -31,15 +41,90 @@ body {
 .content {
     color: #333333;
     font-family: 'Inter', sans-serif;
-    padding: 20px 60px;
+    padding: 20px 350px;
+    display: flex;
+    align-items: stretch;
+    gap: 50px;
 }
 
-.content h1 {
-    font-size: 24px;
+.float-left {
+    flex: 0 0 300px;
+    display: flex;
+}
+
+.float-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile-card {
+    flex: 1;
+    /* Fills parent height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    /* Prevent overflow just in case */
+}
+
+
+.profile-photo {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 6px;
+    /* Slight rounding, not circular */
+    margin-bottom: 15px;
+}
+
+/* CEO name and position */
+.profile-card h2 {
+    margin: 10px 0 0 5px;
+    font-size: 1.5rem;
+}
+
+
+.position {
+    font-style: italic;
+    color: #555;
+}
+
+.company-mission,
+.company-vision {
+    background-color: #fff;
+    padding: 20px;
+    border-left: 5px solid #412BAD;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
     margin-bottom: 20px;
 }
 
-.company-mission>p {
+/* Headings and Paragraphs */
+.company-mission h2,
+.company-vision h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.mission-details,
+.vision-details {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+.position {
+    font-style: italic;
+    color: #555;
+}
+
+/* .company-mission>p {
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 20px;
@@ -52,23 +137,21 @@ body {
 .company-mission,
 .company-vision {
     margin-bottom: 50px;
-}
+} */
 
 
 
-.company-vision>p {
+/* .company-vision>p {
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 20px;
     text-indent: 3em;
     text-align: justify;
     text-justify: inter-word;
-}
+} */
 
 .horizontal-line {
-    border: 0;
-    height: 1px;
-    background-color: #D3D3D3;
+    border: 1px solid #D3D3D3;
 }
 
 .footer {
@@ -113,9 +196,234 @@ body {
     font-weight: 500;
 }
 
+
+/* carousel */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 10px;
+}
+
+.carousel-track {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 20px 0;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    flex: 0 0 260px;
+    margin: 0 10px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.carousel-container button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    color: #412BAD;
+    font-size: 20px;
+    padding: 10px 18px;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+}
+
+.carousel-container button:hover {
+    background: #412BAD;
+    color: #fff;
+    transform: translateY(-50%) scale(1.05);
+}
+
+#prev-btn {
+    left: 10px;
+}
+
+#next-btn {
+    right: 10px;
+}
+
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ✅ Mobile-friendly */
+@media (max-width: 768px) {
+    .card {
+        flex: 0 0 80vw;
+    }
+
+    .carousel-container {
+        padding: 10px 10px;
+    }
+
+    .carousel-track {
+        animation-duration: 100s;
+        /* slower scroll on mobile */
+    }
+
+    section {
+        padding-top: 0 !important;
+    }
+}
+
+/* Headline */
+a.explore-jobs-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #412BAD;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+a.explore-jobs-btn:hover {
+    background-color: #2e1d80;
+    /* darker purple on hover */
+    transform: scale(1.05);
+    /* slight zoom */
+    box-shadow: 0 4px 12px rgba(65, 43, 173, 0.3);
+    /* soft glow */
+}
+
+@media screen and (max-width: 1280px) {
+    .content {
+        padding: 20px 150px;
+        /* reduce horizontal padding */
+        gap: 30px;
+    }
+
+    .profile-photo {
+        max-height: 280px;
+        width: 90% !important;
+    }
+
+    .profile-card,
+    .company-mission,
+    .company-vision {
+        padding: 18px;
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .content {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px 40px;
+        /* much smaller padding for tablets */
+        gap: 25px;
+    }
+
+    .float-left,
+    .float-right {
+        flex: none;
+        width: 100%;
+    }
+
+    .float-right {
+        order: 1;
+    }
+
+    .float-left {
+        order: 2;
+    }
+
+    .profile-card {
+        height: auto;
+        padding: 20px;
+    }
+
+    .profile-photo {
+        width: 70% !important;
+        max-height: 220px;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .float-left,
+    .float-right {
+        flex: none;
+        width: 100%;
+    }
+
+    .float-right {
+        order: 1;
+        /* Mission/Vision first */
+    }
+
+    .float-left {
+        order: 2;
+        /* Profile card last */
+    }
+
+    .profile-card {
+        height: auto;
+        padding: 20px;
+    }
+
+    .profile-photo {
+        width: 50% !important;
+        max-height: 300px;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
 @media (max-width: 768px) {
     body {
         height: auto;
+        margin: 0;
     }
 
     .header-photo {
@@ -123,18 +431,48 @@ body {
     }
 
     .header-text {
-        font-size: 30px;
+        font-size: 24px;
     }
 
     .content {
         padding: 10px 20px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
     }
 
     .content h1 {
         font-size: 20px;
     }
 
-    .company-mission,
+    .float-left,
+    .float-right {
+        flex: none;
+        width: 100%;
+    }
+
+    .float-right {
+        order: 1;
+    }
+
+    .float-left {
+        order: 2;
+    }
+
+
+    .profile-card {
+        height: auto;
+        padding: 20px;
+    }
+
+    .profile-photo {
+        width: 100% !important;
+        height: auto;
+        max-height: 200px;
+        object-fit: cover;
+    }
+
+    /* .company-mission,
     .company-vision {
         margin-bottom: 30px;
     }
@@ -142,10 +480,11 @@ body {
     .company-mission>p,
     .company-vision>p {
         font-size: 16px;
-    }
+    } */
 
     .horizontal-line {
         margin-bottom: 30px;
+
     }
 
     .footer>p {
