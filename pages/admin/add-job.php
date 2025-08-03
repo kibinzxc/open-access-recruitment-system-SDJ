@@ -7,7 +7,7 @@ function capitalizeWordsArray($array)
     }, $array);
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $title = capitalizeWordsArray([$_POST['title']])[0];
+    $title = $_POST['title'];
     $country = capitalizeWordsArray([$_POST['country']])[0];
     $availability = capitalizeWordsArray([$_POST['availability']])[0];
     $description = $_POST['description'];

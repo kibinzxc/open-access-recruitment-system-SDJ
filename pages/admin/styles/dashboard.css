@@ -149,6 +149,10 @@ body {
         flex-direction: column;
     }
 
+    .dashboard-card:nth-last-child(1) {
+        margin-bottom: 50px;
+    }
+
     .header h1 {
         text-align: center;
         font-size: 25px;
