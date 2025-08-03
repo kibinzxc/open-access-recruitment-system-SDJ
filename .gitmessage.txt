@@ -1,0 +1,18 @@
+# =========================
+# Commit Type (choose one)
+# =========================
+# ADD:      Adding new files, features, or functionality
+# UPDATE:   Modifying existing code or content
+# DELETE:   Removing files, code, or features
+# FIX:      Bug fixes or issue resolution
+# REFACTOR: Code improvements without changing functionality
+# DOCS:     Documentation changes
+# TEST:     Adding or updating tests
+# STYLE:    Code style changes (formatting, spacing)
+# CHORE:    Maintenance tasks (configs, build scripts)
+
+TYPE: Short summary of what changed (max 50 chars)
+
+- What was changed?
+- Why was it changed?
+- Any extra notes?
