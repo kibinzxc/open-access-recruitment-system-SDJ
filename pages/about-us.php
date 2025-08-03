@@ -29,7 +29,7 @@ include 'includes/db-connection.php';
     <div class="content">
         <div class="float-left">
             <div class="profile-card">
-                <img src="assets/images/ceo-photo.jpg" alt="CEO Photo" class="profile-photo">
+                <img src="assets/images/ceo-photo2.jpg" alt="CEO Photo" class="profile-photo">
                 <h2>May E. Rolle</h2>
                 <p class="position">President & CEO</p>
             </div>
