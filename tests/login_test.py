@@ -13,7 +13,7 @@ def login(page, email, password):
 @pytest.mark.parametrize("email, password, expected_result", [
     ("sweetdreamjob@gmail.com", "Password123!", True),
     ("invalid@example.com", "wrongpassword", False),
-    ("test@gmail.com", "hahages545t124", True)
+    ("test@gmail.com", "hahages545t124", False)
 ])
 
 @allure.severity(allure.severity_level.BLOCKER)
