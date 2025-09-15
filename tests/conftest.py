@@ -1,6 +1,6 @@
 import pytest
 import allure
-import subprocess  # for running allure command after tests
+import subprocess, sys, os  # for running allure command after tests
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
@@ -22,9 +22,13 @@ def pytest_runtest_makereport(item, call):
             )
 
 # 🔹 Automatically open Allure report after pytest session
-def pytest_sessionfinish(session, exitstatus):
-    """Automatically open Allure report after tests (only if there are failures)."""
-    if exitstatus != 0:  # if tests failed
-        # This opens the report in your default browser
-        subprocess.Popen(["allure.bat", "serve", "allure-results"])
 
+def pytest_sessionfinish(session, exitstatus):
+    # Only run allure serve locally on Windows
+    if os.name == "nt":  # Windows
+        try:
+            subprocess.Popen(["allure.bat", "serve", "allure-results"])
+        except FileNotFoundError:
+            print("Allure not found locally.")
+    else:
+        print("Skipping Allure serve on non-Windows environments.")
