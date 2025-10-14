@@ -31,9 +31,15 @@ jobs:
       - name: Run pytest with Allure results
         id: pytest
         run: |
-          pytest --alluredir=allure-results -v --tb=short || echo "PYTEST_FAILED=true" >> $GITHUB_ENV
+          echo "🧪 Running tests..."
+          pytest --alluredir=allure-results -v --tb=short --color=yes | tee pytest_output.log
+          exit_code=${PIPESTATUS[0]}
+          if [ $exit_code -ne 0 ]; then
+            echo "PYTEST_FAILED=true" >> $GITHUB_ENV
+          fi
+          exit $exit_code || true
 
-      # Always upload allure results, even if pytest failed
+      # ✅ Always upload Allure results, even if pytest failed
       - name: Upload Allure results artifact
         if: always()
         uses: actions/upload-artifact@v4
@@ -41,11 +47,14 @@ jobs:
           name: allure-results
           path: allure-results
 
+      # ✅ Generate Allure HTML report (always run)
       - name: Generate Allure HTML report
         if: always()
         run: |
-          allure generate allure-results --clean -o allure-report || echo "Allure generation failed"
+          echo "📊 Generating Allure HTML report..."
+          allure generate allure-results --clean -o allure-report || echo "⚠️ Allure generation failed"
 
+      # ✅ Upload generated HTML report
       - name: Upload Allure HTML report artifact
         if: always()
         uses: actions/upload-artifact@v4
@@ -53,16 +62,27 @@ jobs:
           name: allure-report
           path: allure-report
 
-      # This ensures the workflow fails if pytest failed
-      - name: Fail job if tests failed
+      # 🧾 Optional summary in job summary
+      - name: Summarize failed tests
         if: env.PYTEST_FAILED == 'true'
         run: |
-          echo "❌ Some tests failed. Failing workflow..."
-          exit 1
+          echo "### ❌ Test Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          grep -A 5 "FAILURES" pytest_output.log || echo "No detailed failure logs found."
+          echo '```' >> $GITHUB_STEP_SUMMARY
 
-      - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/master' && env.PYTEST_FAILED != 'true'
+      # 🚀 Always deploy to GitHub Pages (even if tests fail)
+      - name: Deploy Allure report to GitHub Pages
+        if: github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./allure-report
+
+      # ❌ Mark workflow as failed if any tests failed (after deploy)
+      - name: Fail job if tests failed
+        if: env.PYTEST_FAILED == 'true'
+        run: |
+          echo "❌ Some tests failed. Marking workflow as failed."
+          exit 1
