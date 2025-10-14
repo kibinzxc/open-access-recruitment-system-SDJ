@@ -37,9 +37,8 @@ jobs:
           if [ $exit_code -ne 0 ]; then
             echo "PYTEST_FAILED=true" >> $GITHUB_ENV
           fi
-          exit $exit_code || true
+          exit 0   # ✅ Always succeed so later steps run
 
-      # ✅ Always upload Allure results, even if pytest failed
       - name: Upload Allure results artifact
         if: always()
         uses: actions/upload-artifact@v4
@@ -47,14 +46,21 @@ jobs:
           name: allure-results
           path: allure-results
 
-      # ✅ Generate Allure HTML report (always run)
       - name: Generate Allure HTML report
         if: always()
         run: |
           echo "📊 Generating Allure HTML report..."
           allure generate allure-results --clean -o allure-report || echo "⚠️ Allure generation failed"
 
-      # ✅ Upload generated HTML report
+      - name: Verify Allure report generated
+        if: always()
+        run: |
+          if [ ! -d "allure-report" ] || [ -z "$(ls -A allure-report)" ]; then
+            echo "⚠️ Allure report not generated properly."
+            exit 1
+          fi
+          echo "$(date)" > allure-report/.buildtime.txt
+
       - name: Upload Allure HTML report artifact
         if: always()
         uses: actions/upload-artifact@v4
@@ -62,7 +68,6 @@ jobs:
           name: allure-report
           path: allure-report
 
-      # 🧾 Optional summary in job summary
       - name: Summarize failed tests
         if: env.PYTEST_FAILED == 'true'
         run: |
@@ -72,15 +77,16 @@ jobs:
           grep -A 5 "FAILURES" pytest_output.log || echo "No detailed failure logs found."
           echo '```' >> $GITHUB_STEP_SUMMARY
 
-      # 🚀 Always deploy to GitHub Pages (even if tests fail)
+      # ✅ Always deploy (even if tests failed)
       - name: Deploy Allure report to GitHub Pages
-        if: github.ref == 'refs/heads/master'
+        if: always() && github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
           publish_dir: ./allure-report
 
-      # ❌ Mark workflow as failed if any tests failed (after deploy)
+      # ❌ Mark workflow as failed *after* deploy
       - name: Fail job if tests failed
         if: env.PYTEST_FAILED == 'true'
         run: |
