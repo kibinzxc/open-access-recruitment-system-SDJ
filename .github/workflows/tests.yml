@@ -25,31 +25,43 @@ jobs:
           pip install -r requirements.txt
           python -m playwright install
 
-      - name: Install Allure CLI (npm)
-        run: |
-          npm install -g allure-commandline --unsafe-perm=true
+      - name: Install Allure CLI
+        run: npm install -g allure-commandline --unsafe-perm=true
 
       - name: Run pytest with Allure results
-        run: pytest --alluredir=allure-results
-
-      - name: Generate Allure HTML report
+        id: pytest
         run: |
-          allure generate allure-results --clean -o allure-report
+          pytest --alluredir=allure-results -v --tb=short || echo "PYTEST_FAILED=true" >> $GITHUB_ENV
 
+      # Always upload allure results, even if pytest failed
       - name: Upload Allure results artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: allure-results
           path: allure-results
 
+      - name: Generate Allure HTML report
+        if: always()
+        run: |
+          allure generate allure-results --clean -o allure-report || echo "Allure generation failed"
+
       - name: Upload Allure HTML report artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
           path: allure-report
 
+      # This ensures the workflow fails if pytest failed
+      - name: Fail job if tests failed
+        if: env.PYTEST_FAILED == 'true'
+        run: |
+          echo "❌ Some tests failed. Failing workflow..."
+          exit 1
+
       - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master' && env.PYTEST_FAILED != 'true'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
