@@ -16,7 +16,7 @@ def login(page, email, password):
     ("test@gmail.com", "hahages545t124", False)
 ])
 
-@allure.severity(allure.severity_level.BLOCKER)
+@allure.severity(allure.severity_level.CRITICAL)
 def test_login(page, email, password, expected_result):
     page.goto("https://admin.sweetdreamjob.com/")
     result = login(page, email, password)
