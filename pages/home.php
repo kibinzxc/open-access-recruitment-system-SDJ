@@ -33,7 +33,7 @@ include 'includes/db-connection.php';
     <!-- Meta Tags Generated via https://www.opengraph.xyz -->
     <link rel="icon" href="assets/images/icon.svg" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/index.css">
-    <title>Sweet Dream Jobz</title>
+    <title>Sweet Dream Job</title>
     <!-- <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script> -->
 </head>
