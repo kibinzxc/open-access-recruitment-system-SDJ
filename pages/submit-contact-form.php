@@ -10,7 +10,7 @@ require 'libs/vendor/autoload.php';
 
 // Check if the form is submitted via POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Check if submission cookie exists
+    // Check if submission cookie exists --- THIS IS DISABLED FOR NOW TO ALLOW MULTIPLE SUBMISSIONS
     // if (isset($_COOKIE['form_submitted'])) {
     //     header('Location: contact-us.php?error=You have already submitted a message.');
     //     exit;

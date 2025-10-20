@@ -11,7 +11,7 @@ require 'libs/vendor/autoload.php';
 
 // Check if the form is submitted via POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Check if submission cookie exists
+    // Check if submission cookie exists --- THIS IS DISABLED FOR NOW TO ALLOW MULTIPLE SUBMISSIONS
     // if (isset($_COOKIE['job_application_submitted'])) {
     //     header('Location: job-application.php?id=' . $_POST['job_code'] . '&error=You have already submitted an application recently.');
     //     exit;
