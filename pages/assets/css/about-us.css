@@ -47,6 +47,15 @@ body {
     gap: 50px;
 }
 
+.content2 {
+    color: #333333;
+    font-family: 'Inter', sans-serif;
+    padding: 20px 50px;
+    display: flex;
+    align-items: stretch;
+    gap: 50px;
+}
+
 .float-left {
     flex: 0 0 300px;
     display: flex;

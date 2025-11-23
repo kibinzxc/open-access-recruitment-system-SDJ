@@ -68,7 +68,7 @@ include 'includes/db-connection.php';
     <br>
     <hr class="horizontal-line">
     <br>
-    <div class="content">
+    <div class="content2">
     <div class="achievement-showcase">
         <!-- Visual Content Section -->
         <div class="visual-content-section">
