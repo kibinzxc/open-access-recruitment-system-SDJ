@@ -53,7 +53,6 @@ body {
     padding: 20px 50px;
     display: flex;
     align-items: stretch;
-    gap: 50px;
 }
 
 .float-left {
@@ -521,23 +520,23 @@ a.explore-jobs-btn:hover {
 
 .achievement-showcase {
     display: flex;
-    max-width: 1400px;
+    max-width: 1500px;
     width: 100%;
     background: white;
     border-radius: 20px;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    min-height: 550px;
+    min-height: 600px;
     position: relative;
 }
 
-/* Visual Content Section - Contained within bounds */
+/* Visual Content Section - Maximum width for spread */
 .visual-content-section {
-    flex: 1;
+    flex: 1.2;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 20px;
+    padding: 40px 10px;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     position: relative;
     overflow: hidden;
@@ -557,8 +556,8 @@ a.explore-jobs-btn:hover {
 
 .fan-card-display {
     position: relative;
-    width: 400px;
-    height: 450px;
+    width: 500px;
+    height: 480px;
     perspective: 1200px;
     z-index: 2;
     margin: 0 auto;
@@ -566,8 +565,8 @@ a.explore-jobs-btn:hover {
 
 .fan-card {
     position: absolute;
-    width: 70%;
-    height: 70%;
+    width: 65%;
+    height: 65%;
     border-radius: 16px;
     overflow: hidden;
     box-shadow:
@@ -584,46 +583,46 @@ a.explore-jobs-btn:hover {
     will-change: transform, width, height;
 }
 
-/* Adjusted horizontal spread to stay within container */
+/* Maximum horizontal spread possible */
 .fan-card:nth-child(1) {
-    transform: translateY(0) translateX(-120px) rotateZ(-16deg);
+    transform: translateY(0) translateX(-180px) rotateZ(-20deg);
     z-index: 5;
     transition-delay: 0s;
 }
 
 .fan-card:nth-child(2) {
-    transform: translateY(10px) translateX(-60px) rotateZ(-8deg);
+    transform: translateY(8px) translateX(-90px) rotateZ(-10deg);
     z-index: 4;
     transition-delay: 0.05s;
 }
 
 .fan-card:nth-child(3) {
-    transform: translateY(20px) translateX(0px) rotateZ(0deg);
+    transform: translateY(16px) translateX(0px) rotateZ(0deg);
     z-index: 3;
     transition-delay: 0.1s;
 }
 
 .fan-card:nth-child(4) {
-    transform: translateY(30px) translateX(60px) rotateZ(8deg);
+    transform: translateY(24px) translateX(90px) rotateZ(10deg);
     z-index: 2;
     transition-delay: 0.15s;
 }
 
 .fan-card:nth-child(5) {
-    transform: translateY(40px) translateX(120px) rotateZ(16deg);
+    transform: translateY(32px) translateX(180px) rotateZ(20deg);
     z-index: 1;
     transition-delay: 0.2s;
 }
 
-/* Enhanced Hover Effects - constrained within bounds */
+/* Enhanced Hover Effects - Maximum spread */
 .fan-card:hover {
-    transform: translateY(-40px) translateX(0) rotateZ(0deg) scale(1.1);
+    transform: translateY(-45px) translateX(0) rotateZ(0deg) scale(1.12);
     z-index: 10;
     box-shadow:
         0 35px 80px rgba(0, 0, 0, 0.4),
         0 20px 35px rgba(0, 0, 0, 0.25);
-    width: 85%;
-    height: 85%;
+    width: 80%;
+    height: 80%;
     transition:
         transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275),
         width 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275),
@@ -633,8 +632,8 @@ a.explore-jobs-btn:hover {
 
 /* Reduced effect on non-hovered cards */
 .fan-card-display:hover .fan-card:not(:hover) {
-    transform: translateY(15px) scale(0.92);
-    opacity: 0.8;
+    transform: translateY(12px) scale(0.88);
+    opacity: 0.75;
     transition:
         transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
         opacity 0.5s ease;
@@ -660,7 +659,7 @@ a.explore-jobs-btn:hover {
 
 /* Information Content Section */
 .information-content-section {
-    flex: 1;
+    flex: 0.8;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -695,7 +694,7 @@ a.explore-jobs-btn:hover {
 }
 
 .achievement-content {
-    max-width: 90%;
+    max-width: 95%;
     position: relative;
     z-index: 3;
 }
@@ -847,7 +846,7 @@ a.explore-jobs-btn:hover {
     }
 
     .fan-card-display {
-        width: 380px;
+        width: 450px;
     }
 }
 
@@ -868,8 +867,8 @@ a.explore-jobs-btn:hover {
     }
 
     .fan-card-display {
-        width: 350px;
-        height: 400px;
+        width: 420px;
+        height: 420px;
     }
 
     .section-divider {
@@ -884,25 +883,25 @@ a.explore-jobs-btn:hover {
         max-width: 100%;
     }
 
-    /* Adjusted mobile spread */
+    /* Adjusted mobile spread - still very wide */
     .fan-card:nth-child(1) {
-        transform: translateY(0) translateX(-100px) rotateZ(-14deg);
+        transform: translateY(0) translateX(-150px) rotateZ(-18deg);
     }
 
     .fan-card:nth-child(2) {
-        transform: translateY(10px) translateX(-50px) rotateZ(-7deg);
+        transform: translateY(8px) translateX(-75px) rotateZ(-9deg);
     }
 
     .fan-card:nth-child(3) {
-        transform: translateY(20px) translateX(0px) rotateZ(0deg);
+        transform: translateY(16px) translateX(0px) rotateZ(0deg);
     }
 
     .fan-card:nth-child(4) {
-        transform: translateY(30px) translateX(50px) rotateZ(7deg);
+        transform: translateY(24px) translateX(75px) rotateZ(9deg);
     }
 
     .fan-card:nth-child(5) {
-        transform: translateY(40px) translateX(100px) rotateZ(14deg);
+        transform: translateY(32px) translateX(150px) rotateZ(18deg);
     }
 }
 
@@ -921,8 +920,8 @@ a.explore-jobs-btn:hover {
     }
 
     .fan-card-display {
-        width: 300px;
-        height: 360px;
+        width: 360px;
+        height: 380px;
     }
 
     .achievement-headline {
@@ -937,44 +936,13 @@ a.explore-jobs-btn:hover {
         padding: 15px;
     }
 
-    /* Further adjusted mobile spread */
+    /* Further adjusted mobile spread - still maximum */
     .fan-card:nth-child(1) {
-        transform: translateY(0) translateX(-80px) rotateZ(-12deg);
+        transform: translateY(0) translateX(-120px) rotateZ(-16deg);
     }
 
     .fan-card:nth-child(2) {
-        transform: translateY(8px) translateX(-40px) rotateZ(-6deg);
-    }
-
-    .fan-card:nth-child(3) {
-        transform: translateY(16px) translateX(0px) rotateZ(0deg);
-    }
-
-    .fan-card:nth-child(4) {
-        transform: translateY(24px) translateX(40px) rotateZ(6deg);
-    }
-
-    .fan-card:nth-child(5) {
-        transform: translateY(32px) translateX(80px) rotateZ(12deg);
-    }
-}
-
-@media (max-width: 360px) {
-    .fan-card-display {
-        width: 260px;
-        height: 330px;
-    }
-
-    .achievement-headline {
-        font-size: 1.4rem;
-    }
-
-    .fan-card:nth-child(1) {
-        transform: translateY(0) translateX(-65px) rotateZ(-10deg);
-    }
-
-    .fan-card:nth-child(2) {
-        transform: translateY(6px) translateX(-32px) rotateZ(-5deg);
+        transform: translateY(6px) translateX(-60px) rotateZ(-8deg);
     }
 
     .fan-card:nth-child(3) {
@@ -982,10 +950,41 @@ a.explore-jobs-btn:hover {
     }
 
     .fan-card:nth-child(4) {
-        transform: translateY(18px) translateX(32px) rotateZ(5deg);
+        transform: translateY(18px) translateX(60px) rotateZ(8deg);
     }
 
     .fan-card:nth-child(5) {
-        transform: translateY(24px) translateX(65px) rotateZ(10deg);
+        transform: translateY(24px) translateX(120px) rotateZ(16deg);
+    }
+}
+
+@media (max-width: 360px) {
+    .fan-card-display {
+        width: 300px;
+        height: 340px;
+    }
+
+    .achievement-headline {
+        font-size: 1.4rem;
+    }
+
+    .fan-card:nth-child(1) {
+        transform: translateY(0) translateX(-100px) rotateZ(-14deg);
+    }
+
+    .fan-card:nth-child(2) {
+        transform: translateY(5px) translateX(-50px) rotateZ(-7deg);
+    }
+
+    .fan-card:nth-child(3) {
+        transform: translateY(10px) translateX(0px) rotateZ(0deg);
+    }
+
+    .fan-card:nth-child(4) {
+        transform: translateY(15px) translateX(50px) rotateZ(7deg);
+    }
+
+    .fan-card:nth-child(5) {
+        transform: translateY(20px) translateX(100px) rotateZ(14deg);
     }
 }
