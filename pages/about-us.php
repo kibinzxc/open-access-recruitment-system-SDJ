@@ -113,7 +113,7 @@ include 'includes/db-connection.php';
                 <div class="key-achievements">
                     <div class="achievements-title">Key Milestones</div>
                     <ul class="achievements-list">
-                        <li class="achievement-item">Established the first Filipino-owned agency in Warsaw, Poland</li>
+                        <li class="achievement-item">Established the first Filipino-owned agency in Poland</li>
                         <li class="achievement-item">Pioneered cross-cultural business partnerships between Philippines and Poland</li>
                         <li class="achievement-item">Created employment opportunities for both local and Filipino professionals</li>
                         <li class="achievement-item">Recognized by the Polish business community for innovation and leadership</li>
