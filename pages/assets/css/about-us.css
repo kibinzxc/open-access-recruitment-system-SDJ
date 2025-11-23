@@ -520,6 +520,7 @@ a.explore-jobs-btn:hover {
 
 .achievement-showcase {
     display: flex;
+    max-width: 1600px;
     width: 100%;
     background: white;
     border-radius: 20px;
