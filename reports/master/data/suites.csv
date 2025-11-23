@@ -1,4 +1,4 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","7411","test_login[chromium-test@gmail.com-hahages545t124-False]","tests","Sun Nov 23 09:53:33 UTC 2025","passed","Sun Nov 23 09:53:41 UTC 2025","","login_test","",""
-"","7297","test_login[chromium-invalid@example.com-wrongpassword-False]","tests","Sun Nov 23 09:53:26 UTC 2025","passed","Sun Nov 23 09:53:33 UTC 2025","","login_test","",""
-"","3298","test_login[chromium-sweetdreamjob@gmail.com-Password123!-True]","tests","Sun Nov 23 09:53:23 UTC 2025","passed","Sun Nov 23 09:53:26 UTC 2025","","login_test","",""
+"","7459","test_login[chromium-test@gmail.com-hahages545t124-False]","tests","Sun Nov 23 09:55:02 UTC 2025","passed","Sun Nov 23 09:55:09 UTC 2025","","login_test","",""
+"","3228","test_login[chromium-sweetdreamjob@gmail.com-Password123!-True]","tests","Sun Nov 23 09:54:51 UTC 2025","passed","Sun Nov 23 09:54:54 UTC 2025","","login_test","",""
+"","7424","test_login[chromium-invalid@example.com-wrongpassword-False]","tests","Sun Nov 23 09:54:54 UTC 2025","passed","Sun Nov 23 09:55:02 UTC 2025","","login_test","",""
