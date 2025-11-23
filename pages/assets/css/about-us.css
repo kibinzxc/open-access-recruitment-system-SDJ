@@ -509,3 +509,427 @@ a.explore-jobs-btn:hover {
         display: none;
     }
 }
+
+.achievement-showcase {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    min-height: 500px;
+    position: relative;
+}
+
+/* Visual Content Section */
+.visual-content-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 30px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.visual-content-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, rgba(253, 187, 45, 0.1), rgba(178, 31, 31, 0.1));
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.fan-card-display {
+    position: relative;
+    width: 340px;
+    height: 420px;
+    perspective: 1200px;
+    z-index: 2;
+}
+
+.fan-card {
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.15),
+        0 8px 15px rgba(0, 0, 0, 0.1);
+    transition:
+        transform 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+        width 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+        height 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+        box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    transform-origin: center bottom;
+    border: 3px solid white;
+    will-change: transform, width, height;
+}
+
+.fan-card:nth-child(1) {
+    transform: translateY(0) translateX(-95px) rotateZ(-14deg);
+    z-index: 4;
+    transition-delay: 0s;
+}
+
+.fan-card:nth-child(2) {
+    transform: translateY(15px) translateX(-30px) rotateZ(-7deg);
+    z-index: 3;
+    transition-delay: 0.05s;
+}
+
+.fan-card:nth-child(3) {
+    transform: translateY(30px) translateX(30px) rotateZ(7deg);
+    z-index: 2;
+    transition-delay: 0.1s;
+}
+
+.fan-card:nth-child(4) {
+    transform: translateY(45px) translateX(95px) rotateZ(14deg);
+    z-index: 1;
+    transition-delay: 0.15s;
+}
+
+/* Enhanced Hover Effects */
+.fan-card:hover {
+    transform: translateY(-35px) translateX(0) rotateZ(0deg) scale(1.1);
+    z-index: 10;
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.35),
+        0 15px 25px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    transition:
+        transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        width 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        height 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        box-shadow 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Smooth transition for non-hovered cards */
+.fan-card-display:hover .fan-card:not(:hover) {
+    transform: translateY(10px) scale(0.95);
+    opacity: 0.9;
+    transition:
+        transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+        opacity 0.5s ease;
+}
+
+.fan-card-visual {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition:
+        transform 1s cubic-bezier(0.23, 1, 0.32, 1),
+        filter 0.5s ease;
+    filter: brightness(0.98);
+}
+
+.fan-card:hover .fan-card-visual {
+    transform: scale(1.05);
+    filter: brightness(1.05);
+    transition:
+        transform 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+        filter 0.4s ease;
+}
+
+/* Information Content Section */
+.information-content-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px 40px;
+    position: relative;
+    background: white;
+}
+
+.information-content-section::before {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, rgba(26, 42, 108, 0.08), rgba(178, 31, 31, 0.08));
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.section-divider {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 75%;
+    background: linear-gradient(to bottom, #fdbb2d, #b21f1f, #1a2a6c);
+    border-radius: 3px;
+    z-index: 2;
+}
+
+.achievement-content {
+    max-width: 90%;
+    position: relative;
+    z-index: 3;
+}
+
+.achievement-badge {
+    color: #b21f1f;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: inline-block;
+    padding: 5px 15px;
+    background: rgba(178, 31, 31, 0.08);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.achievement-headline {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1a2a6c;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+}
+
+.achievement-description {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.milestone-highlight {
+    background: linear-gradient(135deg, rgba(26, 42, 108, 0.07), rgba(253, 187, 45, 0.07));
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid #fdbb2d;
+    margin: 25px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.milestone-highlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(253, 187, 45, 0.1), rgba(178, 31, 31, 0.1));
+    border-radius: 0 0 0 60px;
+}
+
+.milestone-highlight-text {
+    margin: 0;
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+
+.key-achievements {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 2px dashed #e0e0e0;
+}
+
+.achievements-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a2a6c;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+}
+
+.achievements-title::before {
+    content: '★';
+    color: #fdbb2d;
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.achievements-list {
+    list-style: none;
+}
+
+.achievement-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    padding: 8px 0;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.achievement-item:hover {
+    transform: translateX(8px);
+    color: #1a2a6c;
+}
+
+.achievement-item:before {
+    content: "▸";
+    color: #fdbb2d;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-right: 12px;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.achievement-item:hover:before {
+    transform: scale(1.2);
+    color: #b21f1f;
+}
+
+.accent-decoration {
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(to right, #fdbb2d, #b21f1f);
+    margin: 20px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 1024px) {
+    .achievement-showcase {
+        max-width: 95%;
+    }
+
+    .achievement-headline {
+        font-size: 1.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .achievement-showcase {
+        flex-direction: column;
+        border-radius: 15px;
+        min-height: auto;
+    }
+
+    .visual-content-section,
+    .information-content-section {
+        padding: 30px 25px;
+    }
+
+    .visual-content-section {
+        padding-bottom: 40px;
+    }
+
+    .fan-card-display {
+        width: 300px;
+        height: 380px;
+    }
+
+    .section-divider {
+        display: none;
+    }
+
+    .achievement-headline {
+        font-size: 1.7rem;
+    }
+
+    .achievement-content {
+        max-width: 100%;
+    }
+
+    .fan-card:nth-child(1) {
+        transform: translateY(0) translateX(-80px) rotateZ(-12deg);
+    }
+
+    .fan-card:nth-child(2) {
+        transform: translateY(12px) translateX(-25px) rotateZ(-6deg);
+    }
+
+    .fan-card:nth-child(3) {
+        transform: translateY(24px) translateX(25px) rotateZ(6deg);
+    }
+
+    .fan-card:nth-child(4) {
+        transform: translateY(36px) translateX(80px) rotateZ(12deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .achievement-showcase {
+        border-radius: 12px;
+    }
+
+    .visual-content-section,
+    .information-content-section {
+        padding: 25px 20px;
+    }
+
+    .fan-card-display {
+        width: 260px;
+        height: 340px;
+    }
+
+    .achievement-headline {
+        font-size: 1.5rem;
+    }
+
+    .achievement-description {
+        font-size: 1rem;
+    }
+
+    .milestone-highlight {
+        padding: 15px;
+    }
+
+    .fan-card:nth-child(1) {
+        transform: translateY(0) translateX(-70px) rotateZ(-10deg);
+    }
+
+    .fan-card:nth-child(2) {
+        transform: translateY(10px) translateX(-20px) rotateZ(-5deg);
+    }
+
+    .fan-card:nth-child(3) {
+        transform: translateY(20px) translateX(20px) rotateZ(5deg);
+    }
+
+    .fan-card:nth-child(4) {
+        transform: translateY(30px) translateX(70px) rotateZ(10deg);
+    }
+}
+
+@media (max-width: 360px) {
+    .fan-card-display {
+        width: 240px;
+        height: 320px;
+    }
+
+    .achievement-headline {
+        font-size: 1.4rem;
+    }
+}
