@@ -68,6 +68,7 @@ include 'includes/db-connection.php';
     <br>
     <hr class="horizontal-line">
     <br>
+    <div class="content">
      <div class="achievement-showcase">
         <!-- Visual Content Section -->
         <div class="visual-content-section">
@@ -140,7 +141,7 @@ include 'includes/db-connection.php';
             });
         });
     </script>
-
+</div>
     <hr class = "horizontal-line">
     <br>
     <section style="text-align: center; padding: 40px 20px;">
