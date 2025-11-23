@@ -72,25 +72,25 @@ include 'includes/db-connection.php';
     <div class="achievement-showcase">
         <!-- Visual Content Section -->
         <div class="visual-content-section">
-            <div class="fan-card-display">
-                <div class="fan-card">
-                    <img src="../pages/assets/images/poland-1.jpg" alt="Business Achievement" class="fan-card-visual">
+            <div class="horizontal-card-display">
+                <div class="horizontal-card">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Business Achievement" class="horizontal-card-visual">
                 </div>
                 
-                <div class="fan-card">
-                    <img src="../pages/assets/images/poland-2.jpg" alt="Cultural Bridge" class="fan-card-visual">
+                <div class="horizontal-card">
+                    <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Cultural Bridge" class="horizontal-card-visual">
                 </div>
                 
-                <div class="fan-card">
-                    <img src="../pages/assets/images/poland-3.jpg" alt="International Success" class="fan-card-visual">
+                <div class="horizontal-card">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="International Success" class="horizontal-card-visual">
                 </div>
                 
-                <div class="fan-card">
-                    <img src="../pages/assets/images/poland-4.jpg" alt="Leadership Recognition" class="fan-card-visual">
+                <div class="horizontal-card">
+                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Leadership Recognition" class="horizontal-card-visual">
                 </div>
                 
-                <div class="fan-card">
-                    <img src="../pages/assets/images/poland-5.jpg" alt="Global Entrepreneurship" class="fan-card-visual">
+                <div class="horizontal-card">
+                    <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Global Entrepreneurship" class="horizontal-card-visual">
                 </div>
             </div>
         </div>
@@ -113,7 +113,7 @@ include 'includes/db-connection.php';
                 <div class="key-achievements">
                     <div class="achievements-title">Key Milestones</div>
                     <ul class="achievements-list">
-                        <li class="achievement-item">Established the first Filipino-owned agency in Poland</li>
+                        <li class="achievement-item">Established the first Filipino-owned agency in Warsaw, Poland</li>
                         <li class="achievement-item">Pioneered cross-cultural business partnerships between Philippines and Poland</li>
                         <li class="achievement-item">Created employment opportunities for both local and Filipino professionals</li>
                         <li class="achievement-item">Recognized by the Polish business community for innovation and leadership</li>
@@ -124,25 +124,24 @@ include 'includes/db-connection.php';
     </div>
 
     <script>
-        // Add slight random rotation and position for more natural look
+        // Add slight random position for more natural look
         document.addEventListener('DOMContentLoaded', function() {
-            const fanCards = document.querySelectorAll('.fan-card');
+            const horizontalCards = document.querySelectorAll('.horizontal-card');
             
-            fanCards.forEach((card, index) => {
-                const randomRotation = (Math.random() * 2 - 1) * 2;
+            horizontalCards.forEach((card, index) => {
                 const randomX = (Math.random() * 2 - 1) * 8;
                 const randomY = (Math.random() * 2 - 1) * 5;
                 
                 if (index === 0) {
-                    card.style.transform = `translateY(${0 + randomY}px) translateX(${-120 + randomX}px) rotateZ(${-16 + randomRotation}deg)`;
+                    card.style.transform = `translateX(${-220 + randomX}px) translateY(${0 + randomY}px) rotateZ(0deg)`;
                 } else if (index === 1) {
-                    card.style.transform = `translateY(${10 + randomY}px) translateX(${-60 + randomX}px) rotateZ(${-8 + randomRotation}deg)`;
+                    card.style.transform = `translateX(${-110 + randomX}px) translateY(${0 + randomY}px) rotateZ(0deg)`;
                 } else if (index === 2) {
-                    card.style.transform = `translateY(${20 + randomY}px) translateX(${0 + randomX}px) rotateZ(${0 + randomRotation}deg)`;
+                    card.style.transform = `translateX(${0 + randomX}px) translateY(${0 + randomY}px) rotateZ(0deg)`;
                 } else if (index === 3) {
-                    card.style.transform = `translateY(${30 + randomY}px) translateX(${60 + randomX}px) rotateZ(${8 + randomRotation}deg)`;
+                    card.style.transform = `translateX(${110 + randomX}px) translateY(${0 + randomY}px) rotateZ(0deg)`;
                 } else if (index === 4) {
-                    card.style.transform = `translateY(${40 + randomY}px) translateX(${120 + randomX}px) rotateZ(${16 + randomRotation}deg)`;
+                    card.style.transform = `translateX(${220 + randomX}px) translateY(${0 + randomY}px) rotateZ(0deg)`;
                 }
             });
         });
