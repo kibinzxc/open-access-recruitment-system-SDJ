@@ -53,6 +53,7 @@ body {
     padding: 20px 50px;
     display: flex;
     align-items: stretch;
+    justify-content: center;
 }
 
 .float-left {
