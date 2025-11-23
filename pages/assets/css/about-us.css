@@ -837,26 +837,83 @@ a.explore-jobs-btn:hover {
     transition: all 0.3s ease;
 }
 
-/* Mobile Responsive Styles */
-@media (max-width: 1024px) {
+/* ===== IMPROVED MOBILE RESPONSIVENESS ===== */
+
+/* Large Tablets and Small Laptops */
+@media (max-width: 1200px) {
     .achievement-showcase {
         max-width: 95%;
+        margin: 0 auto;
     }
 
     .achievement-headline {
-        font-size: 1.9rem;
+        font-size: 2rem;
     }
 
     .horizontal-card-display {
         width: 520px;
+        height: 450px;
+    }
+
+    .horizontal-card {
+        width: 65%;
+        height: 75%;
+    }
+
+    .horizontal-card:hover {
+        width: 80%;
+        height: 90%;
     }
 }
 
+/* Tablets */
+@media (max-width: 1024px) {
+    .achievement-showcase {
+        max-width: 98%;
+    }
+
+    .achievement-headline {
+        font-size: 1.8rem;
+    }
+
+    .achievement-description {
+        font-size: 1rem;
+    }
+
+    .horizontal-card-display {
+        width: 480px;
+        height: 420px;
+    }
+
+    /* Adjusted tablet spread */
+    .horizontal-card:nth-child(1) {
+        transform: translateX(-190px) translateY(0);
+    }
+
+    .horizontal-card:nth-child(2) {
+        transform: translateX(-95px) translateY(0);
+    }
+
+    .horizontal-card:nth-child(3) {
+        transform: translateX(0px) translateY(0);
+    }
+
+    .horizontal-card:nth-child(4) {
+        transform: translateX(95px) translateY(0);
+    }
+
+    .horizontal-card:nth-child(5) {
+        transform: translateX(190px) translateY(0);
+    }
+}
+
+/* Large Mobile & Small Tablets */
 @media (max-width: 768px) {
     .achievement-showcase {
         flex-direction: column;
         border-radius: 15px;
         min-height: auto;
+        max-width: 95%;
     }
 
     .visual-content-section,
@@ -866,11 +923,18 @@ a.explore-jobs-btn:hover {
 
     .visual-content-section {
         padding-bottom: 40px;
+        flex: none;
+        min-height: 400px;
+    }
+
+    .information-content-section {
+        flex: none;
+        padding-top: 30px;
     }
 
     .horizontal-card-display {
-        width: 480px;
-        height: 420px;
+        width: 420px;
+        height: 380px;
     }
 
     .section-divider {
@@ -879,19 +943,29 @@ a.explore-jobs-btn:hover {
 
     .achievement-headline {
         font-size: 1.7rem;
+        text-align: center;
     }
 
     .achievement-content {
         max-width: 100%;
+        text-align: center;
     }
 
-    /* Adjusted mobile spread - still horizontal */
+    .achievement-badge {
+        align-self: center;
+    }
+
+    .accent-decoration {
+        margin: 20px auto;
+    }
+
+    /* Adjusted mobile spread */
     .horizontal-card:nth-child(1) {
-        transform: translateX(-180px) translateY(0);
+        transform: translateX(-160px) translateY(0);
     }
 
     .horizontal-card:nth-child(2) {
-        transform: translateX(-90px) translateY(0);
+        transform: translateX(-80px) translateY(0);
     }
 
     .horizontal-card:nth-child(3) {
@@ -899,21 +973,33 @@ a.explore-jobs-btn:hover {
     }
 
     .horizontal-card:nth-child(4) {
-        transform: translateX(90px) translateY(0);
+        transform: translateX(80px) translateY(0);
     }
 
     .horizontal-card:nth-child(5) {
-        transform: translateX(180px) translateY(0);
+        transform: translateX(160px) translateY(0);
+    }
+
+    .horizontal-card {
+        width: 70%;
+        height: 80%;
+    }
+
+    .horizontal-card:hover {
+        width: 85%;
+        height: 95%;
     }
 }
 
-@media (max-width: 480px) {
+/* Medium Mobile */
+@media (max-width: 600px) {
     body {
-        padding: 15px;
+        padding: 15px 10px;
     }
 
     .achievement-showcase {
         border-radius: 12px;
+        max-width: 100%;
     }
 
     .visual-content-section,
@@ -922,29 +1008,35 @@ a.explore-jobs-btn:hover {
     }
 
     .horizontal-card-display {
-        width: 400px;
-        height: 380px;
+        width: 360px;
+        height: 340px;
     }
 
     .achievement-headline {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
 
     .achievement-description {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        margin-bottom: 25px;
     }
 
     .milestone-highlight {
-        padding: 15px;
+        padding: 18px;
+        margin: 20px 0;
     }
 
-    /* Further adjusted mobile spread - still horizontal */
+    .key-achievements {
+        margin-top: 25px;
+    }
+
+    /* Further adjusted mobile spread */
     .horizontal-card:nth-child(1) {
-        transform: translateX(-140px) translateY(0);
+        transform: translateX(-130px) translateY(0);
     }
 
     .horizontal-card:nth-child(2) {
-        transform: translateX(-70px) translateY(0);
+        transform: translateX(-65px) translateY(0);
     }
 
     .horizontal-card:nth-child(3) {
@@ -952,24 +1044,64 @@ a.explore-jobs-btn:hover {
     }
 
     .horizontal-card:nth-child(4) {
-        transform: translateX(70px) translateY(0);
+        transform: translateX(65px) translateY(0);
     }
 
     .horizontal-card:nth-child(5) {
-        transform: translateX(140px) translateY(0);
+        transform: translateX(130px) translateY(0);
     }
 }
 
-@media (max-width: 360px) {
+/* Small Mobile */
+@media (max-width: 480px) {
+    body {
+        padding: 10px 8px;
+    }
+
+    .achievement-showcase {
+        border-radius: 10px;
+    }
+
+    .visual-content-section,
+    .information-content-section {
+        padding: 20px 15px;
+    }
+
     .horizontal-card-display {
         width: 320px;
-        height: 340px;
+        height: 300px;
     }
 
     .achievement-headline {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
     }
 
+    .achievement-description {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .milestone-highlight {
+        padding: 15px;
+        margin: 15px 0;
+    }
+
+    .milestone-highlight-text {
+        font-size: 0.9rem;
+    }
+
+    .achievements-title {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+
+    .achievement-item {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+
+    /* Compact mobile spread */
     .horizontal-card:nth-child(1) {
         transform: translateX(-110px) translateY(0);
     }
@@ -988,5 +1120,80 @@ a.explore-jobs-btn:hover {
 
     .horizontal-card:nth-child(5) {
         transform: translateX(110px) translateY(0);
+    }
+
+    .horizontal-card {
+        width: 75%;
+        height: 85%;
+    }
+
+    .horizontal-card:hover {
+        width: 90%;
+        height: 100%;
+        transform: translateX(0) translateY(-25px) scale(1.1);
+    }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 360px) {
+    .horizontal-card-display {
+        width: 280px;
+        height: 260px;
+    }
+
+    .achievement-headline {
+        font-size: 1.4rem;
+    }
+
+    .achievement-badge {
+        font-size: 0.85rem;
+        padding: 4px 12px;
+    }
+
+    .accent-decoration {
+        width: 50px;
+        height: 3px;
+    }
+
+    /* Ultra compact for very small screens */
+    .horizontal-card:nth-child(1) {
+        transform: translateX(-90px) translateY(0);
+    }
+
+    .horizontal-card:nth-child(2) {
+        transform: translateX(-45px) translateY(0);
+    }
+
+    .horizontal-card:nth-child(3) {
+        transform: translateX(0px) translateY(0);
+    }
+
+    .horizontal-card:nth-child(4) {
+        transform: translateX(45px) translateY(0);
+    }
+
+    .horizontal-card:nth-child(5) {
+        transform: translateX(90px) translateY(0);
+    }
+
+    .horizontal-card {
+        width: 80%;
+        height: 90%;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .horizontal-card {
+        cursor: default;
+    }
+
+    .horizontal-card:hover {
+        transform: none;
+    }
+
+    .horizontal-card:active {
+        transform: translateY(-15px) scale(1.05);
+        transition: transform 0.3s ease;
     }
 }

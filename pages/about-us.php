@@ -74,23 +74,23 @@ include 'includes/db-connection.php';
         <div class="visual-content-section">
             <div class="horizontal-card-display">
                 <div class="horizontal-card">
-                    <img src="../pages/assets/images/poland-1.jpg" alt="Business Achievement" class="horizontal-card-visual">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Business Achievement" class="horizontal-card-visual">
                 </div>
                 
                 <div class="horizontal-card">
-                    <img src="../pages/assets/images/poland-2.jpg" alt="Cultural Bridge" class="horizontal-card-visual">
+                    <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Cultural Bridge" class="horizontal-card-visual">
                 </div>
                 
                 <div class="horizontal-card">
-                    <img src="../pages/assets/images/poland-3.jpg" alt="International Success" class="horizontal-card-visual">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="International Success" class="horizontal-card-visual">
                 </div>
                 
                 <div class="horizontal-card">
-                    <img src="../pages/assets/images/poland-4.jpg" alt="Leadership Recognition" class="horizontal-card-visual">
+                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Leadership Recognition" class="horizontal-card-visual">
                 </div>
                 
                 <div class="horizontal-card">
-                    <img src="../pages/assets/images/poland-5.jpg" alt="Global Entrepreneurship" class="horizontal-card-visual">
+                    <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Global Entrepreneurship" class="horizontal-card-visual">
                 </div>
             </div>
         </div>
@@ -113,7 +113,7 @@ include 'includes/db-connection.php';
                 <div class="key-achievements">
                     <div class="achievements-title">Key Milestones</div>
                     <ul class="achievements-list">
-                        <li class="achievement-item">Established the first Filipino-owned agency in Poland</li>
+                        <li class="achievement-item">Established the first Filipino-owned agency in Warsaw, Poland</li>
                         <li class="achievement-item">Pioneered cross-cultural business partnerships between Philippines and Poland</li>
                         <li class="achievement-item">Created employment opportunities for both local and Filipino professionals</li>
                         <li class="achievement-item">Recognized by the Polish business community for innovation and leadership</li>
@@ -145,6 +145,9 @@ include 'includes/db-connection.php';
                 }
             });
         });
+
+        // Touch device support
+        document.addEventListener('touchstart', function() {}, {passive: true});
     </script>
 </div>
     <hr class = "horizontal-line">
