@@ -152,6 +152,7 @@ include 'includes/db-connection.php';
 </div>
     <hr class = "horizontal-line">
     <br>
+    <div class="content2">
     <!-- Employers Section -->
     <div class="employers-section">
         <div class="employers-header">
@@ -201,7 +202,7 @@ include 'includes/db-connection.php';
             </div>
         </div>
     </div>
-
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const carouselTrack = document.getElementById('carouselTrack');
