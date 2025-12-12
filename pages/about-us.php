@@ -164,30 +164,26 @@ include 'includes/db-connection.php';
 
         <div class="employers-slider-container">
             <div class="employers-slider-track" id="employersSliderTrack">
-                <!-- 8 Employer Images -->
                 <div class="employer-slide-item">
-                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 1" class="employer-image">
+                    <img src="../pages/assets/images/employers/7" alt="Employer 1" class="employer-image">
                 </div>
                 <div class="employer-slide-item">
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 2" class="employer-image">
+                    <img src="../pages/assets/images/employers/6" alt="Employer 2" class="employer-image">
                 </div>
                 <div class="employer-slide-item">
-                    <img src="https://images.unsplash.com/photo-1551836026-d5c2c50e699e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 3" class="employer-image">
+                    <img src="../pages/assets/images/employers/5" alt="Employer 3" class="employer-image">
                 </div>
                 <div class="employer-slide-item">
-                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 4" class="employer-image">
+                    <img src="../pages/assets/images/employers/4" alt="Employer 4" class="employer-image">
                 </div>
                 <div class="employer-slide-item">
-                    <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 5" class="employer-image">
+                    <img src="../pages/assets/images/employers/3" alt="Employer 5" class="employer-image">
                 </div>
                 <div class="employer-slide-item">
-                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 6" class="employer-image">
+                    <img src="../pages/assets/images/employers/2" alt="Employer 6" class="employer-image">
                 </div>
                 <div class="employer-slide-item">
-                    <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 7" class="employer-image">
-                </div>
-                <div class="employer-slide-item">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 8" class="employer-image">
+                    <img src="../pages/assets/images/employers/1" alt="Employer 7" class="employer-image">
                 </div>
             </div>
 
