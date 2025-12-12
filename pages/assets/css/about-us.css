@@ -874,19 +874,25 @@ a.explore-jobs-btn:hover {
     line-height: 1.6;
 }
 
-/* Carousel Container */
-.employers-carousel {
-    position: relative;
-    width: 100%;
-    padding: 30px 0;
-    overflow: hidden;
+/* Add this to override the conflicting styles */
+.employers-carousel .carousel-track {
+    display: flex !important;
+    gap: 25px !important;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1) !important;
+    will-change: transform !important;
+    overflow: visible !important;
+    /* This is KEY - makes slides visible */
+    scroll-behavior: auto !important;
+    padding: 30px 0 !important;
 }
 
-.carousel-track {
-    display: flex;
-    gap: 25px;
-    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    will-change: transform;
+.employers-carousel .carousel-track::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* Ensure carousel track is wide enough for all slides */
+.employers-carousel .carousel-track {
+    width: max-content;
 }
 
 .carousel-slide {
