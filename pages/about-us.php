@@ -153,51 +153,50 @@ include 'includes/db-connection.php';
     <hr class = "horizontal-line">
     <br>
     <div class="content2">
-    <!-- Employers Section -->
-    <div class="employers-section">
-        <div class="employers-header">
-            <h2 class="employers-title">Our Esteemed Employers</h2>
-            <p class="employers-subtitle">
+            <div class="employers-display-section">
+        <div class="employers-header-container">
+            <h2 class="employers-main-title">Our Esteemed Employers</h2>
+            <p class="employers-description">
                 We proudly collaborate with leading organizations and businesses who trust our expertise 
                 and share our commitment to excellence in international business relations.
             </p>
         </div>
 
-        <div class="employers-carousel">
-            <div class="carousel-track" id="carouselTrack">
-                <!-- 8 Portrait Employer Images -->
-                <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" class="carousel-image">
+        <div class="employers-slider-container">
+            <div class="employers-slider-track" id="employersSliderTrack">
+                <!-- 8 Employer Images -->
+                <div class="employer-slide-item">
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 1" class="employer-image">
                 </div>
-                <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" class="carousel-image">
+                <div class="employer-slide-item">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 2" class="employer-image">
                 </div>
-                <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" class="carousel-image">
+                <div class="employer-slide-item">
+                    <img src="https://images.unsplash.com/photo-1551836026-d5c2c50e699e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 3" class="employer-image">
                 </div>
-                <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" class="carousel-image">
+                <div class="employer-slide-item">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 4" class="employer-image">
                 </div>
-                <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" class="carousel-image">
+                <div class="employer-slide-item">
+                    <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 5" class="employer-image">
                 </div>
-                <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" class="carousel-image">
+                <div class="employer-slide-item">
+                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 6" class="employer-image">
                 </div>
-                <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" class="carousel-image">
+                <div class="employer-slide-item">
+                    <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 7" class="employer-image">
                 </div>
-                <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" class="carousel-image">
-                </div>                
+                <div class="employer-slide-item">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 8" class="employer-image">
+                </div>
             </div>
 
-            <div class="carousel-nav">
-                <button class="carousel-btn prev-btn">‹</button>
-                <button class="carousel-btn next-btn">›</button>
+            <div class="slider-navigation">
+                <button class="slider-nav-btn employers-prev-btn">‹</button>
+                <button class="slider-nav-btn employers-next-btn">›</button>
             </div>
 
-            <div class="carousel-dots" id="carouselDots">
+            <div class="slider-dots-container" id="employersSliderDots">
                 <!-- Dots will be generated dynamically -->
             </div>
         </div>
@@ -205,16 +204,16 @@ include 'includes/db-connection.php';
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const carouselTrack = document.getElementById('carouselTrack');
-            const prevBtn = document.querySelector('.prev-btn');
-            const nextBtn = document.querySelector('.next-btn');
-            const dotsContainer = document.getElementById('carouselDots');
-            const slides = document.querySelectorAll('.carousel-slide');
+            const employersSliderTrack = document.getElementById('employersSliderTrack');
+            const employersPrevBtn = document.querySelector('.employers-prev-btn');
+            const employersNextBtn = document.querySelector('.employers-next-btn');
+            const employersDotsContainer = document.getElementById('employersSliderDots');
+            const employerSlides = document.querySelectorAll('.employer-slide-item');
             
-            let currentIndex = 0;
-            const totalSlides = slides.length;
-            let slidesPerView = getSlidesPerView();
-            let totalDots = 0;
+            let currentEmployerPage = 0;
+            const totalEmployerSlides = employerSlides.length;
+            let slidesPerEmployerView = getSlidesPerView();
+            let totalEmployerPages = 0;
             
             function getSlidesPerView() {
                 if (window.innerWidth >= 1200) return 4;
@@ -223,97 +222,84 @@ include 'includes/db-connection.php';
                 return 1;
             }
             
-            function calculateTotalDots() {
-                slidesPerView = getSlidesPerView();
-                totalDots = Math.ceil(totalSlides / slidesPerView);
-                createDots();
+            function calculateTotalPages() {
+                slidesPerEmployerView = getSlidesPerView();
+                totalEmployerPages = Math.ceil(totalEmployerSlides / slidesPerEmployerView);
+                createEmployerDots();
             }
             
-            function createDots() {
-                dotsContainer.innerHTML = '';
-                for (let i = 0; i < totalDots; i++) {
+            function createEmployerDots() {
+                employersDotsContainer.innerHTML = '';
+                for (let i = 0; i < totalEmployerPages; i++) {
                     const dot = document.createElement('span');
-                    dot.className = 'dot';
+                    dot.className = 'slider-dot';
                     if (i === 0) dot.classList.add('active');
                     dot.setAttribute('data-index', i);
-                    dot.addEventListener('click', () => goToDot(i));
-                    dotsContainer.appendChild(dot);
+                    dot.addEventListener('click', () => goToEmployerPage(i));
+                    employersDotsContainer.appendChild(dot);
                 }
             }
             
-            function updateCarousel() {
-                const slideWidth = slides[0].offsetWidth + 25; // Width + gap
-                const translateX = -currentIndex * slideWidth;
-                carouselTrack.style.transform = `translateX(${translateX}px)`;
-                updateActiveDot();
+            function updateEmployerSlider() {
+                const slideWidth = employerSlides[0].offsetWidth + 25; // Width + gap
+                const translateX = -(currentEmployerPage * slidesPerEmployerView * slideWidth);
+                employersSliderTrack.style.transform = `translateX(${translateX}px)`;
+                updateActiveEmployerDot();
             }
             
-            function updateActiveDot() {
-                const activeDotIndex = Math.floor(currentIndex / slidesPerView);
-                const dots = document.querySelectorAll('.dot');
+            function updateActiveEmployerDot() {
+                const dots = document.querySelectorAll('.slider-dot');
                 dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === activeDotIndex);
+                    dot.classList.toggle('active', index === currentEmployerPage);
                 });
             }
             
-            function goToDot(dotIndex) {
-                slidesPerView = getSlidesPerView();
-                currentIndex = dotIndex * slidesPerView;
-                if (currentIndex >= totalSlides) {
-                    currentIndex = totalSlides - slidesPerView;
-                }
-                updateCarousel();
+            function goToEmployerPage(pageIndex) {
+                currentEmployerPage = pageIndex;
+                updateEmployerSlider();
             }
             
-            function nextSlide() {
-                slidesPerView = getSlidesPerView();
-                currentIndex += slidesPerView;
-                
-                if (currentIndex >= totalSlides) {
-                    currentIndex = 0;
-                }
-                
-                updateCarousel();
+            function nextEmployerPage() {
+                currentEmployerPage = (currentEmployerPage + 1) % totalEmployerPages;
+                updateEmployerSlider();
             }
             
-            function prevSlide() {
-                slidesPerView = getSlidesPerView();
-                currentIndex -= slidesPerView;
-                
-                if (currentIndex < 0) {
-                    currentIndex = totalSlides - slidesPerView;
-                }
-                
-                updateCarousel();
+            function prevEmployerPage() {
+                currentEmployerPage = (currentEmployerPage - 1 + totalEmployerPages) % totalEmployerPages;
+                updateEmployerSlider();
             }
             
             // Event Listeners
-            prevBtn.addEventListener('click', prevSlide);
-            nextBtn.addEventListener('click', nextSlide);
+            employersPrevBtn.addEventListener('click', prevEmployerPage);
+            employersNextBtn.addEventListener('click', nextEmployerPage);
             
             // Auto slide every 5 seconds
-            let autoSlide = setInterval(nextSlide, 5000);
+            let employerAutoSlide = setInterval(nextEmployerPage, 5000);
             
             // Pause auto-slide on hover
-            carouselTrack.addEventListener('mouseenter', () => {
-                clearInterval(autoSlide);
+            employersSliderTrack.addEventListener('mouseenter', () => {
+                clearInterval(employerAutoSlide);
             });
             
-            carouselTrack.addEventListener('mouseleave', () => {
-                autoSlide = setInterval(nextSlide, 5000);
+            employersSliderTrack.addEventListener('mouseleave', () => {
+                employerAutoSlide = setInterval(nextEmployerPage, 5000);
             });
             
             // Update on window resize
             window.addEventListener('resize', function() {
-                calculateTotalDots();
-                updateCarousel();
+                calculateTotalPages();
+                // Adjust current page if it's now out of bounds
+                if (currentEmployerPage >= totalEmployerPages) {
+                    currentEmployerPage = totalEmployerPages - 1;
+                }
+                updateEmployerSlider();
             });
             
             // Initialize
-            calculateTotalDots();
-            updateCarousel();
+            calculateTotalPages();
+            updateEmployerSlider();
         });
-    </script>    
+    </script>
     </div>
     <br>
     <hr class = "horizontal-line">
