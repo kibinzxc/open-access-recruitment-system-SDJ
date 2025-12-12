@@ -165,25 +165,28 @@ include 'includes/db-connection.php';
         <div class="employers-slider-container">
             <div class="employers-slider-track" id="employersSliderTrack">
                 <div class="employer-slide-item">
-                    <img src="../pages/assets/images/employers/7" alt="Employer 1" class="employer-image">
+                    <img src="../pages/assets/images/employers/7.jpg" alt="Employer 1" class="employer-image">
                 </div>
                 <div class="employer-slide-item">
-                    <img src="../pages/assets/images/employers/6" alt="Employer 2" class="employer-image">
+                    <img src="../pages/assets/images/employers/6.jpg" alt="Employer 2" class="employer-image">
                 </div>
                 <div class="employer-slide-item">
-                    <img src="../pages/assets/images/employers/5" alt="Employer 3" class="employer-image">
+                    <img src="../pages/assets/images/employers/5.jpg" alt="Employer 3" class="employer-image">
                 </div>
                 <div class="employer-slide-item">
-                    <img src="../pages/assets/images/employers/4" alt="Employer 4" class="employer-image">
+                    <img src="../pages/assets/images/employers/4.jpg" alt="Employer 4" class="employer-image">
                 </div>
                 <div class="employer-slide-item">
-                    <img src="../pages/assets/images/employers/3" alt="Employer 5" class="employer-image">
+                    <img src="../pages/assets/images/employers/3.jpg" alt="Employer 5" class="employer-image">
                 </div>
                 <div class="employer-slide-item">
-                    <img src="../pages/assets/images/employers/2" alt="Employer 6" class="employer-image">
+                    <img src="../pages/assets/images/employers/2.jpg" alt="Employer 6" class="employer-image">
                 </div>
                 <div class="employer-slide-item">
-                    <img src="../pages/assets/images/employers/1" alt="Employer 7" class="employer-image">
+                    <img src="../pages/assets/images/employers/1.jpg" alt="Employer 7" class="employer-image">
+                </div>
+                <div class="employer-slide-item">
+                    <img src="../pages/assets/images/employers/5.jpg" alt="Employer 3" class="employer-image">
                 </div>
             </div>
 
