@@ -167,29 +167,29 @@ include 'includes/db-connection.php';
             <div class="carousel-track" id="carouselTrack">
                 <!-- 8 Portrait Employer Images -->
                 <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 1" class="carousel-image">
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" class="carousel-image">
                 </div>
                 <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 2" class="carousel-image">
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" class="carousel-image">
                 </div>
                 <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1551836026-d5c2c50e699e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 3" class="carousel-image">
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" class="carousel-image">
                 </div>
                 <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 4" class="carousel-image">
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" class="carousel-image">
                 </div>
                 <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 5" class="carousel-image">
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" class="carousel-image">
                 </div>
                 <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 6" class="carousel-image">
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" class="carousel-image">
                 </div>
                 <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 7" class="carousel-image">
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" class="carousel-image">
                 </div>
                 <div class="carousel-slide">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Employer 8" class="carousel-image">
-                </div>
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="" class="carousel-image">
+                </div>                
             </div>
 
             <div class="carousel-nav">
@@ -202,7 +202,7 @@ include 'includes/db-connection.php';
             </div>
         </div>
     </div>
-    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const carouselTrack = document.getElementById('carouselTrack');
@@ -314,7 +314,8 @@ include 'includes/db-connection.php';
             updateCarousel();
         });
     </script>    
-    
+    </div>
+    <br>
     <hr class = "horizontal-line">
     <br>
     <section style="text-align: center; padding: 40px 20px;">
